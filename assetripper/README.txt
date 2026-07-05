@@ -1,0 +1,1 @@
+First renamed war-the-knights.wasm.unityweb and war-the-knights.data.unityweb .unityweb extensions to .br extensions, then extracted into war-the-knights.wasm and war-the-knights.data, placed into same dir, then opened with assetripper (provided in .zip file in this directory) to extract assets into the war-the-knights/ directory

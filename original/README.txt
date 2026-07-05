@@ -1,0 +1,1 @@
+Downloaded war-the-knights.loader.js, war-the-knights.framework.js.unityweb, war-the-knights.data.unityweb, war-the-knights.wasm.unityweb by using wget on the CDN links in the HTML file from the UGS game library
