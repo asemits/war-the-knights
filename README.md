@@ -7,3 +7,4 @@ war da kites rfevgers engineriong
 **AssetRipper:** https://github.com/assetripper/assetripper  
 **II2CppDumper:** https://github.com/Perfare/Il2CppDumper  
 **Ghidra:** https://github.com/NationalSecurityAgency/ghidra  
+**VS Code:** https://code.visualstudio.com/download  
