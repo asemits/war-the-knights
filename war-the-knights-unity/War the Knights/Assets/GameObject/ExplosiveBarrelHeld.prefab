@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: db00cda80fa1306418e440cc29886ace, type: 2}
+  m_Mesh: {fileID: 4300000, guid: f9e279a4b70a6a04ea2700f05f42c82b, type: 2}
 --- !u!23 &23618682377417806
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,8 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf2f33321202bc408676055abf0a256, type: 2}
-  - {fileID: 2100000, guid: 1061801604ac8fd438d7ee8a4700dd10, type: 2}
+  - {fileID: 2100000, guid: dfee38b515cecba40a3f840d22f58513, type: 2}
+  - {fileID: 2100000, guid: b8fe1093b3069134ba3e5afcf7a121a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +97,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3f76b1f5f5fc23fafc981fb8c6ad44, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  anim: {fileID: 0}
+  bot: {fileID: 0}
+  isBot: 0
+  playableSounds: []
+  isGadget: 0
+  gadget1: 0
+  damage: 0
+  poiseDamage: 0
+  damageType: 0
+  throwingForce: 6
+  throwingTorqueForce: {x: 20, y: 0, z: 0}
+  throwablePlaceable: 1
+  spawn: {fileID: 4730242686860875}
+  hideMeshAfterThrow:
+  - {fileID: 23618682377417806}
+  stopParticlesAfterThrow: []
+  disableGameobjectsAfterThrow: []
+  particleSystemsToUnparentOnImpact: []
+  hasAnimRecoil: 0
+  animRecoilType: 0
+  hasCameraShake: 0
+  cameraShakeType: 0
+  throwablePrefab: {fileID: 1709254077376921, guid: df291122be25f1645b1eb5f88639f6ff, type: 2}
+  weaponThrowableEquipSound: 3
+  customWeaponThrowableEquipSound: {fileID: 0}
+  weaponThrowableThrowSound: 3
+  customWeaponThrowableThrowSound: {fileID: 0}
+  fixBigObjectCollision: 1

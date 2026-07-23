@@ -1,63 +1,191 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class VehicleBase : MonoBehaviour
+public abstract class VehicleBase : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public float respawnDuration;
 
-	1. No dll files were provided to AssetRipper.
+	public WaitForSeconds WaitForVehicleRespawnTimer;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public VehicleNames vehicleName;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public string customVehicleName;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public VehicleHealth health;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public AITarget vehicleTarget;
 
-	3. Assembly Reconstruction has not been implemented.
+	public Transform camTarget;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public bool controlledByPlayer;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public bool controlledByBot;
 
-	4. This script is unnecessary.
+	public VehicleSeat[] seats;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public AITarget[] seatsReserved;
 
-	5. Script Content Level 0
+	public bool[] seatsOccupied;
 
-		AssetRipper was set to not load any script information.
+	public int freeSeat;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public VehicleBehaviorTypes vehicleType;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public bool canChaseTargets;
 
-	7. An incorrect path was provided to AssetRipper.
+	public bool loyalVehicle;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public PlayerReserved playerReserved;
 
-	*/
+	public bool onlyUseableByBotsWithMeleeWeapon;
+
+	public bool emptyVehicle;
+
+	public Transform _transform;
+
+	public float enterDistance;
+
+	public float enterDistanceSquared;
+
+	public int awarenessDistance;
+
+	public NavMeshAgent agent;
+
+	public Vector3 currentMovementDestination;
+
+	public int destinationUpdateFrequency;
+
+	public int destinationUpdateFrequencyTimer;
+
+	public NavMeshObstacle obstacle;
+
+	public Collider triggerCollider;
+
+	public WeaponCrosshair crosshair;
+
+	public bool hasCharacterControllerCollider;
+
+	public Collider characterControllerCollider;
+
+	public bool findTargetOverride;
+
+	public List<VehicleCollisionTrigger> vehicleCollisionTriggers;
+
+	public bool anySeatReserved;
+
+	public abstract void StartExtended();
+
+	public abstract bool OnPlayerEnterVehicle(int seat);
+
+	public abstract void OnPlayerExitVehicle(int seat, bool ragdoll);
+
+	public abstract void OnBotEnterVehicle(int seat);
+
+	public abstract void OnBotExitVehicle(int seat);
+
+	public abstract void OnSpawnAndRespawn(Vector3 spawnPos, Quaternion spawnRot);
+
+	public abstract void OnDestroyed();
+
+	public abstract void OnStartRagdoll();
+
+	public abstract void OnStopRagdoll();
+
+	public abstract void OnTakeDamage(float damage, DamageTypes damageType, Vector3 hitPoint);
+
+	public abstract void OnCollisionTriggerEnter(Collider other, Vector3 forceOrigin);
+
+	public abstract void OnBotAttackTriggerEnter(Collider other, Vector3 forceOrigin);
+
+	public abstract AITarget BotFindNewTarget(AITarget bot);
+
+	public abstract Vector3 GetEnterPos(Vector3 currentPos);
+
+	public abstract Vector3 GetExitPos(int seat);
+
+	public abstract Vector3 GetCurrentVelocity();
+
+	private void Awake()
+	{
+	}
+
+	private void Start()
+	{
+	}
+
+	public bool EnterVehicle(AITarget bot)
+	{
+		return false;
+	}
+
+	public void BotExitVehicle(AITarget bot)
+	{
+	}
+
+	public void DestinationReached()
+	{
+	}
+
+	public void EveryoneExit()
+	{
+	}
+
+	public void VehicleDestroyed(Vector3 currentMovementForce, AITarget destroyer, Vector3 force)
+	{
+	}
+
+	public void OnVehicleDestroyed()
+	{
+	}
+
+	private void SetFreeVehicleSeat()
+	{
+	}
+
+	public int ReserveVehicleSeat(AITarget bot)
+	{
+		return 0;
+	}
+
+	public float CalculatePath(Vector3 pos)
+	{
+		return 0f;
+	}
+
+	public Vector3 GetExitSpawnPoint(AITarget bot)
+	{
+		return default(Vector3);
+	}
+
+	public virtual void PlayDriverAnim(int anim, bool allPasssengers)
+	{
+	}
+
+	public float GetThirdPersonCameraAngleToCurrentSeat()
+	{
+		return 0f;
+	}
+
+	public Vector3 GetThirdPersonCameraDirectionHorizontally()
+	{
+		return default(Vector3);
+	}
+
+	public string GetVehicleName()
+	{
+		return null;
+	}
+
+	public void SetDestination(Vector3 destination, int updateFrequency)
+	{
+	}
+
+	public void SetDestinationImmediately(Vector3 destination, int updateFrequency)
+	{
+	}
+
+	public void UpdateVehicleCollisionTriggers()
+	{
+	}
 }

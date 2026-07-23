@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wood 1
-  m_Shader: {fileID: 4800000, guid: 75792ef32c61f734d9f706744ef64101, type: 3}
+  m_Shader: {fileID: 4800000, guid: d5a62d36ba95f694996e857b879560f1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: de4896ae4ae3e6c4cae70ee37cbd7f5b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 571bcecb8d7fe6a4d8e9c5d600af6b9e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

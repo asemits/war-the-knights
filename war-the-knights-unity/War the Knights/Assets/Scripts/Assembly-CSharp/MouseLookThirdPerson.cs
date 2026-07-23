@@ -2,62 +2,83 @@ using UnityEngine;
 
 public class MouseLookThirdPerson : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public bool inverted;
 
-	1. No dll files were provided to AssetRipper.
+	public Transform cameraTargetTransform;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public Transform cameraParentTransform;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public Transform cameraAdditionalMovementTransform;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public Transform cameraTransform;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public Camera thirdPersonCamera;
 
-	3. Assembly Reconstruction has not been implemented.
+	public int defaultFOV;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public int aimingFOV;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public bool clampHorizontal;
 
-	4. This script is unnecessary.
+	public int clampInDegreesHorizontalHalf;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public bool clampVerticalWithTarget;
 
-	5. Script Content Level 0
+	public bool clampVerticalWithoutTarget;
 
-		AssetRipper was set to not load any script information.
+	public int clampInDegreesVerticalLookUp;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public int clampInDegreesVerticalLookDown;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public bool cameraLocked;
 
-	7. An incorrect path was provided to AssetRipper.
+	public Vector3 _localRotation;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public Transform camPosTarget;
 
-	*/
+	public Vector3 targetCameraStartSmoothingDistance;
+
+	public Vector3 targetCameraDistance;
+
+	public Vector3 aimingCameraDistance;
+
+	public LayerMask cameraBlockLayerMask;
+
+	private bool camSmoothTransition;
+
+	private Vector3 camSmoothTransitionStartPosition;
+
+	private Quaternion camSmoothTransitionStartRotation;
+
+	private float camSmoothTransitionTimer;
+
+	private float camSmoothTransitionDuration;
+
+	public Vector3 lastFramePos;
+
+	public Vector3 lastFrameForwardDirection;
+
+	private void LateUpdate()
+	{
+	}
+
+	private void UpdateCameraFreeRotation()
+	{
+	}
+
+	public void ChangeTarget(Transform target)
+	{
+	}
+
+	public void ChangeTarget(Transform target, Vector3 smoothTransitionStartPosition, Quaternion smoothTransitionStartRotation, float smoothTransitionDuration = 0f)
+	{
+	}
+
+	public void SetCameraDistance(bool instantly, float distance, float startingDistance)
+	{
+	}
+
+	public void SetRotation(Vector3 newRotation)
+	{
+	}
 }

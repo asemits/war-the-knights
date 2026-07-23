@@ -1,66 +1,78 @@
+using System;
 using UnityEngine;
 
 namespace RootMotion.Dynamics
 {
-	public class BipedRagdollReferences : MonoBehaviour
+	[Serializable]
+	public struct BipedRagdollReferences
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public Transform root;
 
-		1. No dll files were provided to AssetRipper.
+		public Transform hips;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public Transform spine;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public Transform chest;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public Transform head;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Transform leftUpperLeg;
 
-		3. Assembly Reconstruction has not been implemented.
+		public Transform leftLowerLeg;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public Transform leftFoot;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public Transform rightUpperLeg;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public Transform rightLowerLeg;
 
-		5. Script Content Level 0
+		public Transform rightFoot;
 
-			AssetRipper was set to not load any script information.
+		public Transform leftUpperArm;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public Transform leftLowerArm;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public Transform leftHand;
 
-		7. An incorrect path was provided to AssetRipper.
+		public Transform rightUpperArm;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public Transform rightLowerArm;
 
-		*/
+		public Transform rightHand;
+
+		public bool IsValid(ref string msg)
+		{
+			return false;
+		}
+
+		private bool IsChildRecursive(Transform t, Transform parent)
+		{
+			return false;
+		}
+
+		public bool IsEmpty(bool considerRoot)
+		{
+			return false;
+		}
+
+		public bool Contains(Transform t, bool ignoreRoot = false)
+		{
+			return false;
+		}
+
+		public Transform[] GetRagdollTransforms()
+		{
+			return null;
+		}
+
+		public static BipedRagdollReferences FromAvatar(Animator animator)
+		{
+			return default(BipedRagdollReferences);
+		}
+
+		public static BipedRagdollReferences FromBipedReferences(BipedReferences biped)
+		{
+			return default(BipedRagdollReferences);
+		}
 	}
 }

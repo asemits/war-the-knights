@@ -94,7 +94,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 056be74506dcd7c43bc26a4633a869f1, type: 2}
+  - {fileID: 2100000, guid: b9af1b43cb935d14facd421c975621be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,7 +123,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: 65a0bcca29cdfa54998794137740dbdb, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 782eec5918b8a56469232c1d3220eb2a, type: 2}
 --- !u!136 &136099118695303065
 CapsuleCollider:
   serializedVersion: 2
@@ -186,6 +186,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9651ccd0dae66ddf65b96a3252f4a55, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  collisionDisabled: 0
+  damage: 0
+  poiseDamage: 0
+  damageType: 0
+  overrideWeaponDamage: 0
+  damageOverride: 0
+  overrideWeaponPoiseDamage: 0
+  poiseDamageOverride: 0
+  overrideWeaponDamageType: 0
+  damageTypeOverride: 1
+  dealsFireDamage: 0
+  fireDamage: 0
+  dealsSplashDamage: 0
+  splashDamage:
+    splashDamage: 0
+    splashPoiseDamage: 0
+    splashPhysicsForce: 0
+    splashFireDamage: 0
+    splashRadius: 0
+  visualEffectToPlayOnImpact: 0
+  customEffectPrefabToSpawnOnImpact: {fileID: 0}
+  createsEnvironmentFlames: 0
+  scattersFlameDebris: 0
+  flameDebrisCount: 0
+  flameDebrisConeAngle: 50
+  scattersFlameLargeDebris: 0
+  flameLargeDebrisCount: 0
+  flameLargeDebrisConeAngle: 50
+  healthSource: {fileID: 0}
+  healthSourceVehicle: {fileID: 0}
+  rb: {fileID: 54243736805655561}
+  damageSource: {fileID: 0}
+  playerFired: 0
+  vehicleFired: 0
+  _transform: {fileID: 4618682377417806}
+  flyBySoundDistance: 0
+  flyBySound: 0
+  projectileAudioSource: {fileID: 82709867586078768}
+  rotateToUpDirection: 0
+  depth: 0.15
+  projectileLengthFromCenterToFront: 0.34
+  trailRenderer: {fileID: 0}
+  particleSystems:
+  - {fileID: 198372920208702427}
+  particleSystemsToActivateOnImpact: []
 --- !u!114 &114587765826080250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f61acc303ff2a5a973e7fe401502ca, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  timeUntilDestroy: 10
+  stopTimerOnBotOrVehicleHit: 1
+  randomTime: 0
+  timeUntilDestroyMax: 14
+  destroyChildrenAndSelfAfterRandomTime: 0
 --- !u!82 &82709867586078768
 AudioSource:
   serializedVersion: 4
@@ -207,7 +257,7 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
   m_Enabled: 1
-  OutputAudioMixerGroup: {fileID: 24300020, guid: f22b37a3498864546b3af023a964e446, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300020, guid: d8295c60317db7745a634b7d95a951da, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2594,7 +2644,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 0}
-  - {fileID: 2100000, guid: 4f8c76dbdecb1fe45950812309dabf83, type: 2}
+  - {fileID: 2100000, guid: e47bb113b025d994e86ad57f212e5a12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

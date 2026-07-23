@@ -1,63 +1,64 @@
+using System;
+using System.Collections.Generic;
+using EnhancedUI.EnhancedScroller;
 using UnityEngine;
 
-public class ScoreboardController : MonoBehaviour
+public class ScoreboardController : MonoBehaviour, IEnhancedScrollerDelegate
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	[Serializable]
+	private sealed class _003C_003Ec
+	{
+		public static readonly _003C_003Ec _003C_003E9;
 
-	1. No dll files were provided to AssetRipper.
+		public static Func<ScoreboardData, int> _003C_003E9__4_0;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public static Func<ScoreboardData, string> _003C_003E9__4_1;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		internal int _003CUpdateController_003Eb__4_0(ScoreboardData o)
+		{
+			return 0;
+		}
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		internal string _003CUpdateController_003Eb__4_1(ScoreboardData o)
+		{
+			return null;
+		}
+	}
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	private List<ScoreboardData> _data;
 
-	3. Assembly Reconstruction has not been implemented.
+	public EnhancedScroller scroller;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public ScoreboardView scoreboardViewPrefab;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public void SetupController()
+	{
+	}
 
-	4. This script is unnecessary.
+	public void UpdateController()
+	{
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public void ClearData()
+	{
+	}
 
-	5. Script Content Level 0
+	public void AddData(ScoreboardData data)
+	{
+	}
 
-		AssetRipper was set to not load any script information.
+	public int GetNumberOfCells(EnhancedScroller scroller)
+	{
+		return 0;
+	}
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public float GetCellViewSize(EnhancedScroller scroller, int dataIndex)
+	{
+		return 0f;
+	}
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
-
-	7. An incorrect path was provided to AssetRipper.
-
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
-
-	*/
+	public EnhancedScrollerCellView GetCellView(EnhancedScroller scroller, int dataIndex, int cellIndex)
+	{
+		return null;
+	}
 }

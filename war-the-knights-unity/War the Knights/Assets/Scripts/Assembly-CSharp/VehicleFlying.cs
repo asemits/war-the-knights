@@ -1,63 +1,163 @@
 using UnityEngine;
 
-public class VehicleFlying : MonoBehaviour
+public class VehicleFlying : VehicleBase
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public Transform enterPosLeft;
 
-	1. No dll files were provided to AssetRipper.
+	public Transform enterPosRight;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public AudioSource rotorAudioSource;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public Rigidbody rb;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public bool isSprinting;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public Vector3 targetVelocity;
 
-	3. Assembly Reconstruction has not been implemented.
+	public Vector3 velocityToAdd;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public Transform vehicleBodyTransform;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public Vector3 flightDirectionRotation;
 
-	4. This script is unnecessary.
+	public Vector3 flightDirectionForward;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public Vector3 flightDirectionUp;
 
-	5. Script Content Level 0
+	public Quaternion flightDirectionRotationWorld;
 
-		AssetRipper was set to not load any script information.
+	public Transform cameraTargetParent;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private Quaternion targetMainRotation;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public AnimationCurve rotationFollowCurve;
 
-	7. An incorrect path was provided to AssetRipper.
+	public float maxFlightDirectionMagnitude;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public float velocityChangeSpeed;
 
-	*/
+	public float velocityTarget;
+
+	public float rotationSpeed;
+
+	public float rotationSpeedTarget;
+
+	public FlyingSpeedLevel currentSpeedLevel;
+
+	public float cameraRotationSpeedMultiplier;
+
+	public float cameraRotationSpeedMultiplierTarget;
+
+	public bool rocketsActivated;
+
+	public bool lockedOn;
+
+	public float lockOnTimer;
+
+	public Rigidbody lockedOnEnemy;
+
+	public float rocketReloadTimer;
+
+	public int rockets;
+
+	public ParticleSystem fireBreathParticles;
+
+	public AudioSource fireBreathAudioSource;
+
+	public AudioClip fireBreathSound;
+
+	public Transform fireBreathSpawn;
+
+	public float fireBreathFirerate;
+
+	public float fireBreathFirerateTimer;
+
+	public Collider[] vehiclehelicopterColliders;
+
+	public AITarget target;
+
+	public override void StartExtended()
+	{
+	}
+
+	public override bool OnPlayerEnterVehicle(int seat)
+	{
+		return false;
+	}
+
+	public override void OnPlayerExitVehicle(int seat, bool ragdoll)
+	{
+	}
+
+	public override void OnBotEnterVehicle(int seat)
+	{
+	}
+
+	public override void OnBotExitVehicle(int seat)
+	{
+	}
+
+	public override void OnSpawnAndRespawn(Vector3 spawnPos, Quaternion spawnRot)
+	{
+	}
+
+	public override void OnDestroyed()
+	{
+	}
+
+	public override void OnStartRagdoll()
+	{
+	}
+
+	public override void OnStopRagdoll()
+	{
+	}
+
+	public override void OnTakeDamage(float damage, DamageTypes damageType, Vector3 hitPoint)
+	{
+	}
+
+	public override void OnCollisionTriggerEnter(Collider other, Vector3 forceOrigin)
+	{
+	}
+
+	public override void OnBotAttackTriggerEnter(Collider other, Vector3 forceOrigin)
+	{
+	}
+
+	public override AITarget BotFindNewTarget(AITarget bot)
+	{
+		return null;
+	}
+
+	public override Vector3 GetEnterPos(Vector3 currentPos)
+	{
+		return default(Vector3);
+	}
+
+	public override Vector3 GetExitPos(int seat)
+	{
+		return default(Vector3);
+	}
+
+	public override Vector3 GetCurrentVelocity()
+	{
+		return default(Vector3);
+	}
+
+	private void Update()
+	{
+	}
+
+	private void ResetStates()
+	{
+	}
+
+	private void ControlsPlayer()
+	{
+	}
+
+	public void ControlsBot()
+	{
+	}
 }

@@ -1,63 +1,164 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthDestructible : MonoBehaviour
+public class HealthDestructible : HealthBase
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CDefeat_003Ed__38 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public HealthDestructible _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		object IEnumerator<object>.Current => null;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		object IEnumerator.Current => null;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public _003CDefeat_003Ed__38(int _003C_003E1__state)
+		{
+		}
 
-	3. Assembly Reconstruction has not been implemented.
+		void IDisposable.Dispose()
+		{
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	4. This script is unnecessary.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public HealthDestructibleObject aliveObject;
 
-	5. Script Content Level 0
+	public HealthDestructibleObject destroyedObject;
 
-		AssetRipper was set to not load any script information.
+	public GameObject debrisPrefab;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public HealthDestructibleObject aliveObjectRebuilt;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public HealthDestructibleObject destroyedObjectRebuilt;
 
-	7. An incorrect path was provided to AssetRipper.
+	public GameObject rebuiltDebrisPrefab;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public bool spawnDestroyed;
 
-	*/
+	public bool repairable;
+
+	public bool repairingRestoresStructuralIntegrity;
+
+	private bool hasBeenRebuilt;
+
+	private HealthDestructibleState currentHealthDestructibleState;
+
+	public VehicleBase[] connectedStationaryVehicles;
+
+	public NavLinkPointMover[] connectedLadders;
+
+	private static readonly HitType hitType;
+
+	private string healthName;
+
+	public bool canBurn;
+
+	public bool canBurnRebuiltVersion;
+
+	public int structuralIntegrityHealth;
+
+	public int structuralIntegrityCurrentHealth;
+
+	public StructuralIntegrity[] structuralIntegrity;
+
+	private bool topPartMissing;
+
+	private bool bottomPartMissing;
+
+	public bool canTakeMeleeDamage;
+
+	public HitboxDestructible hitHitbox;
+
+	private Vector3 hitPoint;
+
+	private Vector3 hitNormal;
+
+	public AITarget damageSource;
+
+	public bool collapse;
+
+	public override string HealthName
+	{
+		get
+		{
+			return null;
+		}
+		set
+		{
+		}
+	}
+
+	public override bool FireSurfaceBurnEffect => false;
+
+	public override bool CanTakeFireDamage => false;
+
+	public override bool CanBurnWhilstDefeated => false;
+
+	private void Awake()
+	{
+	}
+
+	public override IEnumerator Defeat()
+	{
+		return null;
+	}
+
+	public override HitType GetHit(float damage, float poiseDamage, DamageTypes damageType, AITarget damageSource, bool isCritical, Vector3 hitPoint, Vector3 force, bool playImpactEffectAndSound, Vector3 hitNormal)
+	{
+		return null;
+	}
+
+	public void TakeStructuralIntegrityDamage(int damage, AITarget damageSource, Vector3 hitNormal)
+	{
+	}
+
+	public void RepairStructuralIntegrity(int repairAmount, AITarget repairSource)
+	{
+	}
+
+	public override void GetStaggered(Vector3 attackOrigin, AITarget damageSource, Vector3 hitPoint, Vector3 force)
+	{
+	}
+
+	public override float GetHealed(float healing, float maxOverheal = 0f)
+	{
+		return 0f;
+	}
+
+	public override void Respawn()
+	{
+	}
+
+	public override void SetTeamColors()
+	{
+	}
+
+	public override Vector3 GetCurrentCorrectedForwardDirection()
+	{
+		return default(Vector3);
+	}
+
+	public void Test()
+	{
+	}
 }

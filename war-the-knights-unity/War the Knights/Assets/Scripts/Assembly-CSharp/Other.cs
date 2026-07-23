@@ -1,63 +1,175 @@
 using UnityEngine;
 
-public class Other : MonoBehaviour
+public static class Other
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public static YieldInstruction WaitForEndOfFrame;
 
-	1. No dll files were provided to AssetRipper.
+	public static WaitForSeconds WaitForOneSecond;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public static float deltaTime;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public static float smoothDeltaTime;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public static float unscaledDeltaTime;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public static float fixedDeltaTime;
 
-	3. Assembly Reconstruction has not been implemented.
+	public static float time;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public static readonly Vector3 Vector3Zero;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public static readonly Vector3 Vector3One;
 
-	4. This script is unnecessary.
+	public static readonly Vector3 Vector3Forward;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public static RaycastHit[] raycastHits;
 
-	5. Script Content Level 0
+	public static Collider[] colliderOverlaps;
 
-		AssetRipper was set to not load any script information.
+	public static Ray raycastCache;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private static Vector3[] worldCorners;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public static PhysicsScene physicsScene;
 
-	7. An incorrect path was provided to AssetRipper.
+	public static float physicsGravityY;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	private static Quaternion smoothDampQuaternion;
 
-	*/
+	public static void ToggleCanvasUsability(CanvasGroup canvas, bool enable)
+	{
+	}
+
+	public static void ToggleCanvas(CanvasGroup canvas, bool enable)
+	{
+	}
+
+	public static bool IsOutOfScreen(RectTransform uiElement)
+	{
+		return false;
+	}
+
+	public static void SplashDamage(Vector3 position, float damage, float poiseDamage, float physicsForce, float radius, AITarget damageSource, float cameraShakeIntensityMultiplier = 1f, float fireDamage = 0f, float staggerMaxDistanceThresholdPercentage = 0.9f, bool dontHitDestructiblesOrParticles = false)
+	{
+	}
+
+	public static bool RaycastWithoutCollidingWithUnit(Vector3 position, Vector3 direction, float length, float radius, out RaycastHit hit, ref LayerMask layerMask, ref HealthBase health)
+	{
+		hit = default(RaycastHit);
+		return false;
+	}
+
+	public static bool RaycastWithoutCollidingWithUnitAndVehicle(Vector3 position, Vector3 direction, float length, float radius, out RaycastHit hit, ref LayerMask layerMask, ref HealthBase health, ref VehicleHealth secondaryHealth)
+	{
+		hit = default(RaycastHit);
+		return false;
+	}
+
+	public static bool RaycastWithoutCollidingWithUnitPlayerOnly(Vector3 position, Vector3 direction, float length, float radius, out RaycastHit hit, ref LayerMask layerMask)
+	{
+		hit = default(RaycastHit);
+		return false;
+	}
+
+	public static bool RaycastColliderOnlyToGetNormalOfCollisionEvent(ref Collision collision, ref ContactPoint contact, out RaycastHit hit)
+	{
+		hit = default(RaycastHit);
+		return false;
+	}
+
+	public static bool CalculateProjectileAngle(Vector3 from, Vector3 to, float speed, bool chooseHighPath, out float angle)
+	{
+		angle = default(float);
+		return false;
+	}
+
+	public static Vector3 FirstOrderIntercept(Vector3 shooterPosition, Vector3 shooterVelocity, float shotSpeed, Vector3 targetPosition, Vector3 targetVelocity)
+	{
+		return default(Vector3);
+	}
+
+	private static float FirstOrderInterceptTime(float shotSpeed, Vector3 targetRelativePosition, Vector3 targetRelativeVelocity)
+	{
+		return 0f;
+	}
+
+	public static Vector2 DegreeToVector2(float degree)
+	{
+		return default(Vector2);
+	}
+
+	public static bool FastApproximately(float a, float b, float threshold)
+	{
+		return false;
+	}
+
+	public static float LimitToRange(float value, float inclusiveMinimum, float inclusiveMaximum)
+	{
+		return 0f;
+	}
+
+	public static bool RandomBoolean()
+	{
+		return false;
+	}
+
+	public static int[] RandomUniqueValue(int start, int end, int amount)
+	{
+		return null;
+	}
+
+	public static Vector3 SmoothDampEuler(Vector3 current, Vector3 target, ref Vector3 velocity, float smoothTime)
+	{
+		return default(Vector3);
+	}
+
+	public static Vector3 LerpAngle(Vector3 StartAngle, Vector3 FinishAngle, float t)
+	{
+		return default(Vector3);
+	}
+
+	public static Vector3 MultiplyVectors(Vector3 v, Vector3 w)
+	{
+		return default(Vector3);
+	}
+
+	public static Vector3 ClampMagnitude(Vector3 vector, float minLength)
+	{
+		return default(Vector3);
+	}
+
+	public static Vector3 RandomPointInBounds(Bounds bounds)
+	{
+		return default(Vector3);
+	}
+
+	public static float NormalizeEulerAngle(float eulerAngle)
+	{
+		return 0f;
+	}
+
+	public static float ClampNormalizedEulerAngleInverted(float eulerAngle, float min, float max)
+	{
+		return 0f;
+	}
+
+	public static Quaternion SmoothDamp(Quaternion rot, Quaternion target, ref Vector4 velocity)
+	{
+		return default(Quaternion);
+	}
+
+	public static bool CheckCurrentAnimation(ref Animator anim, int animationName, int layer = 0)
+	{
+		return false;
+	}
+
+	public static bool CheckCurrentAnimation(ref int animStateCurrentHash, ref int animStateNextHash, int animationName)
+	{
+		return false;
+	}
+
+	public static bool IsPointInCollider(Vector3 point, Collider collider)
+	{
+		return false;
+	}
 }

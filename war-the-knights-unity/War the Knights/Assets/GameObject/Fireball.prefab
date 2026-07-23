@@ -131,7 +131,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: 96420caabc5d56a42a36c9cefd3e201a, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 88de054470670334ba4a34b4ec06ea53, type: 2}
 --- !u!23 &23061268324235159
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5528db8919f03734e84fc3a16328f01a, type: 2}
+  - {fileID: 2100000, guid: 40452653349f25a47a666252a8801c07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,6 +186,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3f76b1f5f5fc23fafc981fb8c6ad44, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  anim: {fileID: 0}
+  bot: {fileID: 0}
+  isBot: 0
+  playableSounds: []
+  isGadget: 0
+  gadget1: 0
+  damage: 60
+  poiseDamage: 0
+  damageType: 3
+  throwingForce: 20
+  throwingTorqueForce: {x: 0, y: 0, z: 0}
+  throwablePlaceable: 0
+  spawn: {fileID: 4099118695303065}
+  hideMeshAfterThrow:
+  - {fileID: 23061268324235159}
+  stopParticlesAfterThrow: []
+  disableGameobjectsAfterThrow:
+  - {fileID: 1730242686860875}
+  particleSystemsToUnparentOnImpact: []
+  hasAnimRecoil: 0
+  animRecoilType: 0
+  hasCameraShake: 0
+  cameraShakeType: 2
+  throwablePrefab: {fileID: 1709254077376921, guid: b00759b1645dc9c428958da284bbd4ef, type: 2}
+  weaponThrowableEquipSound: 2
+  customWeaponThrowableEquipSound: {fileID: 0}
+  weaponThrowableThrowSound: 2
+  customWeaponThrowableThrowSound: {fileID: 0}
+  fixBigObjectCollision: 0
 --- !u!4 &4709867586078768
 Transform:
   serializedVersion: 2
@@ -2411,7 +2440,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4685,7 +4714,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6959,7 +6988,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9233,7 +9262,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4abff174284d08341aebf7cb2b65c0e7, type: 2}
+  - {fileID: 2100000, guid: 8dfa7d7afa5e64a45bc6136b15179bdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,63 +1,136 @@
-using UnityEngine;
-
-public class Strings : MonoBehaviour
+public static class Strings
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public const string NamePlayer = "Player";
 
-	1. No dll files were provided to AssetRipper.
+	public const string NameWeapon = "Weapon";
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public const string NameShield = "Shield";
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public const string NameProjectile = "Projectile";
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public const string TagInteractable = "Interactable";
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public const string TagHitbox = "Hitbox";
 
-	3. Assembly Reconstruction has not been implemented.
+	public const string TagPlayer = "Player";
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public const string TagBot = "Bot";
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public const string TagUntagged = "Untagged";
 
-	4. This script is unnecessary.
+	public const string TagProjectile = "Projectile";
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public const string KillcamAccident = "Accident";
 
-	5. Script Content Level 0
+	public const string KillcamDefeatedBy = "DEFEATED BY ";
 
-		AssetRipper was set to not load any script information.
+	public const string KillfeedDefeated = "Killed ";
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public const string KillfeedDestroyed = "Destroyed ";
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public const string InteractionVehicleEnterable = "Enter";
 
-	7. An incorrect path was provided to AssetRipper.
+	public const string InteractionVehicleFull = "";
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public const string InteractionVehicleLoyalToEnemy = "Loyal to the enemy";
 
-	*/
+	public const string InteractionPickupTake = "Take";
+
+	public const string InteractionPhysicsPickupTake = "Pick up";
+
+	public const string InteractionLadder = "Ladder";
+
+	public const string InteractionLadderClimb = "Climb";
+
+	public const string InteractionAmmunition = "Ammunition";
+
+	public const string InteractionAmmunitionTake = "Take";
+
+	public const string InteractionAmmunitionEmpty = "Empty";
+
+	public const string MenuEquipmentHeaderFirstWeapon = "First Weapon";
+
+	public const string MenuEquipmentHeaderSecondWeapon = "Second Weapon";
+
+	public const string MenuEquipmentHeaderGadget1 = "Gadget 1";
+
+	public const string MenuEquipmentHeaderGadget2 = "Gadget 2";
+
+	public const string MenuEquipmentHeaderThrowable = "Throwable";
+
+	public const string MenuEquipmentCategoryAll = "All";
+
+	public const string VehicleNameHorse = "Horse";
+
+	public const string VehicleNameBallista = "Ballista";
+
+	public const string VehicleNameCatapult = "Catapult";
+
+	public const string VehicleNameDragon = "Dragon";
+
+	public const string HintHeavyAttack = "[Left Mouse] HOLD FOR HEAVY ATTACK";
+
+	public const string HintGadgetEquip = "[3][4] USE GADGET";
+
+	public const string HintThrowable = "[Middle Mouse] USE THROWABLE";
+
+	public const string HintMeleeThrowable = "[G] THROW MELEE WEAPON";
+
+	public const string HintKick = "[F] KICK";
+
+	public const string HintSprintOnLadder = "[Shift] HOLD TO CLIMB FASTER";
+
+	public const string HintBlock = "[Right Mouse] HOLD TO BLOCK ARROWS AND ATTACKS";
+
+	public const string HintStopDropRoll = "[Shift + Control] SLIDE TO EXTINGUISH FIRE";
+
+	public const string HintGetUp = "[MOVE] STAND UP";
+
+	public const string HintSpawn = "SELECT A POINT TO SPAWN AT";
+
+	public const string HintQuickSpawn = "[Space/Double click] RESPAWN AT SELECTED POINT";
+
+	public const string HintCommandWheel = "[Q] HOLD TO OPEN COMMAND WHEEL";
+
+	public const string HintReinforcements = "[B] REINFORCEMENTS";
+
+	public const string Options_Header_Game = "Options - Game";
+
+	public const string Options_Header_Controls = "Options - Controls";
+
+	public const string Options_Header_Video = "Options - Video";
+
+	public const string Options_Header_Audio = "Options - Audio";
+
+	public const string Options_Video_FullScreenMode_ExclusiveFullScreen = "Exclusive Full Screen";
+
+	public const string Options_Video_FullScreenMode_FullScreenWindow = "Full Screen Window";
+
+	public const string Options_Video_FullScreenMode_MaximizedWindow = "Maximized Window";
+
+	public const string Options_Video_FullScreenMode_Windowed = "Windowed";
+
+	public const string Options_Off = "Off";
+
+	public const string Options_Low = "Low";
+
+	public const string Options_Medium = "Medium";
+
+	public const string Options_High = "High";
+
+	public const string Options_Highest = "Highest";
+
+	public const string Options_Audio_SpeakerModeMono = "Mono";
+
+	public const string Options_Audio_SpeakerModeStereo = "Stereo";
+
+	public const string Options_Audio_SpeakerModeQuad = "Quad";
+
+	public const string Options_Audio_SpeakerModeSurround = "Surround Sound 5";
+
+	public const string Options_Audio_SpeakerMode5point1 = "Surround Sound 5.1";
+
+	public const string Options_Audio_SpeakerMode7point1 = "Surround Sound 7.1";
+
+	public const string Options_Audio_SpeakerModeProLogic = "Pro Logic";
 }

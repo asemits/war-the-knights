@@ -1,66 +1,170 @@
-using UnityEngine;
+using System.IO;
 
 namespace ES3Internal
 {
-	public class ES3JSONWriter : MonoBehaviour
+	internal class ES3JSONWriter : ES3Writer
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		internal StreamWriter baseWriter;
 
-		1. No dll files were provided to AssetRipper.
+		private bool isFirstProperty;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public ES3JSONWriter(Stream stream, ES3Settings settings)
+			: base(null, writeHeaderAndFooter: false, overwriteKeys: false)
+		{
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		internal ES3JSONWriter(Stream stream, ES3Settings settings, bool writeHeaderAndFooter, bool mergeKeys)
+			: base(null, writeHeaderAndFooter: false, overwriteKeys: false)
+		{
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		internal override void WritePrimitive(int value)
+		{
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		internal override void WritePrimitive(float value)
+		{
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		internal override void WritePrimitive(bool value)
+		{
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		internal override void WritePrimitive(decimal value)
+		{
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		internal override void WritePrimitive(double value)
+		{
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		internal override void WritePrimitive(long value)
+		{
+		}
 
-		5. Script Content Level 0
+		internal override void WritePrimitive(ulong value)
+		{
+		}
 
-			AssetRipper was set to not load any script information.
+		internal override void WritePrimitive(uint value)
+		{
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		internal override void WritePrimitive(byte value)
+		{
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		internal override void WritePrimitive(sbyte value)
+		{
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		internal override void WritePrimitive(short value)
+		{
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		internal override void WritePrimitive(ushort value)
+		{
+		}
 
-		*/
+		internal override void WritePrimitive(char value)
+		{
+		}
+
+		internal override void WritePrimitive(byte[] value)
+		{
+		}
+
+		internal override void WritePrimitive(string value)
+		{
+		}
+
+		internal override void WriteNull()
+		{
+		}
+
+		private static bool CharacterRequiresEscaping(char c)
+		{
+			return false;
+		}
+
+		private void WriteCommaIfRequired()
+		{
+		}
+
+		internal override void WriteRawProperty(string name, byte[] value)
+		{
+		}
+
+		internal override void StartWriteFile()
+		{
+		}
+
+		internal override void EndWriteFile()
+		{
+		}
+
+		internal override void StartWriteProperty(string name)
+		{
+		}
+
+		internal override void EndWriteProperty(string name)
+		{
+		}
+
+		internal override void StartWriteObject(string name)
+		{
+		}
+
+		internal override void EndWriteObject(string name)
+		{
+		}
+
+		internal override void StartWriteCollection()
+		{
+		}
+
+		internal override void EndWriteCollection()
+		{
+		}
+
+		internal override void StartWriteCollectionItem(int index)
+		{
+		}
+
+		internal override void EndWriteCollectionItem(int index)
+		{
+		}
+
+		internal override void StartWriteDictionary()
+		{
+		}
+
+		internal override void EndWriteDictionary()
+		{
+		}
+
+		internal override void StartWriteDictionaryKey(int index)
+		{
+		}
+
+		internal override void EndWriteDictionaryKey(int index)
+		{
+		}
+
+		internal override void StartWriteDictionaryValue(int index)
+		{
+		}
+
+		internal override void EndWriteDictionaryValue(int index)
+		{
+		}
+
+		public override void Dispose()
+		{
+		}
+
+		public void WriteNewlineAndTabs()
+		{
+		}
 	}
 }

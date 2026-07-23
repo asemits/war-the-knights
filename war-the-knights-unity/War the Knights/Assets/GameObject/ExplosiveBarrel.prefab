@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: db00cda80fa1306418e440cc29886ace, type: 2}
+  m_Mesh: {fileID: 4300000, guid: f9e279a4b70a6a04ea2700f05f42c82b, type: 2}
 --- !u!23 &23618682377417806
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,8 +65,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7bf2f33321202bc408676055abf0a256, type: 2}
-  - {fileID: 2100000, guid: 1061801604ac8fd438d7ee8a4700dd10, type: 2}
+  - {fileID: 2100000, guid: dfee38b515cecba40a3f840d22f58513, type: 2}
+  - {fileID: 2100000, guid: b8fe1093b3069134ba3e5afcf7a121a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,6 +127,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060adc6010732096307261d15444c96, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentHealth: 120
+  maxHealth: 120
+  alliance: {fileID: 0}
+  lastDamageSource: {fileID: 0}
+  defeated: 0
+  meshRendererToPlayFireEffectOn: {fileID: 23618682377417806}
+  meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOn: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated: {fileID: 0}
+  objectToEmitFireLightFrom: {fileID: 0}
+  objectToEmitFireLightFromWhenRagdolledOrDestroyed: {fileID: 0}
+  fireDamageSource: {fileID: 0}
+  fireDamageBuildup: 0
+  isOnFire: 0
+  hitHitbox: {fileID: 0}
+  mainHitbox: {fileID: 114099118695303065}
+  soundAndEffectMaterial: 1
+  customBreakingSound: {fileID: 0}
+  breakableMesh: {fileID: 23618682377417806}
+  destroyedObjectDebrisPhysicsPrefab: {fileID: 1709254077376921, guid: ed2cee06ed694bd40abd13251d32a6f6, type: 2}
+  hasFireSurfaceBurnEffect: 1
+  canBurn: 1
+  startBurningWhenTakingDamage: 1
+  startBurningWhenHealthIsLowerThanPercentage: 0.4
+  explodeWhenDestroyed: 1
+  createsEnvironmentFlames: 0
+  scattersFlameDebris: 0
+  flameDebrisCount: 0
+  splashDamage:
+    splashDamage: 130
+    splashPoiseDamage: 200
+    splashPhysicsForce: 57
+    splashFireDamage: 40
+    splashRadius: 4
 --- !u!114 &114099118695303065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3a8d56f901b12805fd14be3991b1e8, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 1
+  impactEffect: 1
+  health: {fileID: 114884547391421755}
+  rb: {fileID: 54703437598541787}
+  takePhysicsCollisionDamage: 1
+  takePhysicsCollisionDamageAgainstProjectiles: 0
+  dealDamageOnCollision: 1
+  collisionOutputDamageMultiplier: 1
+  collisionOutputPoiseDamageMultiplier: 2
+  collisionDamageTakenMultiplier: 1
+  spreadFireOnCollision: 1
 --- !u!64 &64243736805655561
 MeshCollider:
   serializedVersion: 5
@@ -147,7 +193,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Material: {fileID: 13400000, guid: a75dc8d917b9d244c92040a8eb6bd7b4, type: 2}
+  m_Material: {fileID: 13400000, guid: 0ee8dede3a1fa3444a3d0eded295e92a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -160,4 +206,4 @@ MeshCollider:
   m_Enabled: 1
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: b44cba897b1921d489d7165b193b8d45, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 8a6024b4ae5aefa4b8234b8d968cc84c, type: 2}

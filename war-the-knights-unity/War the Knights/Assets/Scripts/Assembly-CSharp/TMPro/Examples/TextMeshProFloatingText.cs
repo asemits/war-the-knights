@@ -1,66 +1,154 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TMPro.Examples
 {
 	public class TextMeshProFloatingText : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private sealed class _003CDisplayTextMeshFloatingText_003Ed__16 : IEnumerator<object>, IEnumerator, IDisposable
+		{
+			private int _003C_003E1__state;
 
-		1. No dll files were provided to AssetRipper.
+			private object _003C_003E2__current;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public TextMeshProFloatingText _003C_003E4__this;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			private float _003CCountDuration_003E5__2;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			private float _003Cstarting_Count_003E5__3;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			private float _003Ccurrent_Count_003E5__4;
 
-		3. Assembly Reconstruction has not been implemented.
+			private Vector3 _003Cstart_pos_003E5__5;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			private Color32 _003Cstart_color_003E5__6;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			private float _003Calpha_003E5__7;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			private float _003CfadeDuration_003E5__8;
 
-		5. Script Content Level 0
+			object IEnumerator<object>.Current => null;
 
-			AssetRipper was set to not load any script information.
+			object IEnumerator.Current => null;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			public _003CDisplayTextMeshFloatingText_003Ed__16(int _003C_003E1__state)
+			{
+			}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			void IDisposable.Dispose()
+			{
+			}
 
-		7. An incorrect path was provided to AssetRipper.
+			private bool MoveNext()
+			{
+				return false;
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			bool IEnumerator.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				return this.MoveNext();
+			}
 
-		*/
+			void IEnumerator.Reset()
+			{
+			}
+		}
+
+		private sealed class _003CDisplayTextMeshProFloatingText_003Ed__15 : IEnumerator<object>, IEnumerator, IDisposable
+		{
+			private int _003C_003E1__state;
+
+			private object _003C_003E2__current;
+
+			public TextMeshProFloatingText _003C_003E4__this;
+
+			private float _003CCountDuration_003E5__2;
+
+			private float _003Cstarting_Count_003E5__3;
+
+			private float _003Ccurrent_Count_003E5__4;
+
+			private Vector3 _003Cstart_pos_003E5__5;
+
+			private Color32 _003Cstart_color_003E5__6;
+
+			private float _003Calpha_003E5__7;
+
+			private float _003CfadeDuration_003E5__8;
+
+			object IEnumerator<object>.Current => null;
+
+			object IEnumerator.Current => null;
+
+			public _003CDisplayTextMeshProFloatingText_003Ed__15(int _003C_003E1__state)
+			{
+			}
+
+			void IDisposable.Dispose()
+			{
+			}
+
+			private bool MoveNext()
+			{
+				return false;
+			}
+
+			bool IEnumerator.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				return this.MoveNext();
+			}
+
+			void IEnumerator.Reset()
+			{
+			}
+		}
+
+		public Font TheFont;
+
+		private GameObject m_floatingText;
+
+		private TextMeshPro m_textMeshPro;
+
+		private TextMesh m_textMesh;
+
+		private Transform m_transform;
+
+		private Transform m_floatingText_Transform;
+
+		private Transform m_cameraTransform;
+
+		private Vector3 lastPOS;
+
+		private Quaternion lastRotation;
+
+		public int SpawnType;
+
+		public bool IsTextObjectScaleStatic;
+
+		private static WaitForEndOfFrame k_WaitForEndOfFrame;
+
+		private static WaitForSeconds[] k_WaitForSecondsRandom;
+
+		private void Awake()
+		{
+		}
+
+		private void Start()
+		{
+		}
+
+		public IEnumerator DisplayTextMeshProFloatingText()
+		{
+			return null;
+		}
+
+		public IEnumerator DisplayTextMeshFloatingText()
+		{
+			return null;
+		}
 	}
 }

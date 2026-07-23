@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Flask_Liquid
-  m_Shader: {fileID: 4800000, guid: 015feff9e014efd4d93c74e42b9262d1, type: 3}
+  m_Shader: {fileID: 4800000, guid: f9b2ec6b84d4121438f5e728480f5d59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6529e6560b29ad944b28e672e537ba82, type: 3}
+        m_Texture: {fileID: 2800000, guid: cd96d19c9d76b894fb875448c7e81f79, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

@@ -1,66 +1,150 @@
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 namespace TMPro
 {
-	public class TMP_TextEventHandler : MonoBehaviour
+	public class TMP_TextEventHandler : MonoBehaviour, IPointerEnterHandler, IEventSystemHandler, IPointerExitHandler
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[Serializable]
+		public class CharacterSelectionEvent : UnityEvent<char, int>
+		{
+		}
 
-		1. No dll files were provided to AssetRipper.
+		[Serializable]
+		public class SpriteSelectionEvent : UnityEvent<char, int>
+		{
+		}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		[Serializable]
+		public class WordSelectionEvent : UnityEvent<string, int, int>
+		{
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		[Serializable]
+		public class LineSelectionEvent : UnityEvent<string, int, int>
+		{
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		[Serializable]
+		public class LinkSelectionEvent : UnityEvent<string, string, int>
+		{
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private CharacterSelectionEvent m_OnCharacterSelection;
 
-		3. Assembly Reconstruction has not been implemented.
+		private SpriteSelectionEvent m_OnSpriteSelection;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private WordSelectionEvent m_OnWordSelection;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private LineSelectionEvent m_OnLineSelection;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private LinkSelectionEvent m_OnLinkSelection;
 
-		5. Script Content Level 0
+		private TMP_Text m_TextComponent;
 
-			AssetRipper was set to not load any script information.
+		private Camera m_Camera;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private Canvas m_Canvas;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private int m_selectedLink;
 
-		7. An incorrect path was provided to AssetRipper.
+		private int m_lastCharIndex;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private int m_lastWordIndex;
 
-		*/
+		private int m_lastLineIndex;
+
+		public CharacterSelectionEvent onCharacterSelection
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		public SpriteSelectionEvent onSpriteSelection
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		public WordSelectionEvent onWordSelection
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		public LineSelectionEvent onLineSelection
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		public LinkSelectionEvent onLinkSelection
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		private void Awake()
+		{
+		}
+
+		private void LateUpdate()
+		{
+		}
+
+		public void OnPointerEnter(PointerEventData eventData)
+		{
+		}
+
+		public void OnPointerExit(PointerEventData eventData)
+		{
+		}
+
+		private void SendOnCharacterSelection(char character, int characterIndex)
+		{
+		}
+
+		private void SendOnSpriteSelection(char character, int characterIndex)
+		{
+		}
+
+		private void SendOnWordSelection(string word, int charIndex, int length)
+		{
+		}
+
+		private void SendOnLineSelection(string line, int charIndex, int length)
+		{
+		}
+
+		private void SendOnLinkSelection(string linkID, string linkText, int linkIndex)
+		{
+		}
 	}
 }

@@ -1,66 +1,75 @@
+using System;
+using System.Collections.Generic;
+using ES3Internal;
 using UnityEngine;
 
 namespace ES3Types
 {
-	public class ES3Type_GameObject : MonoBehaviour
+	public class ES3Type_GameObject : ES3UnityObjectType
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private sealed class _003C_003Ec__DisplayClass8_0
+		{
+			public Type type;
 
-		1. No dll files were provided to AssetRipper.
+			public Predicate<Component> _003C_003E9__0;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			internal bool _003CReadComponents_003Eb__0(Component x)
+			{
+				return false;
+			}
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private const string prefabPropertyName = "es3Prefab";
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private const string transformPropertyName = "transformID";
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public static ES3Type Instance;
 
-		3. Assembly Reconstruction has not been implemented.
+		public bool saveChildren;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public ES3Type_GameObject()
+			: base(null)
+		{
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public override void WriteObject(object obj, ES3Writer writer, ES3.ReferenceMode mode)
+		{
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		protected override object ReadObject<T>(ES3Reader reader)
+		{
+			return null;
+		}
 
-		5. Script Content Level 0
+		protected override void ReadObject<T>(ES3Reader reader, object obj)
+		{
+		}
 
-			AssetRipper was set to not load any script information.
+		private void ReadComponents(ES3Reader reader, GameObject go)
+		{
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private GameObject CreateNewGameObject(ES3ReferenceMgrBase refMgr, long id)
+		{
+			return null;
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static List<GameObject> GetChildren(GameObject go)
+		{
+			return null;
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		protected override void WriteUnityObject(object obj, ES3Writer writer)
+		{
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		protected override void ReadUnityObject<T>(ES3Reader reader, object obj)
+		{
+		}
 
-		*/
+		protected override object ReadUnityObject<T>(ES3Reader reader)
+		{
+			return null;
+		}
 	}
 }

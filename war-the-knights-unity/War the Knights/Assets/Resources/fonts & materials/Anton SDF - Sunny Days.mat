@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Anton SDF - Sunny Days
-  m_Shader: {fileID: 4800000, guid: 7274c3d82f5b788498a71100d29e8cb4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4c547e0ee5d4d1a4aa01af09c5127ee5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -34,15 +34,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _FaceTex:
-        m_Texture: {fileID: 2800000, guid: 92da82c163884f640bc74b4f14d3eded, type: 3}
+        m_Texture: {fileID: 2800000, guid: 48f89f2cbf36bc5409fcb08f9aaa5dbd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: -0.15}
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: a3ccce20ceaba5f499885cc840230931, type: 3}
+        m_Texture: {fileID: 2800000, guid: c07120e07b9bee948ba34ba7347fdb4a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _OutlineTex:
-        m_Texture: {fileID: 2800000, guid: 50d8e6e2d6d901949bfa80db6cde437c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 745dc2ad9d6d37c4fa2ba9419a7707e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

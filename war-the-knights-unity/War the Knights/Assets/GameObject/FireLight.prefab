@@ -107,3 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416a364302bff56a0d40f34ec9bb46f2, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  lightSource: {fileID: 108724804207875695}
+  hasSetDefaultLightValues: 0
+  defaultIntensity: 0
+  defaultRange: 0

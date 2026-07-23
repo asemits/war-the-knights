@@ -1,66 +1,257 @@
-using UnityEngine;
+using System;
+using System.IO;
 
 namespace ES3Internal
 {
-	public class ES3JSONReader : MonoBehaviour
+	public class ES3JSONReader : ES3Reader
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private const char endOfStreamChar = '\uffff';
 
-		1. No dll files were provided to AssetRipper.
+		public StreamReader baseReader;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		internal ES3JSONReader(Stream stream, ES3Settings settings, bool readHeaderAndFooter = true)
+			: base(null, readHeaderAndFooter: false)
+		{
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public override string ReadPropertyName()
+		{
+			return null;
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		protected override Type ReadKeyPrefix(bool ignoreType = false)
+		{
+			return null;
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		protected override void ReadKeySuffix()
+		{
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		internal override bool StartReadObject()
+		{
+			return false;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		internal override void EndReadObject()
+		{
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		internal override bool StartReadDictionary()
+		{
+			return false;
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		internal override void EndReadDictionary()
+		{
+		}
 
-		5. Script Content Level 0
+		internal override bool StartReadDictionaryKey()
+		{
+			return false;
+		}
 
-			AssetRipper was set to not load any script information.
+		internal override void EndReadDictionaryKey()
+		{
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		internal override void StartReadDictionaryValue()
+		{
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		internal override bool EndReadDictionaryValue()
+		{
+			return false;
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		internal override bool StartReadCollection()
+		{
+			return false;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		internal override void EndReadCollection()
+		{
+		}
 
-		*/
+		internal override bool StartReadCollectionItem()
+		{
+			return false;
+		}
+
+		internal override bool EndReadCollectionItem()
+		{
+			return false;
+		}
+
+		private void ReadString(StreamWriter writer, bool skip = false)
+		{
+		}
+
+		internal override byte[] ReadElement(bool skip = false)
+		{
+			return null;
+		}
+
+		private char ReadOrSkipChar(StreamWriter writer, bool skip)
+		{
+			return '\0';
+		}
+
+		private char ReadCharIgnoreWhitespace(bool ignoreTrailingWhitespace = true)
+		{
+			return '\0';
+		}
+
+		private bool ReadNullOrCharIgnoreWhitespace(char expectedChar)
+		{
+			return false;
+		}
+
+		private char ReadCharIgnoreWhitespace(char expectedChar)
+		{
+			return '\0';
+		}
+
+		private bool ReadQuotationMarkOrNullIgnoreWhitespace()
+		{
+			return false;
+		}
+
+		private char PeekCharIgnoreWhitespace(char expectedChar)
+		{
+			return '\0';
+		}
+
+		private char PeekCharIgnoreWhitespace()
+		{
+			return '\0';
+		}
+
+		private void SkipWhiteSpace()
+		{
+		}
+
+		private void SkipOpeningBraceOfFile()
+		{
+		}
+
+		private static bool IsWhiteSpace(char c)
+		{
+			return false;
+		}
+
+		private static bool IsOpeningBrace(char c)
+		{
+			return false;
+		}
+
+		private static bool IsEndOfValue(char c)
+		{
+			return false;
+		}
+
+		private static bool IsTerminator(char c)
+		{
+			return false;
+		}
+
+		private static bool IsQuotationMark(char c)
+		{
+			return false;
+		}
+
+		private static bool IsEndOfStream(char c)
+		{
+			return false;
+		}
+
+		private string GetValueString()
+		{
+			return null;
+		}
+
+		internal override string Read_string()
+		{
+			return null;
+		}
+
+		internal override long Read_ref()
+		{
+			return 0L;
+		}
+
+		internal override char Read_char()
+		{
+			return '\0';
+		}
+
+		internal override float Read_float()
+		{
+			return 0f;
+		}
+
+		internal override int Read_int()
+		{
+			return 0;
+		}
+
+		internal override bool Read_bool()
+		{
+			return false;
+		}
+
+		internal override decimal Read_decimal()
+		{
+			return default(decimal);
+		}
+
+		internal override double Read_double()
+		{
+			return 0.0;
+		}
+
+		internal override long Read_long()
+		{
+			return 0L;
+		}
+
+		internal override ulong Read_ulong()
+		{
+			return 0uL;
+		}
+
+		internal override uint Read_uint()
+		{
+			return 0u;
+		}
+
+		internal override byte Read_byte()
+		{
+			return 0;
+		}
+
+		internal override sbyte Read_sbyte()
+		{
+			return 0;
+		}
+
+		internal override short Read_short()
+		{
+			return 0;
+		}
+
+		internal override ushort Read_ushort()
+		{
+			return 0;
+		}
+
+		internal override byte[] Read_byteArray()
+		{
+			return null;
+		}
+
+		public override void Dispose()
+		{
+		}
 	}
 }

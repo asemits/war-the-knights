@@ -1,66 +1,209 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ES3Internal
 {
-	public class ES3ReferenceMgrBase : MonoBehaviour
+	[Serializable]
+	public abstract class ES3ReferenceMgrBase : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[Serializable]
+		private sealed class _003C_003Ec
+		{
+			public static readonly _003C_003Ec _003C_003E9;
 
-		1. No dll files were provided to AssetRipper.
+			public static Func<KeyValuePair<long, UnityEngine.Object>, bool> _003C_003E9__33_0;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public static Func<KeyValuePair<long, UnityEngine.Object>, long> _003C_003E9__33_1;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public static Func<KeyValuePair<long, UnityEngine.Object>, bool> _003C_003E9__34_0;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			public static Func<KeyValuePair<long, UnityEngine.Object>, long> _003C_003E9__34_1;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			internal bool _003CRemoveNullValues_003Eb__33_0(KeyValuePair<long, UnityEngine.Object> pair)
+			{
+				return false;
+			}
 
-		3. Assembly Reconstruction has not been implemented.
+			internal long _003CRemoveNullValues_003Eb__33_1(KeyValuePair<long, UnityEngine.Object> pair)
+			{
+				return 0L;
+			}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			internal bool _003CRemoveNullOrInvalidValues_003Eb__34_0(KeyValuePair<long, UnityEngine.Object> pair)
+			{
+				return false;
+			}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			internal long _003CRemoveNullOrInvalidValues_003Eb__34_1(KeyValuePair<long, UnityEngine.Object> pair)
+			{
+				return 0L;
+			}
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private sealed class _003C_003Ec__DisplayClass31_0
+		{
+			public UnityEngine.Object obj;
 
-		5. Script Content Level 0
+			public Func<KeyValuePair<long, UnityEngine.Object>, bool> _003C_003E9__0;
 
-			AssetRipper was set to not load any script information.
+			internal bool _003CRemove_003Eb__0(KeyValuePair<long, UnityEngine.Object> kvp)
+			{
+				return false;
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private sealed class _003C_003Ec__DisplayClass32_0
+		{
+			public long referenceID;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			public Func<KeyValuePair<UnityEngine.Object, long>, bool> _003C_003E9__0;
 
-		7. An incorrect path was provided to AssetRipper.
+			internal bool _003CRemove_003Eb__0(KeyValuePair<UnityEngine.Object, long> kvp)
+			{
+				return false;
+			}
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		internal object _lock;
 
-		*/
+		public const string referencePropertyName = "_ES3Ref";
+
+		private static ES3ReferenceMgrBase _current;
+
+		private static HashSet<ES3ReferenceMgrBase> mgrs;
+
+		private static System.Random rng;
+
+		public bool openPrefabs;
+
+		public List<ES3Prefab> prefabs;
+
+		public ES3IdRefDictionary idRef;
+
+		private ES3RefIdDictionary _refId;
+
+		public static ES3ReferenceMgrBase Current => null;
+
+		public bool IsInitialised => false;
+
+		public ES3RefIdDictionary refId
+		{
+			get
+			{
+				return null;
+			}
+			set
+			{
+			}
+		}
+
+		public ES3GlobalReferences GlobalReferences => null;
+
+		public static ES3ReferenceMgrBase GetManagerFromScene(Scene scene)
+		{
+			return null;
+		}
+
+		private static void Init()
+		{
+		}
+
+		private void Awake()
+		{
+		}
+
+		private void OnDestroy()
+		{
+		}
+
+		public void Merge(ES3ReferenceMgrBase otherMgr)
+		{
+		}
+
+		public long Get(UnityEngine.Object obj)
+		{
+			return 0L;
+		}
+
+		internal UnityEngine.Object Get(long id, Type type, bool suppressWarnings = false)
+		{
+			return null;
+		}
+
+		public UnityEngine.Object Get(long id, bool suppressWarnings = false)
+		{
+			return null;
+		}
+
+		public ES3Prefab GetPrefab(long id, bool suppressWarnings = false)
+		{
+			return null;
+		}
+
+		public long GetPrefab(ES3Prefab prefabToFind, bool suppressWarnings = false)
+		{
+			return 0L;
+		}
+
+		public long Add(UnityEngine.Object obj)
+		{
+			return 0L;
+		}
+
+		public long Add(UnityEngine.Object obj, long id)
+		{
+			return 0L;
+		}
+
+		public bool AddPrefab(ES3Prefab prefab)
+		{
+			return false;
+		}
+
+		public void Remove(UnityEngine.Object obj)
+		{
+		}
+
+		public void Remove(long referenceID)
+		{
+		}
+
+		public void RemoveNullValues()
+		{
+		}
+
+		public void RemoveNullOrInvalidValues()
+		{
+		}
+
+		public void Clear()
+		{
+		}
+
+		public bool Contains(UnityEngine.Object obj)
+		{
+			return false;
+		}
+
+		public bool Contains(long referenceID)
+		{
+			return false;
+		}
+
+		public void ChangeId(long oldId, long newId)
+		{
+		}
+
+		internal static long GetNewRefID()
+		{
+			return 0L;
+		}
+
+		internal static bool CanBeSaved(UnityEngine.Object obj)
+		{
+			return false;
+		}
 	}
 }

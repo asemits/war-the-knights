@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Bold SDF - Drop Shadow
-  m_Shader: {fileID: 4800000, guid: e410f4cce076ccc4fbcc6e815ab801cf, type: 3}
+  m_Shader: {fileID: 4800000, guid: 91cf2bba20be1884b80fe0e33a7fadba, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -26,7 +26,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 94ae5416dd43b794fbe650e727b9a837, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2cb30d829eabed447ae1bcc2ec3c087a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

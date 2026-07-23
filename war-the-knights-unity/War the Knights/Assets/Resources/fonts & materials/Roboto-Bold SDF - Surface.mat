@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roboto-Bold SDF - Surface
-  m_Shader: {fileID: 4800000, guid: 04f34678ad647eb40b611d61c7b3cfe1, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5eb2d0a436cc7d44eadbcb4b6dd02eb5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 94ae5416dd43b794fbe650e727b9a837, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2cb30d829eabed447ae1bcc2ec3c087a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _OutlineTex:

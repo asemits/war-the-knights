@@ -1,63 +1,260 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using KinematicCharacterController;
 using UnityEngine;
 
-public class HorseMovement : MonoBehaviour
+public class HorseMovement : MonoBehaviour, ICharacterController
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CTakeFallDamageAtEndOfFrame_003Ed__75 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public HorseMovement _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		public float fallDistance;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		public Vector3 velocity;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		object IEnumerator<object>.Current => null;
 
-	3. Assembly Reconstruction has not been implemented.
+		object IEnumerator.Current => null;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		public _003CTakeFallDamageAtEndOfFrame_003Ed__75(int _003C_003E1__state)
+		{
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		void IDisposable.Dispose()
+		{
+		}
 
-	4. This script is unnecessary.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	5. Script Content Level 0
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		AssetRipper was set to not load any script information.
+	public KinematicCharacterMotor Motor;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public Animator horseAnim;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public float currentAnimMoveX;
 
-	7. An incorrect path was provided to AssetRipper.
+	public float currentAnimMoveZ;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public float animMoveX;
 
-	*/
+	public float animMoveZ;
+
+	private Vector3 _rootMotionPositionDelta;
+
+	public float ForwardAxisSharpness;
+
+	public float TurnAxisSharpness;
+
+	public float StableMovementSharpness;
+
+	public float OrientationSharpness;
+
+	public OrientationMethod OrientationMethod;
+
+	public float currentSpeedMultiplier;
+
+	private float highestPointDuringJump;
+
+	private float lastYPos;
+
+	private bool startedToLeaveGround;
+
+	public VehicleAttackHorse horseVehicle;
+
+	public Transform SwimmingReferencePoint;
+
+	public Transform CameraReferencePoint;
+
+	public LayerMask WaterLayer;
+
+	public LayerMask waterEnterDepthCheckLayerMask;
+
+	public Collider waterZone;
+
+	public float waterSpeed;
+
+	public float waterMovementSharpness;
+
+	public float waterOrientationSharpness;
+
+	public bool jumpOutOfWater;
+
+	public float MaxAirMoveSpeed;
+
+	public float AirAccelerationSpeed;
+
+	public float Drag;
+
+	public bool AllowJumpingWhenSliding;
+
+	public float JumpSpeed;
+
+	public float JumpPreGroundingGraceTime;
+
+	public float JumpPostGroundingGraceTime;
+
+	public bool OrientTowardsGravity;
+
+	public Vector3 Gravity;
+
+	public Transform MeshRoot;
+
+	public HorseState CurrentCharacterState;
+
+	private Collider[] _probedColliders;
+
+	public float movementSpeedLevel;
+
+	public float movementSpeedLevelTarget;
+
+	public float rotationSpeed;
+
+	public float movementSpeedTarget;
+
+	public float movementSpeed;
+
+	public float rotationSpeedLevelTarget;
+
+	private float rotationDirection;
+
+	private float _targetForwardAxis;
+
+	private float rotationDirectionTarget;
+
+	public bool _jumpRequested;
+
+	private bool _jumpConsumed;
+
+	private bool _jumpedThisFrame;
+
+	private float _timeSinceJumpRequested;
+
+	private float _timeSinceLastAbleToJump;
+
+	private Vector3 _internalVelocityAdd;
+
+	public float _verticalInput;
+
+	public float timeLastLanded;
+
+	private void Awake()
+	{
+	}
+
+	private void Start()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public void TransitionToState(HorseState newState)
+	{
+	}
+
+	public void OnStateEnter(HorseState state, HorseState fromState)
+	{
+	}
+
+	public void OnStateExit(HorseState state, HorseState toState)
+	{
+	}
+
+	public void SetInputs(ref PlayerCharacterInputs inputs)
+	{
+	}
+
+	public void BeforeCharacterUpdate(float deltaTime)
+	{
+	}
+
+	public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+	{
+	}
+
+	public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+	{
+	}
+
+	public void AfterCharacterUpdate(float deltaTime)
+	{
+	}
+
+	public void PostGroundingUpdate(float deltaTime)
+	{
+	}
+
+	public bool IsColliderValidForCollisions(Collider coll)
+	{
+		return false;
+	}
+
+	public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	public void OnDiscreteCollisionDetected(Collider hitCollider)
+	{
+	}
+
+	public void AddVelocity(Vector3 velocity)
+	{
+	}
+
+	public void ResetVelocity()
+	{
+	}
+
+	public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	protected void OnLanded()
+	{
+	}
+
+	private IEnumerator TakeFallDamageAtEndOfFrame(float fallDistance, Vector3 velocity)
+	{
+		return null;
+	}
+
+	protected void OnLeaveStableGround()
+	{
+	}
+
+	public void OnJump()
+	{
+	}
+
+	public void UpdateRootMotionDelta(Vector3 deltaPos, Quaternion deltaRot)
+	{
+	}
+
+	private void OnEnable()
+	{
+	}
 }

@@ -1,63 +1,323 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using KinematicCharacterController;
 using UnityEngine;
 
-public class VehicleAttackHorse : MonoBehaviour
+public class VehicleAttackHorse : VehicleBase
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CChainAttack_003Ed__71 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public VehicleAttackHorse _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		private float _003Ctimer_003E5__2;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		object IEnumerator<object>.Current => null;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		object IEnumerator.Current => null;
 
-	3. Assembly Reconstruction has not been implemented.
+		public _003CChainAttack_003Ed__71(int _003C_003E1__state)
+		{
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		void IDisposable.Dispose()
+		{
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-	4. This script is unnecessary.
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-	5. Script Content Level 0
+	private sealed class _003CStopMovement_003Ed__76 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-		AssetRipper was set to not load any script information.
+		private object _003C_003E2__current;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+		public VehicleAttackHorse _003C_003E4__this;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public float duration;
 
-	7. An incorrect path was provided to AssetRipper.
+		object IEnumerator<object>.Current => null;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+		object IEnumerator.Current => null;
 
-	*/
+		public _003CStopMovement_003Ed__76(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	public bool isAiming;
+
+	public bool isCharging;
+
+	public Transform enterPosLeft;
+
+	public Transform enterPosRight;
+
+	private Vector3 moveInputVector;
+
+	public HorseMovementSpeeds horseMovementSpeed;
+
+	private const string HorizontalInput = "Horizontal";
+
+	private const string VerticalInput = "Vertical";
+
+	public HorseMovement horseMovement;
+
+	public KinematicCharacterMotor motor;
+
+	public LayerMask groundOrientationLayerMask;
+
+	public Transform groundOrientationRaycastPositionFront;
+
+	public Transform groundOrientationRaycastPositionMid;
+
+	public Transform groundOrientationRaycastPositionBack;
+
+	public AudioSource footstepAudioSource;
+
+	private bool isGrounded;
+
+	private Collider currentGroundCollider;
+
+	public Transform horseVisualTransform;
+
+	private Coroutine ChainAttackCoroutine;
+
+	private HealthBase lastHitTarget;
+
+	private float lastHitTargetTime;
+
+	private float navmeshCheckTimer;
+
+	public AITarget horseAttackTarget;
+
+	private bool isAttackRunning;
+
+	private float attackRunStartedTime;
+
+	private float attackRunDuration;
+
+	public Vector3 attackRunTarget;
+
+	private float targetXRotationToApply;
+
+	private float horseDestinationChangeSetTimer;
+
+	private float horseDestinationChangeToStandingSetTimer;
+
+	private bool horseWaitToChangeDestination;
+
+	private float agentSpeedTarget;
+
+	private float agentRotationSpeed;
+
+	private float agentRotationSpeedTarget;
+
+	public static readonly float speedTrotForwards;
+
+	public static readonly float speedTrotBackwards;
+
+	public static readonly float speedGallop;
+
+	public static readonly float speedSprint;
+
+	public bool isSwimming;
+
+	public bool movementStopped;
+
+	private Coroutine stopMovementCoroutine;
+
+	public float overrideMovementSpeed;
+
+	public float overrideRotationSpeed;
+
+	public override bool OnPlayerEnterVehicle(int seat)
+	{
+		return false;
+	}
+
+	public override void OnPlayerExitVehicle(int seat, bool ragdoll)
+	{
+	}
+
+	public override void OnBotEnterVehicle(int seat)
+	{
+	}
+
+	public override void OnBotExitVehicle(int seat)
+	{
+	}
+
+	public override void OnSpawnAndRespawn(Vector3 spawnPos, Quaternion spawnRot)
+	{
+	}
+
+	public override void OnDestroyed()
+	{
+	}
+
+	public override void OnStartRagdoll()
+	{
+	}
+
+	public override void OnStopRagdoll()
+	{
+	}
+
+	public override void OnTakeDamage(float damage, DamageTypes damageType, Vector3 hitPoint)
+	{
+	}
+
+	public override void OnCollisionTriggerEnter(Collider other, Vector3 forceOrigin)
+	{
+	}
+
+	public override void OnBotAttackTriggerEnter(Collider other, Vector3 forceOrigin)
+	{
+	}
+
+	public override AITarget BotFindNewTarget(AITarget bot)
+	{
+		return null;
+	}
+
+	public override Vector3 GetEnterPos(Vector3 currentPos)
+	{
+		return default(Vector3);
+	}
+
+	public override Vector3 GetExitPos(int seat)
+	{
+		return default(Vector3);
+	}
+
+	public override Vector3 GetCurrentVelocity()
+	{
+		return default(Vector3);
+	}
+
+	public void ResetStates()
+	{
+	}
+
+	public override void StartExtended()
+	{
+	}
+
+	public void BotFindTarget()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public bool RotatedToGroundTarget()
+	{
+		return false;
+	}
+
+	public void PlayerChargeEmote()
+	{
+	}
+
+	public bool CanAttackCheck(AITarget bot)
+	{
+		return false;
+	}
+
+	public void Attack(bool left)
+	{
+	}
+
+	public void HorseApproachDestination()
+	{
+	}
+
+	public void HorseRunAway()
+	{
+	}
+
+	public void HorseWaitToChangeDestination(float minWait, float maxWait)
+	{
+	}
+
+	public void Bot_FindTarget()
+	{
+	}
+
+	public void Bot_Attack(AITarget bot, bool left, bool attack)
+	{
+	}
+
+	public IEnumerator ChainAttack()
+	{
+		return null;
+	}
+
+	public override void PlayDriverAnim(int anim, bool allPasssengers)
+	{
+	}
+
+	private void Sprint(Vector3 movement)
+	{
+	}
+
+	public void SetNavmeshSpeed(bool botControlled)
+	{
+	}
+
+	public void StopMovementForDuration(float duration, float movementSpeed, float rotationSpeed)
+	{
+	}
+
+	private IEnumerator StopMovement(float duration)
+	{
+		return null;
+	}
+
+	public void SetCurrentControlState(bool controlled, bool useNavmesh)
+	{
+	}
+
+	public void PlayFootstepAudio(int speedLevel)
+	{
+	}
 }

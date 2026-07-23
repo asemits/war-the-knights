@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bangers SDF Logo
-  m_Shader: {fileID: 4800000, guid: 6a96b41c2f91e82439dcd5a116bec605, type: 3}
+  m_Shader: {fileID: 4800000, guid: cf6277805462da54998d4e3360a90dd1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -33,15 +33,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _FaceTex:
-        m_Texture: {fileID: 2800000, guid: bbd5ba7e0445bfb45b3f3ab469d1700b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 031820c880ba5f347acabaa05d55864f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: f03a76a4dd2641041adf6a315acfedd8, type: 3}
+        m_Texture: {fileID: 2800000, guid: e52f547fec25ccb4299582274f2e73c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _OutlineTex:
-        m_Texture: {fileID: 2800000, guid: 50d8e6e2d6d901949bfa80db6cde437c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 745dc2ad9d6d37c4fa2ba9419a7707e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

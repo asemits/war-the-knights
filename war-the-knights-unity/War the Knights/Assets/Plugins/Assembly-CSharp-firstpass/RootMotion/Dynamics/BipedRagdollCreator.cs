@@ -1,66 +1,117 @@
+using System;
 using UnityEngine;
 
 namespace RootMotion.Dynamics
 {
-	public class BipedRagdollCreator : MonoBehaviour
+	public class BipedRagdollCreator : RagdollCreator
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[Serializable]
+		public struct Options
+		{
+			public float weight;
 
-		1. No dll files were provided to AssetRipper.
+			public bool spine;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public bool chest;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public bool hands;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			public bool feet;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			public JointType joints;
 
-		3. Assembly Reconstruction has not been implemented.
+			public float jointRange;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			public float colliderLengthOverlap;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			public ColliderType torsoColliders;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public ColliderType headCollider;
 
-		5. Script Content Level 0
+			public ColliderType armColliders;
 
-			AssetRipper was set to not load any script information.
+			public ColliderType handColliders;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			public ColliderType legColliders;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			public ColliderType footColliders;
 
-		7. An incorrect path was provided to AssetRipper.
+			public static Options Default => default(Options);
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public bool canBuild;
 
-		*/
+		public BipedRagdollReferences references;
+
+		public Options options;
+
+		private void OpenUserManual()
+		{
+		}
+
+		private void OpenScriptReference()
+		{
+		}
+
+		private void OpenTutorial()
+		{
+		}
+
+		public static Options AutodetectOptions(BipedRagdollReferences r)
+		{
+			return default(Options);
+		}
+
+		public static void Create(BipedRagdollReferences r, Options options)
+		{
+		}
+
+		private static void CreateColliders(BipedRagdollReferences r, Options options)
+		{
+		}
+
+		private static void CreateHandCollider(Transform hand, Transform lowerArm, Transform root, Options options)
+		{
+		}
+
+		private static void CreateFootCollider(Transform foot, Transform lowerLeg, Transform upperLeg, Transform root, Options options)
+		{
+		}
+
+		private static Vector3 GetChildCentroid(Transform t, Vector3 fallback)
+		{
+			return default(Vector3);
+		}
+
+		private static void MassDistribution(BipedRagdollReferences r, Options o)
+		{
+		}
+
+		private static void CreateJoints(BipedRagdollReferences r, Options o)
+		{
+		}
+
+		private static void CreateLimbJoints(Transform connectedBone, Transform bone1, Transform bone2, Transform bone3, Transform root, Vector3 defaultWorldDirection, JointType jointType, CreateJointParams.Limits limits1, CreateJointParams.Limits limits2, CreateJointParams.Limits limits3)
+		{
+		}
+
+		public static void ClearBipedRagdoll(BipedRagdollReferences r)
+		{
+		}
+
+		public static bool IsClear(BipedRagdollReferences r)
+		{
+			return false;
+		}
+
+		private static Vector3 GetUpperArmToHeadCentroid(BipedRagdollReferences r)
+		{
+			return default(Vector3);
+		}
+
+		private static Vector3 GetUpperArmCentroid(BipedRagdollReferences r)
+		{
+			return default(Vector3);
+		}
 	}
 }

@@ -1,63 +1,411 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : WeaponBase
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CDisableScope_003Ed__101 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public Gun _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		object IEnumerator<object>.Current => null;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		object IEnumerator.Current => null;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public _003CDisableScope_003Ed__101(int _003C_003E1__state)
+		{
+		}
 
-	3. Assembly Reconstruction has not been implemented.
+		void IDisposable.Dispose()
+		{
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	4. This script is unnecessary.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	private sealed class _003CWaitForFireAnim_003Ed__102 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	5. Script Content Level 0
+		private object _003C_003E2__current;
 
-		AssetRipper was set to not load any script information.
+		public Gun _003C_003E4__this;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+		object IEnumerator<object>.Current => null;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		object IEnumerator.Current => null;
 
-	7. An incorrect path was provided to AssetRipper.
+		public _003CWaitForFireAnim_003Ed__102(int _003C_003E1__state)
+		{
+		}
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+		void IDisposable.Dispose()
+		{
+		}
 
-	*/
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	public WeaponGun weapon;
+
+	public float equipAnimPercentageTilAbleToAttack;
+
+	public bool outOfAmmo;
+
+	public bool autoReloadOnEquip;
+
+	public bool canReloadWhilstAiming;
+
+	public bool stoppedShooting;
+
+	public bool dontShowReloadWarning;
+
+	public bool hasAmmoObject;
+
+	private GameObject ammoObject;
+
+	private GameObject ammoObjectSpecialAmmo;
+
+	public AmmoSpawn ammoSpawnPosition;
+
+	public Transform customAmmoSpawnPosition;
+
+	public bool hasOutOfAmmoAnimation;
+
+	public bool usingSpecialAmmo;
+
+	public int specialAmmo;
+
+	public float fireRateTimer;
+
+	public bool isAkimbo;
+
+	public bool akimboReady;
+
+	public bool akimboIsLeftGun;
+
+	public bool canCharge;
+
+	public ChargeType chargeType;
+
+	public bool chargeTimeByAnimation;
+
+	public float chargeTime;
+
+	public float chargeTimeProgress;
+
+	public bool stoppedCharging;
+
+	public bool hasRecoil;
+
+	public RecoilProfile recoilProfile;
+
+	public bool hasAnimRecoil;
+
+	public RecoilTypes animRecoilType;
+
+	public bool hasCameraShake;
+
+	public CameraShakeType cameraShakeType;
+
+	public WeaponRangedEquipSounds equipSound;
+
+	public AudioClip customEquipSound;
+
+	public WeaponRangedAttackSounds attackSound;
+
+	public AudioClip customAttackSound;
+
+	public bool randomizeAttackSoundPitch;
+
+	public WeaponRangedChargeSounds chargeSound;
+
+	public AudioClip customChargeSound;
+
+	public WeaponReloadSounds reloadSound;
+
+	public AudioClip customReloadSound;
+
+	public WeaponAimSounds aimSound;
+
+	public AudioClip customAimSound;
+
+	public WeaponAimStopSounds aimStopSound;
+
+	public AudioClip customAimStopSound;
+
+	public WeaponReload2Sounds reload2Sound;
+
+	public AudioClip customReload2Sound;
+
+	public AudioClip[] customAdditionalSounds;
+
+	public ParticleSystem[] muzzleParticles;
+
+	public bool hasTrail;
+
+	public GameObject trailPrefab;
+
+	public GameObject trailOrigin;
+
+	public bool trailOnlyWhenAimed;
+
+	public float aimMovementMultiplier;
+
+	public bool hasAimZoom;
+
+	public float zoomFovRatio;
+
+	public int zoomFovWeapon;
+
+	public bool instantAimZoom;
+
+	public CrosshairShowType crosshairShowType;
+
+	public WeaponScopes scope;
+
+	public MeshRenderer[] weaponParts;
+
+	private bool isInScope;
+
+	public int projectileSpeedOrImpactForce;
+
+	public int maxPenetrationsAmount;
+
+	public float maxPenetrationLengthSquared;
+
+	public bool hasProjectile;
+
+	public ProjectileType projectileType;
+
+	public GameObject customProjectile;
+
+	public GameObject customProjectileVisual;
+
+	public bool isAutomatic;
+
+	public bool isBoltAction;
+
+	private bool fired;
+
+	private static readonly RaycastHit[] enemyHits;
+
+	private static readonly RaycastHit[] enemyHitExits;
+
+	private static readonly WaitForSeconds WaitForUnscopeTimer;
+
+	public override void PlayerStart()
+	{
+	}
+
+	public override void BotStart()
+	{
+	}
+
+	private void SetSounds()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public override void BotAttack()
+	{
+	}
+
+	public override void BotCancelAttack()
+	{
+	}
+
+	public void BotReload()
+	{
+	}
+
+	public float GetFireRateTimer()
+	{
+		return 0f;
+	}
+
+	public float GetFireRate()
+	{
+		return 0f;
+	}
+
+	public bool IsReloading()
+	{
+		return false;
+	}
+
+	public void TryToReload()
+	{
+	}
+
+	public bool IsFiring()
+	{
+		return false;
+	}
+
+	public bool IsFiringNextState()
+	{
+		return false;
+	}
+
+	public bool CanShoot(bool startToShoot)
+	{
+		return false;
+	}
+
+	public void Shoot()
+	{
+	}
+
+	public void StartAiming()
+	{
+	}
+
+	public void StopAiming()
+	{
+	}
+
+	public void StopCharging(bool playIdleAnim)
+	{
+	}
+
+	public void StopReload()
+	{
+	}
+
+	public void Reload()
+	{
+	}
+
+	public void ReloadAkimbo()
+	{
+	}
+
+	public void ReloadBullet()
+	{
+	}
+
+	public void CheckReloadProgressAfterReloadingBullet()
+	{
+	}
+
+	public void CallbackToAkimboManagerAfterFinishingReload()
+	{
+	}
+
+	public void GunReadyWhenEquippingOrReloading()
+	{
+	}
+
+	public void ReloadAllAmmo()
+	{
+	}
+
+	public void ToggleScope()
+	{
+	}
+
+	public IEnumerator DisableScope()
+	{
+		return null;
+	}
+
+	public IEnumerator WaitForFireAnim()
+	{
+		return null;
+	}
+
+	public void CheckAmmo()
+	{
+	}
+
+	public void SetSpecialAmmo(WeaponGadget ammoType, bool playAnim)
+	{
+	}
+
+	public void SetSpecialAmmoLook()
+	{
+	}
+
+	public void SetSpecialAmmoLookOnly()
+	{
+	}
+
+	public void PlayCustomAdditionalWeaponSound(int sound)
+	{
+	}
+
+	public void ShowFlash()
+	{
+	}
+
+	public void ConsumeAmmo()
+	{
+	}
+
+	public void UpdateAmmo()
+	{
+	}
+
+	public void ShowAmmoObject()
+	{
+	}
+
+	public void HideAmmoObject()
+	{
+	}
+
+	private void OnDestroy()
+	{
+	}
+
+	public void UnequipDone()
+	{
+	}
+
+	public void UnequipFastDone()
+	{
+	}
+
+	public override void BlockHit(bool breakBlock)
+	{
+	}
+
+	public override void Kick()
+	{
+	}
 }

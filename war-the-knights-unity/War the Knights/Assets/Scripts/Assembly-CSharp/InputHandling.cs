@@ -1,63 +1,364 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using KinematicCharacterController;
 using UnityEngine;
 
 public class InputHandling : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private enum ClimbStates
+	{
+		Climb = 0,
+		Slide = 1
+	}
 
-	1. No dll files were provided to AssetRipper.
+	private sealed class _003CClimbCooldown_003Ed__61 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		private object _003C_003E2__current;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		public InputHandling _003C_003E4__this;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		private Vector3 _003CpositionToMoveTo_003E5__2;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		object IEnumerator<object>.Current => null;
 
-	3. Assembly Reconstruction has not been implemented.
+		object IEnumerator.Current => null;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		public _003CClimbCooldown_003Ed__61(int _003C_003E1__state)
+		{
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		void IDisposable.Dispose()
+		{
+		}
 
-	4. This script is unnecessary.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	5. Script Content Level 0
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		AssetRipper was set to not load any script information.
+	private sealed class _003CCrouchSlide_003Ed__58 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+		private object _003C_003E2__current;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public InputHandling _003C_003E4__this;
 
-	7. An incorrect path was provided to AssetRipper.
+		private float _003Ctimer_003E5__2;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+		private Vector3 _003CoriginalDirection_003E5__3;
 
-	*/
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CCrouchSlide_003Ed__58(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	private sealed class _003CDash_003Ed__57 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public InputHandling _003C_003E4__this;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CDash_003Ed__57(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	private sealed class _003CSmoothMoveTowardsGoalCoroutine_003Ed__69 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public InputHandling _003C_003E4__this;
+
+		public bool leaveLadder;
+
+		public bool ladder;
+
+		public bool rotateCamera;
+
+		private Vector3 _003CcurrentPos_003E5__2;
+
+		private Vector3 _003CcurrentRot_003E5__3;
+
+		private float _003Cduration_003E5__4;
+
+		private bool _003CbehindLadder_003E5__5;
+
+		private bool _003CleftOfLadder_003E5__6;
+
+		private float _003CnormalizedTime_003E5__7;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CSmoothMoveTowardsGoalCoroutine_003Ed__69(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	public Transform mainCamera;
+
+	public Transform _transform;
+
+	public PlayerMovement playerMovement;
+
+	public KinematicCharacterMotor motor;
+
+	private Vector3 _moveInputVector;
+
+	private const string HorizontalInput = "Horizontal";
+
+	private const string VerticalInput = "Vertical";
+
+	public Animator cameraAnimation;
+
+	public LayerMask climbBoxLayerMask;
+
+	public LayerMask playerSphereLayerMask;
+
+	private Vector3 playerBoxSize;
+
+	private Vector3 playerSlideBoxSize;
+
+	public Mesh boxMesh;
+
+	private RaycastHit hitClimb;
+
+	private RaycastHit hitSlide;
+
+	public bool ableToDash;
+
+	public AnimationCurve slideSpeedCurve;
+
+	public Vector3 coolMoveDirection;
+
+	public bool ableToDoACoolMove;
+
+	public AnimationCurve crouchSlideSpeedCurve;
+
+	private Coroutine crouchSlideCoroutine;
+
+	private Coroutine climbCoroutine;
+
+	private float timeWhenLastStoppedSprinting;
+
+	private bool hasStoppedSprinting;
+
+	public Transform enemyFinishPosition;
+
+	public bool checkClimb;
+
+	public bool checkSlide;
+
+	public float climbMaxY;
+
+	public float climbMinY;
+
+	public float climbForwardCheckLength;
+
+	public bool canClimb;
+
+	private float climbHeightOffset;
+
+	private Transform smoothMoveTowardsGoalTransform;
+
+	private Vector3 smoothMoveTowardsGoalRelativePosition;
+
+	private Coroutine smoothMoveTowardsGoalCoroutine;
+
+	private Ladder ladder;
+
+	public float ladderClimbRatio;
+
+	public bool canMoveOnLadder;
+
+	public float slideMaxY;
+
+	public float slideMinY;
+
+	public float slideForwardCheckLength;
+
+	public float slideBackCheckStartDistance;
+
+	public LayerMask wallrunLayerMask;
+
+	public RaycastHit wallHit;
+
+	public Vector3 wallHitForward;
+
+	public bool cameraCrouching;
+
+	public bool cameraStandingUp;
+
+	private static readonly WaitForSeconds WaitForDashFinishTimer;
+
+	private static readonly WaitForSeconds WaitForDashCooldownTimer;
+
+	private float weaponParentMovementDirection;
+
+	private float weaponParentMovementDirectionVelocity;
+
+	public bool HasStoppedSprinting
+	{
+		get
+		{
+			return false;
+		}
+		set
+		{
+		}
+	}
+
+	private void Update()
+	{
+	}
+
+	private void HandleCharacterInput()
+	{
+	}
+
+	private IEnumerator Dash()
+	{
+		return null;
+	}
+
+	private IEnumerator CrouchSlide()
+	{
+		return null;
+	}
+
+	public void StopCrouchSliding(bool stopCrouch)
+	{
+	}
+
+	private void CheckForClimbable()
+	{
+	}
+
+	private IEnumerator ClimbCooldown()
+	{
+		return null;
+	}
+
+	private void Disable_Move_Enable_CharacterAfterJump(ClimbStates state)
+	{
+	}
+
+	public bool AbleToSprint()
+	{
+		return false;
+	}
+
+	private void Sprint(Vector3 movement)
+	{
+	}
+
+	public void PlayCameraAnim()
+	{
+	}
+
+	public void SmoothMoveTowardsVehicle(Transform goalTransform, Vector3 goalRelativePosition)
+	{
+	}
+
+	public void SmoothMoveTowardsLadder(Ladder ladder)
+	{
+	}
+
+	public void LeaveLadder()
+	{
+	}
+
+	private IEnumerator SmoothMoveTowardsGoalCoroutine(bool rotateCamera, bool ladder, bool leaveLadder)
+	{
+		return null;
+	}
+
+	public void StopCoroutinesAndResetSomeStates()
+	{
+	}
 }

@@ -436,6 +436,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9335ad7ae47c4912e6b9fd02086a4d1b, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  respawnDuration: 20
+  vehicleName: 2
+  customVehicleName:
+  health: {fileID: 114632457200066912}
+  vehicleTarget: {fileID: 114634108722742392}
+  camTarget: {fileID: 4291844617409189}
+  controlledByPlayer: 0
+  controlledByBot: 0
+  seats:
+  - seatPosition: {fileID: 4587397909062814}
+    seatType: 0
+    emoteType: 0
+    keepWeaponsEquipped: 0
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 0
+    verticalRotationObject: {fileID: 0}
+  seatsReserved: []
+  seatsOccupied:
+  freeSeat: -1
+  vehicleType: 2
+  canChaseTargets: 0
+  loyalVehicle: 0
+  playerReserved: 0
+  onlyUseableByBotsWithMeleeWeapon: 0
+  emptyVehicle: 0
+  _transform: {fileID: 4313026266067498}
+  enterDistance: 1
+  enterDistanceSquared: 9
+  awarenessDistance: 25
+  agent: {fileID: 0}
+  currentMovementDestination: {x: 0, y: 0, z: 0}
+  destinationUpdateFrequency: 0
+  destinationUpdateFrequencyTimer: 0
+  obstacle: {fileID: 0}
+  triggerCollider: {fileID: 0}
+  crosshair: 7
+  hasCharacterControllerCollider: 0
+  characterControllerCollider: {fileID: 0}
+  findTargetOverride: 0
+  vehicleCollisionTriggers: []
+  anySeatReserved: 0
+  enterPos: {fileID: 4587397909062814}
+  anim: {fileID: 95694121525821480}
+  rotateY: {fileID: 4642988549198181}
+  rotateX: {fileID: 0}
+  projectileSpawn: {fileID: 4841364053301648}
+  projectilePrefab: {fileID: 1709254077376921, guid: aa1d5be8a3a951546bbb425096d18c46, type: 2}
+  visualProjectilePrefab: {fileID: 1709254077376921, guid: 115ec44e4381cec44a0e16abc4c8340d, type: 2}
+  damage: 350
+  fireRateMin: 5
+  fireRateMax: 6
+  fireRateTimer: 0
+  pointToAttack: {x: 0, y: 0, z: 0}
+  flyDirection: {x: 0, y: 0, z: 0}
+  isReloaded: 0
+  botThatShot: {fileID: 0}
 --- !u!114 &114632457200066912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -448,6 +504,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e3260e3521064a1c0d200582b0ee1, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentHealth: 150
+  maxHealth: 150
+  alliance: {fileID: 0}
+  lastDamageSource: {fileID: 0}
+  defeated: 0
+  meshRendererToPlayFireEffectOn: {fileID: 23107629493147155}
+  meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOn: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated: {fileID: 0}
+  objectToEmitFireLightFrom: {fileID: 0}
+  objectToEmitFireLightFromWhenRagdolledOrDestroyed: {fileID: 0}
+  fireDamageSource: {fileID: 0}
+  fireDamageBuildup: 0
+  isOnFire: 0
+  colliders:
+  - {fileID: 65518489005915545}
+  - {fileID: 65946936116752871}
+  hitboxes:
+  - {fileID: 114711914853252429}
+  - {fileID: 114220653531496868}
+  destroyInsteadOfKillInKillfeed: 1
+  onDestroyDriverAction: 0
+  takeLessMeleeDamageIfHasDriver: 0
+  spawnPos: {x: 0, y: 0, z: 0}
+  spawnRot: {x: 0, y: 0, z: 0, w: 0}
+  damageTakenFromTarget: 0
+  ragdoll: {fileID: 0}
+  ignoreCollisionWithPlayerMovementHitboxes: []
+  hitHitbox: {fileID: 0}
+  mainHitbox: {fileID: 114711914853252429}
+  spine: {fileID: 0}
+  vehicle: {fileID: 114621510681728303}
+  aiTarget: {fileID: 114634108722742392}
+  vehicleParts:
+  - aliveVersion: {fileID: 1618682377417806}
+    destroyedVersion: {fileID: 1705390221481576}
+  changeLayerOnDestroy: 0
+  hasGetHitAnimation: 0
+  canRagdoll: 0
+  teamColoredBlood: 0
+  vehicleBreakAudioSource: {fileID: 0}
+  vehicleBreakSound: 0
+  customVehicleBreakSound: {fileID: 0}
+  enterInteraction:
+  - {fileID: 65574304967836189}
+  canBurn: 1
 --- !u!114 &114634108722742392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +562,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187c53facf95dcb22569679552b87a16, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  aiTargetName: Catapult
+  alive: 1
+  currentTarget: {fileID: 0}
+  attackable: {fileID: 0}
+  currentAttackBehavior: 0
+  currentAttackBehaviorIsAttack: 0
+  combatBehavior: 0
+  vehicleAttackable: 0
+  isPlayer: 0
+  ragdoll: {fileID: 0}
+  playerHealth: {fileID: 0}
+  behaviorBase: {fileID: 0}
+  behaviorBot: {fileID: 0}
+  botHealth: {fileID: 0}
+  healthBase: {fileID: 114632457200066912}
+  isVehicle: 1
+  vehicleHealth: {fileID: 114632457200066912}
+  alliance: {fileID: 114302127217294661}
+  baseCollider: {fileID: 0}
+  _transform: {fileID: 4313026266067498}
+  botAttackPointL1: {fileID: 0}
+  botAttackPointL2: {fileID: 0}
+  botAttackPointR1: {fileID: 0}
+  botAttackPointR2: {fileID: 0}
+  hasAttackPoints: 0
+  botAttackPointL1XPos: 0
+  botAttackPointL2XPos: 0
+  botAttackPointR1XPos: 0
+  botAttackPointR2XPos: 0
+  botAttackPointLXPosSideThreshold: 0
+  botAttackPointRXPosSideThreshold: 0
+  botAttackPointLXPosBackSideThreshold: 0
+  botAttackPointRXPosBackSideThreshold: 0
+  helmetParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  helmetPrefab: {fileID: 0}
+  helmet:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  hair:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  quiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  boltQuiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  classAccessoire:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  currentObjectivePoint: {fileID: 0}
+  capturePointDestination: {x: 0, y: 0, z: 0}
+  attackPoint: 0
+  currentVehicle: {fileID: 0}
+  vehicleBehavior: 0
+  isUsingVehicle: 0
+  vehicleSeatIndex: 0
+  vehicleSeat:
+    seatPosition: {fileID: 0}
+    seatType: 0
+    emoteType: 0
+    keepWeaponsEquipped: 0
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 0
+    verticalRotationObject: {fileID: 0}
+  scoreboardData:
+    botName:
+    botScore: 0
+    botKills: 0
+    botDeaths: 0
+    botSupport: 0
+    botObjective: 0
+    isPlayer: 0
+    teamPlace: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
+  cachedRotation: {x: 0, y: 0, z: 0, w: 0}
+  cachedForward: {x: 0, y: 0}
+  forwardCached: 0
+  cachedBestTarget: 0
+  bestPossibleTarget: {fileID: 0}
+  bestPossibleTargetVisibilityScore: 0
+  bestPossibleAttackBehavior: 0
+  cachedAbleToFindNewTarget: 0
 --- !u!114 &114302127217294661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e374a8d8293dd3b59367a70ec76907, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  team1: 1
+  currentPoint: {fileID: 0}
 --- !u!208 &208969106005120503
 NavMeshObstacle:
   serializedVersion: 3
@@ -515,7 +704,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730242686860875}
-  m_Material: {fileID: 13400000, guid: a75dc8d917b9d244c92040a8eb6bd7b4, type: 2}
+  m_Material: {fileID: 13400000, guid: 0ee8dede3a1fa3444a3d0eded295e92a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -540,6 +729,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 1
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 0}
+  transformRagdollOrAnimatedCounterpart: {fileID: 0}
+  isRagdollHitbox: 0
+  health: {fileID: 114632457200066912}
+  meleeResistance: 0
+  projectileResistance: 1
+  fireResistance: 0
+  explosionResistance: 0.5
+  impactForceResistance: 0.3
+  kickResistance: 0.5
 --- !u!54 &54918264173551851
 Rigidbody:
   serializedVersion: 4
@@ -630,7 +834,7 @@ Animator:
   m_GameObject: {fileID: 1703437598541787}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55ea0c29a8c2a684b8cfc1827e7bb827, type: 2}
+  m_Controller: {fileID: 9100000, guid: 168bb62ad5318a443b55c7f965464c5d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -653,6 +857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db3351e991dc5b1d525425e9e35b94a, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  catapult: {fileID: 114621510681728303}
 --- !u!4 &4017697238300914
 Transform:
   serializedVersion: 2
@@ -676,7 +881,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884547391421755}
-  m_Mesh: {fileID: 4300000, guid: 3d35d3fc0b9e251439846450952bb320, type: 2}
+  m_Mesh: {fileID: 4300000, guid: d6c551a2ac906664b812b875e35b35fd, type: 2}
 --- !u!23 &23217368724061974
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -697,8 +902,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 053ad368c8a44a84da111d566aaf993e, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
+  - {fileID: 2100000, guid: 88802a4a6a7c01d4d918962c5df2eb4a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -756,7 +961,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 053ad368c8a44a84da111d566aaf993e, type: 2}
+  - {fileID: 2100000, guid: 88802a4a6a7c01d4d918962c5df2eb4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -851,6 +1056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf624f9e4c0597df9095137399417c3a, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  lineRenderer: {fileID: 120672306508523268}
+  startPos: {fileID: 4089843903986396}
+  endPos: {fileID: 4967328832014496}
 --- !u!4 &4060945828524476
 Transform:
   serializedVersion: 2
@@ -876,7 +1084,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243736805655561}
-  m_Mesh: {fileID: 4300000, guid: 4aef52af5f054dd49a821819f3775367, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 57d9e8a8866fa904283470c6d140c6a6, type: 2}
 --- !u!23 &23472185465350827
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -897,10 +1105,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
-  - {fileID: 2100000, guid: 053ad368c8a44a84da111d566aaf993e, type: 2}
-  - {fileID: 2100000, guid: fe33ec0438fc1ef40bfd050f9e89601e, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
+  - {fileID: 2100000, guid: 88802a4a6a7c01d4d918962c5df2eb4a, type: 2}
+  - {fileID: 2100000, guid: 2c2e83b08b3bee74c9d7fd646d2c0802, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -930,7 +1138,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243736805655561}
-  m_Material: {fileID: 13400000, guid: a75dc8d917b9d244c92040a8eb6bd7b4, type: 2}
+  m_Material: {fileID: 13400000, guid: 0ee8dede3a1fa3444a3d0eded295e92a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -955,6 +1163,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 1
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 0}
+  transformRagdollOrAnimatedCounterpart: {fileID: 0}
+  isRagdollHitbox: 0
+  health: {fileID: 114632457200066912}
+  meleeResistance: 1
+  projectileResistance: 0.5
+  fireResistance: 0.3
+  explosionResistance: 0.5
+  impactForceResistance: 1
+  kickResistance: 0
 --- !u!4 &4841364053301648
 Transform:
   serializedVersion: 2
@@ -1022,7 +1245,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044625135789424}
-  m_Mesh: {fileID: 4300000, guid: 1c6895862a3a456448352a2b550b78c4, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 395996b8caee54243942448c55aea4e7, type: 2}
 --- !u!23 &23107629493147155
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1043,7 +1266,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e2720d739075ee46b6856cae4110542, type: 2}
+  - {fileID: 2100000, guid: 5ceeb9e1a0de7514e99870e589bfc518, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1087,7 +1310,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589667821646929}
-  m_Mesh: {fileID: 4300000, guid: b31c31281990318478bcb8de7e9a91ce, type: 2}
+  m_Mesh: {fileID: 4300000, guid: c9c237abddd8b664bafbaed5132ee0fd, type: 2}
 --- !u!23 &23719342369648492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1108,8 +1331,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1153,7 +1376,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372920208702427}
-  m_Mesh: {fileID: 4300000, guid: a859d24adcf56da44811dfda9feedbe5, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 85373409942d0b84f8c5d0a8a43f1208, type: 2}
 --- !u!23 &23693329660128220
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1174,8 +1397,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1219,7 +1442,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025901758691103}
-  m_Mesh: {fileID: 4300000, guid: f3edc76bc18ff024cad52f94058f9442, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 1ecbc1c05ccccdd409183208ef3cd1ea, type: 2}
 --- !u!23 &23397768327470545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1240,8 +1463,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1285,7 +1508,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985305603660343}
-  m_Mesh: {fileID: 4300000, guid: 453290c0b93110a42afd4017499a9d20, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 70ad61e11c3d8e244b4830d96c1522c1, type: 2}
 --- !u!23 &23477046003934300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1306,8 +1529,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
-  - {fileID: 2100000, guid: c5906f75afc622549882f993ee7354cc, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
+  - {fileID: 2100000, guid: ceafebce0362ab04c8db138d6b91c19c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1722,3 +1945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa1f010942f4b9063bf488db6d69975, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  showInteractionTip: 1
+  interactableName:
+  interactionTip:
+    UseTip:
+    UseName:
+  vehicle: {fileID: 114621510681728303}

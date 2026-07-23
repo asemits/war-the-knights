@@ -1,63 +1,134 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBase : MonoBehaviour
+public abstract class HealthBase : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CFireDamageOverTime_003Ed__41 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public HealthBase _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		object IEnumerator<object>.Current => null;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		object IEnumerator.Current => null;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public _003CFireDamageOverTime_003Ed__41(int _003C_003E1__state)
+		{
+		}
 
-	3. Assembly Reconstruction has not been implemented.
+		void IDisposable.Dispose()
+		{
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	4. This script is unnecessary.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public float currentHealth;
 
-	5. Script Content Level 0
+	public float maxHealth;
 
-		AssetRipper was set to not load any script information.
+	public AIAlliance alliance;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public AITarget lastDamageSource;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public bool defeated;
 
-	7. An incorrect path was provided to AssetRipper.
+	public MeshRenderer meshRendererToPlayFireEffectOn;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public MeshRenderer meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed;
 
-	*/
+	public SkinnedMeshRenderer skinnedMeshRendererToPlayFireEffectOn;
+
+	public SkinnedMeshRenderer skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated;
+
+	private bool fireEmitsLight;
+
+	public GameObject objectToEmitFireLightFrom;
+
+	public GameObject objectToEmitFireLightFromWhenRagdolledOrDestroyed;
+
+	private bool canPlayFireEffect;
+
+	private bool usingFireSkinnedMeshRenderer;
+
+	public AITarget fireDamageSource;
+
+	private ParticleSystem instantiatedFireParticles;
+
+	private FireLight fireLight;
+
+	public float fireDamageBuildup;
+
+	public bool isOnFire;
+
+	public Coroutine fireDamageOverTimeCoroutine;
+
+	private static readonly WaitForSeconds fireDamageTimer;
+
+	private ParticleSystem.ShapeModule shapeModule;
+
+	private ParticleSystem.ShapeModule shapeModuleSurface;
+
+	private bool useDestroyedOrDefeatedFireEffect;
+
+	public abstract string HealthName { get; set; }
+
+	public abstract bool FireSurfaceBurnEffect { get; }
+
+	public abstract bool CanTakeFireDamage { get; }
+
+	public abstract bool CanBurnWhilstDefeated { get; }
+
+	public abstract HitType GetHit(float damage, float poiseDamage, DamageTypes damageType, AITarget damageSource, bool isCritical, Vector3 hitPoint, Vector3 force, bool playImpactEffectAndSound, Vector3 hitNormal);
+
+	public abstract void GetStaggered(Vector3 attackOrigin, AITarget damageSource, Vector3 hitPoint, Vector3 force);
+
+	public abstract float GetHealed(float healing, float maxOverheal = 0f);
+
+	public abstract IEnumerator Defeat();
+
+	public abstract void Respawn();
+
+	public abstract void SetTeamColors();
+
+	public abstract Vector3 GetCurrentCorrectedForwardDirection();
+
+	public void GetHitFireDamage(float fireDamage, AITarget damageSource)
+	{
+	}
+
+	private IEnumerator FireDamageOverTime()
+	{
+		return null;
+	}
+
+	public void StartFireDamage()
+	{
+	}
+
+	public void ChangeFireParticleMesh(bool destroyedOrRagdoll)
+	{
+	}
+
+	public void StopFireDamage(bool fadeFireOutInPlace = false)
+	{
+	}
 }

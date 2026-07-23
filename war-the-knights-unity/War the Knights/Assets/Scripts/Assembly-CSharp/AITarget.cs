@@ -2,62 +2,221 @@ using UnityEngine;
 
 public class AITarget : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public string aiTargetName;
 
-	1. No dll files were provided to AssetRipper.
+	public bool alive;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public AITarget currentTarget;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public AIAttackable attackable;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public AttackBehavior currentAttackBehavior;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public bool currentAttackBehaviorIsAttack;
 
-	3. Assembly Reconstruction has not been implemented.
+	public CombatBehavior combatBehavior;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public bool vehicleAttackable;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public bool isPlayer;
 
-	4. This script is unnecessary.
+	public ActiveRagdoll ragdoll;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public PlayerHealth playerHealth;
 
-	5. Script Content Level 0
+	public AIBehaviorBase behaviorBase;
 
-		AssetRipper was set to not load any script information.
+	public AIBehaviorBot behaviorBot;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public BotHealth botHealth;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public HealthBase healthBase;
 
-	7. An incorrect path was provided to AssetRipper.
+	public bool isVehicle;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public VehicleHealth vehicleHealth;
 
-	*/
+	public AIAlliance alliance;
+
+	public CapsuleCollider baseCollider;
+
+	public Transform _transform;
+
+	public Transform botAttackPointL1;
+
+	public Transform botAttackPointL2;
+
+	public Transform botAttackPointR1;
+
+	public Transform botAttackPointR2;
+
+	public bool hasAttackPoints;
+
+	public float botAttackPointL1XPos;
+
+	public float botAttackPointL2XPos;
+
+	public float botAttackPointR1XPos;
+
+	public float botAttackPointR2XPos;
+
+	public float botAttackPointLXPosSideThreshold;
+
+	public float botAttackPointRXPosSideThreshold;
+
+	public float botAttackPointLXPosBackSideThreshold;
+
+	public float botAttackPointRXPosBackSideThreshold;
+
+	public TwoTransforms helmetParent;
+
+	public CustomHelmet helmetPrefab;
+
+	public TwoGameObjects helmet;
+
+	public TwoGameObjects hair;
+
+	public TwoTransforms quiverParent;
+
+	public TwoTransforms boltQuiverParent;
+
+	public TwoGameObjects classAccessoire;
+
+	public CapturePoint currentObjectivePoint;
+
+	public Vector3 capturePointDestination;
+
+	public bool attackPoint;
+
+	public VehicleBase currentVehicle;
+
+	public BotToVehicleBehavior vehicleBehavior;
+
+	public bool isUsingVehicle;
+
+	public int vehicleSeatIndex;
+
+	public VehicleSeat vehicleSeat;
+
+	public ScoreboardData scoreboardData;
+
+	public Vector3 cachedPosition;
+
+	public Quaternion cachedRotation;
+
+	public Vector2 cachedForward;
+
+	public bool forwardCached;
+
+	public bool cachedBestTarget;
+
+	public AITarget bestPossibleTarget;
+
+	public float bestPossibleTargetVisibilityScore;
+
+	public AttackBehavior bestPossibleAttackBehavior;
+
+	public bool cachedAbleToFindNewTarget;
+
+	private void Start()
+	{
+	}
+
+	public void ScoreAddKill()
+	{
+	}
+
+	public void ScoreAddDeath()
+	{
+	}
+
+	public void ScoreAddObjectivePlay(int objectivePoints)
+	{
+	}
+
+	public void ScoreAddSupport(int supportPoints)
+	{
+	}
+
+	public void AddScore(int score)
+	{
+	}
+
+	public void ChangeAttackBehavior(AttackBehavior newBehavior)
+	{
+	}
+
+	public void OnSpawn()
+	{
+	}
+
+	public void OnDefeat()
+	{
+	}
+
+	public Vector3 GetCurrentSpeed()
+	{
+		return default(Vector3);
+	}
+
+	public Vector3 GetCurrentSpeedToAddToProjectile()
+	{
+		return default(Vector3);
+	}
+
+	public void AssignTarget(AITarget target, bool behaviorImportanceCanBeEqualToCurrent = false)
+	{
+	}
+
+	public void ForceAssignTargetAsAttackTarget(AITarget target)
+	{
+	}
+
+	public void SetTarget(AITarget aiTarget)
+	{
+	}
+
+	public void FindNewTarget()
+	{
+	}
+
+	public void FindNewTargetAfterOldTargetDefeated()
+	{
+	}
+
+	public void ChangeCurrentTargetAttackBehavior(AttackBehavior newBehavior)
+	{
+	}
+
+	public void SetLook(CustomHelmet helmetPrefab, GameObject hairPrefab)
+	{
+	}
+
+	public void UpdateClassAccessoires(CombatBehavior combatBehavior)
+	{
+	}
+
+	public void LoseHelmet(Vector3 position, Vector3 force)
+	{
+	}
+
+	public void RemoveFromVehicle(bool ragdoll = false)
+	{
+	}
+
+	public void EnterVehicle()
+	{
+	}
+
+	public void StopReservingVehicleSeat(VehicleBase vehicleTarget)
+	{
+	}
+
+	public void ReconsiderCurrentVehicleOnObjectiveChange()
+	{
+	}
+
+	public void ReserveVehicleSlot(VehicleBase vehicleToCheck)
+	{
+	}
 }

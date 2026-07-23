@@ -1962,6 +1962,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac5cf55495d69248d2731062af0da7c, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  respawnDuration: 20
+  vehicleName: 0
+  customVehicleName:
+  health: {fileID: 114770005084341472}
+  vehicleTarget: {fileID: 114123703392571528}
+  camTarget: {fileID: 4782439640980787}
+  controlledByPlayer: 0
+  controlledByBot: 0
+  seats:
+  - seatPosition: {fileID: 4633296557590524}
+    seatType: 0
+    emoteType: 1
+    keepWeaponsEquipped: 1
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 0
+    verticalRotationObject: {fileID: 0}
+  seatsReserved: []
+  seatsOccupied:
+  freeSeat: -1
+  vehicleType: 1
+  canChaseTargets: 1
+  loyalVehicle: 0
+  playerReserved: 0
+  onlyUseableByBotsWithMeleeWeapon: 1
+  emptyVehicle: 0
+  _transform: {fileID: 4085275382694935}
+  enterDistance: 1
+  enterDistanceSquared: 9
+  awarenessDistance: 18
+  agent: {fileID: 195194081240383615}
+  currentMovementDestination: {x: 0, y: 0, z: 0}
+  destinationUpdateFrequency: 0
+  destinationUpdateFrequencyTimer: 0
+  obstacle: {fileID: 208533803739292891}
+  triggerCollider: {fileID: 0}
+  crosshair: 1
+  hasCharacterControllerCollider: 1
+  characterControllerCollider: {fileID: 136880619614767448}
+  findTargetOverride: 0
+  vehicleCollisionTriggers: []
+  anySeatReserved: 0
+  isAiming: 0
+  isCharging: 0
+  enterPosLeft: {fileID: 4134286944189183}
+  enterPosRight: {fileID: 4045646810609841}
+  horseMovementSpeed: 0
+  horseMovement: {fileID: 114150646884989824}
+  motor: {fileID: 114167524263268962}
+  groundOrientationLayerMask:
+    serializedVersion: 2
+    m_Bits: 3145729
+  groundOrientationRaycastPositionFront: {fileID: 4518639523470932}
+  groundOrientationRaycastPositionMid: {fileID: 4033903555039309}
+  groundOrientationRaycastPositionBack: {fileID: 4731059169969419}
+  footstepAudioSource: {fileID: 82601984538237284}
+  horseVisualTransform: {fileID: 4785330607447594}
+  horseAttackTarget: {fileID: 0}
+  attackRunTarget: {x: 0, y: 0, z: 0}
+  isSwimming: 0
+  movementStopped: 0
+  overrideMovementSpeed: 0
+  overrideRotationSpeed: 0
 --- !u!114 &114770005084341472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,6 +2036,128 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e3260e3521064a1c0d200582b0ee1, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentHealth: 240
+  maxHealth: 240
+  alliance: {fileID: 114492842699383957}
+  lastDamageSource: {fileID: 0}
+  defeated: 0
+  meshRendererToPlayFireEffectOn: {fileID: 0}
+  meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOn: {fileID: 137295428814336086}
+  skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated: {fileID: 137517377532936435}
+  objectToEmitFireLightFrom: {fileID: 0}
+  objectToEmitFireLightFromWhenRagdolledOrDestroyed: {fileID: 0}
+  fireDamageSource: {fileID: 0}
+  fireDamageBuildup: 0
+  isOnFire: 0
+  colliders:
+  - {fileID: 136880619614767448}
+  - {fileID: 135066778049879928}
+  - {fileID: 136528911807818478}
+  - {fileID: 136592460329389196}
+  - {fileID: 136056248600188076}
+  - {fileID: 136291632710222552}
+  - {fileID: 136146109142143575}
+  - {fileID: 136017892387517381}
+  - {fileID: 136589652054545887}
+  - {fileID: 136177930474251431}
+  - {fileID: 136911997548769506}
+  - {fileID: 136941304181978548}
+  - {fileID: 136295926465608920}
+  - {fileID: 136181586030114204}
+  - {fileID: 136258471659221418}
+  - {fileID: 136603576887721950}
+  - {fileID: 136066338149260220}
+  - {fileID: 136832474124979885}
+  - {fileID: 136353891062718048}
+  - {fileID: 136965908813272002}
+  - {fileID: 136133854062310043}
+  - {fileID: 135401429660297866}
+  - {fileID: 136960577952585462}
+  - {fileID: 136094283985748868}
+  - {fileID: 136911451331743778}
+  - {fileID: 136681721672847880}
+  - {fileID: 136934287144746640}
+  - {fileID: 136704877758540679}
+  - {fileID: 136387228018655110}
+  - {fileID: 136580109562975512}
+  - {fileID: 136344618938641724}
+  - {fileID: 136403529848822963}
+  - {fileID: 136510800835404288}
+  - {fileID: 136952320105404285}
+  - {fileID: 136644357204029367}
+  - {fileID: 136041608817324026}
+  - {fileID: 136290791091168379}
+  - {fileID: 136250083484182041}
+  - {fileID: 136904400124545405}
+  - {fileID: 136751888446361502}
+  - {fileID: 136401109917237556}
+  hitboxes:
+  - {fileID: 114561126880652180}
+  - {fileID: 114091882994760266}
+  - {fileID: 114570723408815475}
+  - {fileID: 114695600491528212}
+  - {fileID: 114649986673806370}
+  - {fileID: 114896002537488308}
+  - {fileID: 114092105871539913}
+  - {fileID: 114817325062191328}
+  - {fileID: 114271925019662038}
+  - {fileID: 114901155395665742}
+  - {fileID: 114274303670636188}
+  - {fileID: 114083739296819378}
+  - {fileID: 114012617856089587}
+  - {fileID: 114842968619709538}
+  - {fileID: 114132299442727904}
+  - {fileID: 114148353818683595}
+  - {fileID: 114197515695889172}
+  - {fileID: 114689224686120706}
+  - {fileID: 114450889307774998}
+  - {fileID: 114729821067651183}
+  - {fileID: 114545683990359770}
+  - {fileID: 114729442808604298}
+  - {fileID: 114838352681112328}
+  - {fileID: 114952854571839949}
+  - {fileID: 114016782227057731}
+  - {fileID: 114505682267929073}
+  - {fileID: 114777414246829702}
+  - {fileID: 114349979204078785}
+  - {fileID: 114696792502030561}
+  - {fileID: 114413603344295461}
+  - {fileID: 114851449666512103}
+  - {fileID: 114544837802452058}
+  - {fileID: 114222568209840903}
+  - {fileID: 114410049401584812}
+  - {fileID: 114785416887765914}
+  - {fileID: 114083485975560739}
+  - {fileID: 114691570808825369}
+  - {fileID: 114722550256369544}
+  - {fileID: 114077469347768860}
+  - {fileID: 114962713294667487}
+  destroyInsteadOfKillInKillfeed: 0
+  onDestroyDriverAction: 1
+  takeLessMeleeDamageIfHasDriver: 1
+  spawnPos: {x: 0, y: 0, z: 0}
+  spawnRot: {x: 0, y: 0, z: 0, w: 0}
+  damageTakenFromTarget: 0
+  ragdoll: {fileID: 114641631609468814}
+  ignoreCollisionWithPlayerMovementHitboxes:
+  - {fileID: 114197515695889172}
+  hitHitbox: {fileID: 0}
+  mainHitbox: {fileID: 114561126880652180}
+  spine: {fileID: 4085275382694935}
+  vehicle: {fileID: 114354824845356902}
+  aiTarget: {fileID: 114123703392571528}
+  vehicleParts: []
+  changeLayerOnDestroy: 1
+  hasGetHitAnimation: 1
+  canRagdoll: 1
+  teamColoredBlood: 1
+  vehicleBreakAudioSource: {fileID: 82201141531394087}
+  vehicleBreakSound: 0
+  customVehicleBreakSound: {fileID: 0}
+  enterInteraction:
+  - {fileID: 65493949256727870}
+  canBurn: 1
 --- !u!114 &114123703392571528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1986,6 +2170,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187c53facf95dcb22569679552b87a16, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  aiTargetName: Horse
+  alive: 0
+  currentTarget: {fileID: 0}
+  attackable: {fileID: 0}
+  currentAttackBehavior: 0
+  currentAttackBehaviorIsAttack: 0
+  combatBehavior: 0
+  vehicleAttackable: 0
+  isPlayer: 0
+  ragdoll: {fileID: 114641631609468814}
+  playerHealth: {fileID: 0}
+  behaviorBase: {fileID: 114855482821919830}
+  behaviorBot: {fileID: 0}
+  botHealth: {fileID: 0}
+  healthBase: {fileID: 114770005084341472}
+  isVehicle: 1
+  vehicleHealth: {fileID: 114770005084341472}
+  alliance: {fileID: 114492842699383957}
+  baseCollider: {fileID: 0}
+  _transform: {fileID: 4085275382694935}
+  botAttackPointL1: {fileID: 0}
+  botAttackPointL2: {fileID: 0}
+  botAttackPointR1: {fileID: 0}
+  botAttackPointR2: {fileID: 0}
+  hasAttackPoints: 0
+  botAttackPointL1XPos: 0
+  botAttackPointL2XPos: 0
+  botAttackPointR1XPos: 0
+  botAttackPointR2XPos: 0
+  botAttackPointLXPosSideThreshold: 0
+  botAttackPointRXPosSideThreshold: 0
+  botAttackPointLXPosBackSideThreshold: 0
+  botAttackPointRXPosBackSideThreshold: 0
+  helmetParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  helmetPrefab: {fileID: 0}
+  helmet:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  hair:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  quiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  boltQuiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  classAccessoire:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  currentObjectivePoint: {fileID: 0}
+  capturePointDestination: {x: 0, y: 0, z: 0}
+  attackPoint: 0
+  currentVehicle: {fileID: 0}
+  vehicleBehavior: 0
+  isUsingVehicle: 0
+  vehicleSeatIndex: 0
+  vehicleSeat:
+    seatPosition: {fileID: 0}
+    seatType: 0
+    emoteType: 0
+    keepWeaponsEquipped: 0
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 0
+    verticalRotationObject: {fileID: 0}
+  scoreboardData:
+    botName:
+    botScore: 0
+    botKills: 0
+    botDeaths: 0
+    botSupport: 0
+    botObjective: 0
+    isPlayer: 0
+    teamPlace: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
+  cachedRotation: {x: 0, y: 0, z: 0, w: 0}
+  cachedForward: {x: 0, y: 0}
+  forwardCached: 0
+  cachedBestTarget: 0
+  bestPossibleTarget: {fileID: 0}
+  bestPossibleTargetVisibilityScore: 0
+  bestPossibleAttackBehavior: 0
+  cachedAbleToFindNewTarget: 0
 --- !u!114 &114855482821919830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +2267,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10281e6a50e671ece28d8924a263ab59, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  bot: {fileID: 114123703392571528}
+  thirdPersonAnim: {fileID: 95190181876552715}
+  isCrouched: 0
+  aiIndex: 0
+  aiIndexTeam: 0
+  footstepAudioSource: {fileID: 0}
+  weaponAudioSource: {fileID: 0}
+  headAudioSource: {fileID: 0}
+  visualWeapon: {fileID: 0}
+  visualAmmo: {fileID: 0}
+  visualAmmoSpecial: {fileID: 0}
+  projectileSpawn: {fileID: 0}
+  weaponProjectilePrefab: {fileID: 0}
+  weaponProjectileVisualPrefab: {fileID: 0}
+  weaponProjectileSpecialPrefab: {fileID: 0}
+  weaponProjectileSpecialVisualPrefab: {fileID: 0}
+  rightHandSpawnPos:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  leftHandSpawnPos:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  rightProjectileVisualSpawnPos: {fileID: 0}
+  leftProjectileVisualSpawnPos: {fileID: 0}
+  weaponObject:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  weaponObjectDropped: {fileID: 0}
+  weaponObject2:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  weaponObject2Dropped: {fileID: 0}
+  weaponMode: {fileID: 0}
+  weaponModeRagdoll: {fileID: 0}
+  weaponModeMelee: {fileID: 0}
+  weaponMode2: {fileID: 0}
+  weaponMode2Ragdoll: {fileID: 0}
+  weaponMode2Shield: {fileID: 0}
+  thirdPersonMelee: 0
 --- !u!114 &114492842699383957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,6 +2318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e374a8d8293dd3b59367a70ec76907, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  team1: 1
+  currentPoint: {fileID: 0}
 --- !u!114 &114150646884989824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2022,6 +2332,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db131f637ff48948468fc0807efa5fe7, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  Motor: {fileID: 114167524263268962}
+  horseAnim: {fileID: 95190181876552715}
+  currentAnimMoveX: 0
+  currentAnimMoveZ: 0
+  animMoveX: 0
+  animMoveZ: 0
+  ForwardAxisSharpness: 0.2
+  TurnAxisSharpness: 5
+  StableMovementSharpness: 7
+  OrientationSharpness: 7
+  OrientationMethod: 1
+  currentSpeedMultiplier: 1
+  horseVehicle: {fileID: 114354824845356902}
+  SwimmingReferencePoint: {fileID: 4337165658744233}
+  CameraReferencePoint: {fileID: 4085275382694935}
+  WaterLayer:
+    serializedVersion: 2
+    m_Bits: 16
+  waterEnterDepthCheckLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  waterZone: {fileID: 0}
+  waterSpeed: 5
+  waterMovementSharpness: 4
+  waterOrientationSharpness: 7
+  jumpOutOfWater: 0
+  MaxAirMoveSpeed: 9
+  AirAccelerationSpeed: 4
+  Drag: 0.5
+  AllowJumpingWhenSliding: 0
+  JumpSpeed: 8
+  JumpPreGroundingGraceTime: 0.1
+  JumpPostGroundingGraceTime: 0.2
+  OrientTowardsGravity: 1
+  Gravity: {x: 0, y: -20, z: 0}
+  MeshRoot: {fileID: 0}
+  CurrentCharacterState: 0
+  movementSpeedLevel: 0
+  movementSpeedLevelTarget: 0
+  rotationSpeed: 0
+  movementSpeedTarget: 0
+  movementSpeed: 0
+  rotationSpeedLevelTarget: 0
+  _jumpRequested: 0
+  _verticalInput: 0
+  timeLastLanded: 0
 --- !u!136 &136880619614767448
 CapsuleCollider:
   serializedVersion: 2
@@ -2069,6 +2425,195 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca24f92bcd87f2466017bd3cf6c2cd8, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  anim: {fileID: 95190181876552715}
+  aiTarget: {fileID: 114123703392571528}
+  ragdoll: {fileID: 1344419225485095}
+  ragdollAnimator: {fileID: 0}
+  bones:
+  - {fileID: 4562080017223558}
+  - {fileID: 4129116114662800}
+  - {fileID: 4208269818966246}
+  - {fileID: 4998495239010246}
+  - {fileID: 4055535033279528}
+  - {fileID: 4993076962757715}
+  - {fileID: 4573076885614623}
+  - {fileID: 4126508818681447}
+  - {fileID: 4231676679060417}
+  - {fileID: 4291547872775986}
+  - {fileID: 4463579974499585}
+  - {fileID: 4559203567323380}
+  - {fileID: 4500050402096248}
+  - {fileID: 4382656168358062}
+  - {fileID: 4117307842306080}
+  - {fileID: 4825818419884204}
+  - {fileID: 4827586244175853}
+  - {fileID: 4246887588868771}
+  - {fileID: 4964822413698908}
+  - {fileID: 4519819979147140}
+  - {fileID: 4458735412797113}
+  - {fileID: 4894225446638996}
+  - {fileID: 4041287186795109}
+  - {fileID: 4543023241981873}
+  - {fileID: 4616352195932608}
+  - {fileID: 4688331903957256}
+  - {fileID: 4502609866597578}
+  - {fileID: 4365773988297632}
+  - {fileID: 4975779338151784}
+  - {fileID: 4372353275341440}
+  - {fileID: 4556043395114336}
+  - {fileID: 4096597530611644}
+  - {fileID: 4583788928901705}
+  - {fileID: 4799881864385010}
+  - {fileID: 4370081907136253}
+  - {fileID: 4232720755092366}
+  - {fileID: 4239265225482239}
+  - {fileID: 4386568470988373}
+  - {fileID: 4494345407022765}
+  - {fileID: 4743905223825669}
+  - {fileID: 4360591974699550}
+  - {fileID: 4232415838589296}
+  - {fileID: 4249237965167194}
+  - {fileID: 4739268104783211}
+  bonesAnimated:
+  - {fileID: 4998874197659892}
+  - {fileID: 4450391854282655}
+  - {fileID: 4386943702330414}
+  - {fileID: 4275549183895104}
+  - {fileID: 4232094423628703}
+  - {fileID: 4011164340880974}
+  - {fileID: 4358105479016104}
+  - {fileID: 4168105826085154}
+  - {fileID: 4038333544927157}
+  - {fileID: 4592664909728774}
+  - {fileID: 4708180620337799}
+  - {fileID: 4831874417830518}
+  - {fileID: 4499517081926786}
+  - {fileID: 4948132087033897}
+  - {fileID: 4320592835458227}
+  - {fileID: 4738892719839630}
+  - {fileID: 4887312969816373}
+  - {fileID: 4024252914577434}
+  - {fileID: 4095816830470745}
+  - {fileID: 4703247130969877}
+  - {fileID: 4995682140751655}
+  - {fileID: 4293198502218400}
+  - {fileID: 4325787665662832}
+  - {fileID: 4016852445014956}
+  - {fileID: 4932862749439555}
+  - {fileID: 4416529295595857}
+  - {fileID: 4446691751160785}
+  - {fileID: 4904079258986964}
+  - {fileID: 4578716238308850}
+  - {fileID: 4845025230388998}
+  - {fileID: 4527248355756736}
+  - {fileID: 4657558218238974}
+  - {fileID: 4484755779879834}
+  - {fileID: 4697715728111791}
+  - {fileID: 4696919880513765}
+  - {fileID: 4007271993718322}
+  - {fileID: 4041320612064254}
+  - {fileID: 4228214996573471}
+  - {fileID: 4641204913154593}
+  - {fileID: 4521597976012101}
+  - {fileID: 4989434536655964}
+  - {fileID: 4329075794784248}
+  - {fileID: 4422702022971346}
+  - {fileID: 4067212629291419}
+  ragdollRigidbodies:
+  - {fileID: 54000342987746139}
+  - {fileID: 54415925016355036}
+  - {fileID: 54878983242975409}
+  - {fileID: 54105912343260855}
+  - {fileID: 54964675957374274}
+  - {fileID: 54616761771223058}
+  - {fileID: 54632179142322292}
+  - {fileID: 54766709239876273}
+  - {fileID: 54173334745350128}
+  - {fileID: 54085134620244786}
+  - {fileID: 54507522976744791}
+  - {fileID: 54173644300073267}
+  - {fileID: 54329446674688094}
+  - {fileID: 54869737159367836}
+  - {fileID: 54370485308309611}
+  - {fileID: 54996317296757491}
+  - {fileID: 54754026925822528}
+  - {fileID: 54405989028062321}
+  - {fileID: 54894352506636257}
+  - {fileID: 54384784573714692}
+  ragdollJoints:
+  - {fileID: 144346445019804701}
+  - {fileID: 144433881075115309}
+  - {fileID: 144350143044813081}
+  - {fileID: 144350408777337066}
+  - {fileID: 144870947366518887}
+  - {fileID: 144036828218548272}
+  - {fileID: 144260713349338959}
+  - {fileID: 144364392939154294}
+  - {fileID: 144044586276341600}
+  - {fileID: 144951712121405908}
+  - {fileID: 144543584136297381}
+  - {fileID: 144958492976087124}
+  - {fileID: 144071519224935516}
+  - {fileID: 144949593803130734}
+  - {fileID: 144322008579206753}
+  - {fileID: 144020314340478216}
+  - {fileID: 144202048797312955}
+  - {fileID: 144817105377731967}
+  - {fileID: 144463395028392447}
+  hipAnimated: {fileID: 0}
+  hipRagdoll: {fileID: 0}
+  spineRagdoll: {fileID: 0}
+  defaultRigidbodyBoneTransform:
+  - position: {x: 2.9802322E-08, y: -9.516725E-10, z: 0}
+    rotation: {x: -0.49999976, y: 0.50000024, z: 0.49999923, w: 0.5000008}
+  - position: {x: -1.7173782E-07, y: 5.084631E-07, z: 0.17218798}
+    rotation: {x: 0.061568953, y: 0.9975034, z: 0.030687487, w: -0.015955366}
+  - position: {x: -0.5406248, y: -2.4586916E-07, z: -3.1986274E-06}
+    rotation: {x: -6.528147E-07, y: -2.8758143E-06, z: 0.21173039, w: 0.9773281}
+  - position: {x: -0.26993427, y: 6.305054E-07, z: -5.5506825E-07}
+    rotation: {x: -1.4196503E-06, y: -4.543569E-06, z: -0.25753173, w: 0.96626985}
+  - position: {x: -0.3658937, y: -2.0163134E-07, z: 4.0414743E-06}
+    rotation: {x: -0.004116871, y: -0.0022859704, z: 0.61035234, w: 0.79211605}
+  - position: {x: 1.7173784E-07, y: -5.3732396E-07, z: -0.172188}
+    rotation: {x: 0.0615693, y: 0.99750334, z: -0.030689292, w: 0.015952708}
+  - position: {x: -0.540624, y: 1.8347055E-07, z: 1.2447126E-06}
+    rotation: {x: 1.3698347E-07, y: 8.96466E-07, z: 0.21172966, w: 0.9773283}
+  - position: {x: -0.26993424, y: 4.4098124E-07, z: 5.532056E-07}
+    rotation: {x: -1.1409219E-06, y: -3.7677123E-06, z: -0.2575313, w: 0.96626997}
+  - position: {x: -0.3658938, y: 8.2561746E-07, z: 2.0419247E-06}
+    rotation: {x: 0.004121994, y: 0.0022922447, z: 0.6103524, w: 0.79211605}
+  - position: {x: -0.34231067, y: -0.00026638806, z: -3.8191098E-07}
+    rotation: {x: -1.01269755E-07, y: -4.292984E-07, z: 0.09853623, w: 0.9951335}
+  - position: {x: -0.34236038, y: -0.00027222745, z: 6.760994E-07}
+    rotation: {x: -7.52639E-09, y: -3.2098482E-09, z: 0.0077836104, w: 0.9999697}
+  - position: {x: -0.38890955, y: 4.013142E-07, z: 4.2467576E-08}
+    rotation: {x: 0.71445304, y: 0.0059940764, z: 0.015539477, w: 0.6994851}
+  - position: {x: -0.42670345, y: -4.1443855E-08, z: 3.27006E-05}
+    rotation: {x: 6.8043676E-07, y: 3.001909E-05, z: 0.018213063, w: 0.9998342}
+  - position: {x: -0.31337804, y: 5.888287E-07, z: 4.3725595E-06}
+    rotation: {x: -0.0079991855, y: -0.017062398, z: -0.22571744, w: 0.9740105}
+  - position: {x: -0.2970878, y: -0.07042454, z: -5.76103E-07}
+    rotation: {x: -8.263058E-07, y: -1.9758568E-06, z: 0.37265033, w: 0.92797184}
+  - position: {x: -0.21682274, y: -0.00017115474, z: 5.8365345E-08}
+    rotation: {x: 1.7363922E-07, y: -3.199383E-07, z: 0.052256785, w: 0.9986337}
+  - position: {x: -0.22104353, y: 0.03328994, z: -3.640534E-08}
+    rotation: {x: 1.0707408E-06, y: 7.6162934E-07, z: -0.083545364, w: 0.996504}
+  - position: {x: -0.38890865, y: 1.9920174E-07, z: -1.03132436E-07}
+    rotation: {x: -0.7144524, y: -0.006028254, z: 0.0155743575, w: 0.6994847}
+  - position: {x: -0.42670318, y: -7.450581E-09, z: 9.745359E-06}
+    rotation: {x: -1.8382126E-07, y: 2.1685824E-05, z: 0.018213073, w: 0.9998342}
+  - position: {x: -0.31337804, y: 7.9208985E-07, z: -6.3260086E-06}
+    rotation: {x: 0.008000008, y: 0.017059512, z: -0.22571743, w: 0.9740106}
+  standUpFromBackAnimationBoneTransform: []
+  standUpFromFrontAnimationBoneTransform: []
+  ragdolled: 0
+  animatorInactive: 0
+  ragdolledStandUp: 0
+  standUpFromFront: 0
+  reparentOnRagdollStateChange:
+  - transform1: {fileID: 4112815651697755}
+    transform2: {fileID: 4616352195932608}
+  reparentObjectIsOnRagdollObject: 00
 --- !u!208 &208533803739292891
 NavMeshObstacle:
   serializedVersion: 3
@@ -2094,7 +2639,7 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
   m_Enabled: 1
-  OutputAudioMixerGroup: {fileID: 24300004, guid: f22b37a3498864546b3af023a964e446, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300004, guid: d8295c60317db7745a634b7d95a951da, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -2233,6 +2778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446662022355bb705fccc405600a0c6b, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  colliderTrigger: {fileID: 136007513189690300}
+  vehicle: {fileID: 114354824845356902}
 --- !u!4 &4969505138979683
 Transform:
   serializedVersion: 2
@@ -2303,8 +2850,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724804207875695}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 86b28ed7f7a6f6f4fab1a058b376c41b, type: 2}
-  m_Controller: {fileID: 9100000, guid: 06ff679a3402bbe479759fe936b014e1, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 95d04307ba0419c4ea4a6c9c8584935e, type: 2}
+  m_Controller: {fileID: 9100000, guid: f1a1695600999ef428e4460f9bdea02d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2327,6 +2874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac51dcca33faebd2cbfd413e2380512, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  anim: {fileID: 95190181876552715}
+  horseMovement: {fileID: 114150646884989824}
 --- !u!114 &114617365563186364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2339,6 +2888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ca21275730a6f2b2b26433824fb9a5, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  horse: {fileID: 114354824845356902}
 --- !u!4 &4998874197659892
 Transform:
   serializedVersion: 2
@@ -2461,12 +3011,12 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f934bc484b39e04fa89c6b999ffec5e, type: 2}
-  - {fileID: 2100000, guid: d1fb0908a96867543968dd9666fd50fc, type: 2}
-  - {fileID: 2100000, guid: baedfd2db65694641936f05c432098c4, type: 2}
-  - {fileID: 2100000, guid: 66f1ac2ee1a714549b37676badef2396, type: 2}
-  - {fileID: 2100000, guid: 66f1ac2ee1a714549b37676badef2396, type: 2}
-  - {fileID: 2100000, guid: d564062354891354e96b293c12a42ab2, type: 2}
+  - {fileID: 2100000, guid: b97c89fb67f45954789eab6b61650f63, type: 2}
+  - {fileID: 2100000, guid: 088dc74fcbb038e4cbe4c3a57edcc745, type: 2}
+  - {fileID: 2100000, guid: 00047c9bf469c714aa4d2d4938808739, type: 2}
+  - {fileID: 2100000, guid: a65bb159a02838f449a4aa87a9203634, type: 2}
+  - {fileID: 2100000, guid: a65bb159a02838f449a4aa87a9203634, type: 2}
+  - {fileID: 2100000, guid: e0f55ef206016c34ca63ee824ac9c09c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2490,7 +3040,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: cb83734fc6065b84390dfdfdef246a97, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 92848caec7e0ad04180ec7730a169d33, type: 2}
   m_Bones: []
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
@@ -2536,7 +3086,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061268324235159}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2588,6 +3138,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 1
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54000342987746139}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4208269818966246}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4275549183895104
 Transform:
   serializedVersion: 2
@@ -2611,7 +3176,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587765826080250}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2665,6 +3230,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54415925016355036}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4998495239010246}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4232094423628703
 Transform:
   serializedVersion: 2
@@ -2688,7 +3268,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709867586078768}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2742,6 +3322,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54878983242975409}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4055535033279528}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4011164340880974
 Transform:
   serializedVersion: 2
@@ -2765,7 +3360,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044625135789424}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2819,6 +3414,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54105912343260855}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4993076962757715}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4358105479016104
 Transform:
   serializedVersion: 2
@@ -2842,7 +3452,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589667821646929}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2896,6 +3506,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54964675957374274}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4573076885614623}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4168105826085154
 Transform:
   serializedVersion: 2
@@ -2934,7 +3559,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025901758691103}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2988,6 +3613,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54616761771223058}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4231676679060417}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4592664909728774
 Transform:
   serializedVersion: 2
@@ -3011,7 +3651,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985305603660343}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3065,6 +3705,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54632179142322292}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4291547872775986}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4708180620337799
 Transform:
   serializedVersion: 2
@@ -3088,7 +3743,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705390221481576}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3142,6 +3797,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54766709239876273}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4463579974499585}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4831874417830518
 Transform:
   serializedVersion: 2
@@ -3165,7 +3835,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977153420339851}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3219,6 +3889,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54173334745350128}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4559203567323380}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4499517081926786
 Transform:
   serializedVersion: 2
@@ -3273,7 +3958,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161607090078389}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3327,6 +4012,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54085134620244786}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4117307842306080}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4955215445487071
 Transform:
   serializedVersion: 2
@@ -3365,7 +4065,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470112387431263}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3419,6 +4119,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54507522976744791}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4825818419884204}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4887312969816373
 Transform:
   serializedVersion: 2
@@ -3457,7 +4172,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621510681728303}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3511,6 +4226,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54173644300073267}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4246887588868771}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4095816830470745
 Transform:
   serializedVersion: 2
@@ -3534,7 +4264,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632457200066912}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3588,6 +4318,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54329446674688094}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4964822413698908}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4703247130969877
 Transform:
   serializedVersion: 2
@@ -3611,7 +4356,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634108722742392}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3665,6 +4410,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54869737159367836}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4519819979147140}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4995682140751655
 Transform:
   serializedVersion: 2
@@ -3703,7 +4463,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969106005120503}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3757,6 +4517,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54370485308309611}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4894225446638996}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4325787665662832
 Transform:
   serializedVersion: 2
@@ -3780,7 +4555,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642988549198181}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3834,6 +4609,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54996317296757491}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4041287186795109}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4016852445014956
 Transform:
   serializedVersion: 2
@@ -3873,7 +4663,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711914853252429}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3927,6 +4717,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54754026925822528}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4616352195932608}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4112815651697755
 Transform:
   serializedVersion: 2
@@ -3951,7 +4756,7 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918264173551851}
   m_Enabled: 0
-  OutputAudioMixerGroup: {fileID: 24300038, guid: f22b37a3498864546b3af023a964e446, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300038, guid: d8295c60317db7745a634b7d95a951da, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.2
@@ -4181,7 +4986,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089843903986396}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4235,6 +5040,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54405989028062321}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4799881864385010}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4696919880513765
 Transform:
   serializedVersion: 2
@@ -4258,7 +5078,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672306508523268}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4312,6 +5132,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54894352506636257}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4370081907136253}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4007271993718322
 Transform:
   serializedVersion: 2
@@ -4335,7 +5170,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808113985169905}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4389,6 +5224,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54384784573714692}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4232720755092366}
+  isRagdollHitbox: 0
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4041320612064254
 Transform:
   serializedVersion: 2
@@ -4585,7 +5435,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833703512093738}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4637,6 +5487,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 1
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54000342987746139}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4386943702330414}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4998495239010246
 Transform:
   serializedVersion: 2
@@ -4661,7 +5526,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632746491512912}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4761,6 +5626,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54415925016355036}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4275549183895104}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4055535033279528
 Transform:
   serializedVersion: 2
@@ -4785,7 +5665,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719342369648492}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4885,6 +5765,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54878983242975409}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4232094423628703}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4993076962757715
 Transform:
   serializedVersion: 2
@@ -4909,7 +5804,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726790013014859}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5009,6 +5904,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54105912343260855}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4011164340880974}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4573076885614623
 Transform:
   serializedVersion: 2
@@ -5033,7 +5943,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436073260064126}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5133,6 +6043,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54964675957374274}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4358105479016104}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4126508818681447
 Transform:
   serializedVersion: 2
@@ -5172,7 +6097,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801075752484240}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5272,6 +6197,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54616761771223058}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4038333544927157}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4291547872775986
 Transform:
   serializedVersion: 2
@@ -5296,7 +6236,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000955326284023}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5396,6 +6336,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54632179142322292}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4592664909728774}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4463579974499585
 Transform:
   serializedVersion: 2
@@ -5420,7 +6375,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397768327470545}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5520,6 +6475,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54766709239876273}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4708180620337799}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4559203567323380
 Transform:
   serializedVersion: 2
@@ -5544,7 +6514,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571718729274231}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5644,6 +6614,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54173334745350128}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4831874417830518}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4500050402096248
 Transform:
   serializedVersion: 2
@@ -5699,7 +6684,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045458335737618}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5799,6 +6784,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54085134620244786}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4320592835458227}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4825818419884204
 Transform:
   serializedVersion: 2
@@ -5827,7 +6827,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722951815217645}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5927,6 +6927,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54507522976744791}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4738892719839630}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4827586244175853
 Transform:
   serializedVersion: 2
@@ -5967,7 +6982,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215879266689626}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6067,6 +7082,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54173644300073267}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4024252914577434}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4964822413698908
 Transform:
   serializedVersion: 2
@@ -6091,7 +7121,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689364072382846}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6191,6 +7221,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54329446674688094}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4095816830470745}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4519819979147140
 Transform:
   serializedVersion: 2
@@ -6215,7 +7260,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043919389829319}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6315,6 +7360,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54869737159367836}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4703247130969877}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4458735412797113
 Transform:
   serializedVersion: 2
@@ -6354,7 +7414,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094320201520353}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6454,6 +7514,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54370485308309611}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4293198502218400}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4041287186795109
 Transform:
   serializedVersion: 2
@@ -6480,7 +7555,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026196548002408}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6580,6 +7655,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54996317296757491}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4325787665662832}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4543023241981873
 Transform:
   serializedVersion: 2
@@ -6624,7 +7714,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279359913592680}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6724,6 +7814,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54754026925822528}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4932862749439555}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4688331903957256
 Transform:
   serializedVersion: 2
@@ -6869,7 +7974,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393105877652414}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6969,6 +8074,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54405989028062321}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4697715728111791}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4370081907136253
 Transform:
   serializedVersion: 2
@@ -6993,7 +8113,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799762105739359}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7093,6 +8213,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54894352506636257}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4696919880513765}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4232720755092366
 Transform:
   serializedVersion: 2
@@ -7117,7 +8252,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829625606037309}
-  m_Material: {fileID: 13400000, guid: 03638f4b7ed9b2b4bac08fe49981d26b, type: 2}
+  m_Material: {fileID: 13400000, guid: 0186b6ac8870a2d4aace2f291df08214, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7217,6 +8352,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 0
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 54384784573714692}
+  transformRagdollOrAnimatedCounterpart: {fileID: 4007271993718322}
+  isRagdollHitbox: 1
+  health: {fileID: 114770005084341472}
+  meleeResistance: 0
+  projectileResistance: 0
+  fireResistance: 0
+  explosionResistance: 0
+  impactForceResistance: 0
+  kickResistance: 0
 --- !u!4 &4239265225482239
 Transform:
   serializedVersion: 2
@@ -7377,12 +8527,12 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7f934bc484b39e04fa89c6b999ffec5e, type: 2}
-  - {fileID: 2100000, guid: d1fb0908a96867543968dd9666fd50fc, type: 2}
-  - {fileID: 2100000, guid: baedfd2db65694641936f05c432098c4, type: 2}
-  - {fileID: 2100000, guid: 66f1ac2ee1a714549b37676badef2396, type: 2}
-  - {fileID: 2100000, guid: 66f1ac2ee1a714549b37676badef2396, type: 2}
-  - {fileID: 2100000, guid: d564062354891354e96b293c12a42ab2, type: 2}
+  - {fileID: 2100000, guid: b97c89fb67f45954789eab6b61650f63, type: 2}
+  - {fileID: 2100000, guid: 088dc74fcbb038e4cbe4c3a57edcc745, type: 2}
+  - {fileID: 2100000, guid: 00047c9bf469c714aa4d2d4938808739, type: 2}
+  - {fileID: 2100000, guid: a65bb159a02838f449a4aa87a9203634, type: 2}
+  - {fileID: 2100000, guid: a65bb159a02838f449a4aa87a9203634, type: 2}
+  - {fileID: 2100000, guid: e0f55ef206016c34ca63ee824ac9c09c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7406,7 +8556,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: cb83734fc6065b84390dfdfdef246a97, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 92848caec7e0ad04180ec7730a169d33, type: 2}
   m_Bones:
   - {fileID: 4129116114662800}
   - {fileID: 4208269818966246}
@@ -7535,6 +8685,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa1f010942f4b9063bf488db6d69975, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  showInteractionTip: 1
+  interactableName:
+  interactionTip:
+    UseTip:
+    UseName:
+  vehicle: {fileID: 114354824845356902}
 --- !u!4 &4134286944189183
 Transform:
   serializedVersion: 2

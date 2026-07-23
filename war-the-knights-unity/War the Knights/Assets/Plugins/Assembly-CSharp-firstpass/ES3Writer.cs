@@ -1,63 +1,227 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using ES3Types;
 using UnityEngine;
 
-public class ES3Writer : MonoBehaviour
+public abstract class ES3Writer : IDisposable
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public ES3Settings settings;
 
-	1. No dll files were provided to AssetRipper.
+	protected HashSet<string> keysToDelete;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	internal bool writeHeaderAndFooter;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	internal bool overwriteKeys;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	protected int serializationDepth;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	internal abstract void WriteNull();
 
-	3. Assembly Reconstruction has not been implemented.
+	internal virtual void StartWriteFile()
+	{
+	}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	internal virtual void EndWriteFile()
+	{
+	}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	internal virtual void StartWriteObject(string name)
+	{
+	}
 
-	4. This script is unnecessary.
+	internal virtual void EndWriteObject(string name)
+	{
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	internal virtual void StartWriteProperty(string name)
+	{
+	}
 
-	5. Script Content Level 0
+	internal virtual void EndWriteProperty(string name)
+	{
+	}
 
-		AssetRipper was set to not load any script information.
+	internal virtual void StartWriteCollection()
+	{
+	}
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	internal virtual void EndWriteCollection()
+	{
+	}
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	internal abstract void StartWriteCollectionItem(int index);
 
-	7. An incorrect path was provided to AssetRipper.
+	internal abstract void EndWriteCollectionItem(int index);
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	internal abstract void StartWriteDictionary();
 
-	*/
+	internal abstract void EndWriteDictionary();
+
+	internal abstract void StartWriteDictionaryKey(int index);
+
+	internal abstract void EndWriteDictionaryKey(int index);
+
+	internal abstract void StartWriteDictionaryValue(int index);
+
+	internal abstract void EndWriteDictionaryValue(int index);
+
+	public abstract void Dispose();
+
+	internal abstract void WriteRawProperty(string name, byte[] bytes);
+
+	internal abstract void WritePrimitive(int value);
+
+	internal abstract void WritePrimitive(float value);
+
+	internal abstract void WritePrimitive(bool value);
+
+	internal abstract void WritePrimitive(decimal value);
+
+	internal abstract void WritePrimitive(double value);
+
+	internal abstract void WritePrimitive(long value);
+
+	internal abstract void WritePrimitive(ulong value);
+
+	internal abstract void WritePrimitive(uint value);
+
+	internal abstract void WritePrimitive(byte value);
+
+	internal abstract void WritePrimitive(sbyte value);
+
+	internal abstract void WritePrimitive(short value);
+
+	internal abstract void WritePrimitive(ushort value);
+
+	internal abstract void WritePrimitive(char value);
+
+	internal abstract void WritePrimitive(string value);
+
+	internal abstract void WritePrimitive(byte[] value);
+
+	protected ES3Writer(ES3Settings settings, bool writeHeaderAndFooter, bool overwriteKeys)
+	{
+	}
+
+	internal virtual void Write(string key, Type type, byte[] value)
+	{
+	}
+
+	public virtual void Write<T>(string key, object value)
+	{
+	}
+
+	public virtual void Write(Type type, string key, object value)
+	{
+	}
+
+	public virtual void Write(object value, ES3.ReferenceMode memberReferenceMode = ES3.ReferenceMode.ByRef)
+	{
+	}
+
+	public virtual void Write(object value, ES3Type type, ES3.ReferenceMode memberReferenceMode = ES3.ReferenceMode.ByRef)
+	{
+	}
+
+	internal virtual void WriteRef(UnityEngine.Object obj)
+	{
+	}
+
+	public virtual void WriteProperty(string name, object value)
+	{
+	}
+
+	public virtual void WriteProperty(string name, object value, ES3.ReferenceMode memberReferenceMode)
+	{
+	}
+
+	public virtual void WriteProperty<T>(string name, object value)
+	{
+	}
+
+	public virtual void WriteProperty(string name, object value, ES3Type type)
+	{
+	}
+
+	public virtual void WriteProperty(string name, object value, ES3Type type, ES3.ReferenceMode memberReferenceMode)
+	{
+	}
+
+	public virtual void WritePropertyByRef(string name, UnityEngine.Object value)
+	{
+	}
+
+	public void WritePrivateProperty(string name, object objectContainingProperty)
+	{
+	}
+
+	public void WritePrivateField(string name, object objectContainingField)
+	{
+	}
+
+	public void WritePrivateProperty(string name, object objectContainingProperty, ES3Type type)
+	{
+	}
+
+	public void WritePrivateField(string name, object objectContainingField, ES3Type type)
+	{
+	}
+
+	public void WritePrivatePropertyByRef(string name, object objectContainingProperty)
+	{
+	}
+
+	public void WritePrivateFieldByRef(string name, object objectContainingField)
+	{
+	}
+
+	public void WriteType(Type type)
+	{
+	}
+
+	public static ES3Writer Create(string filePath, ES3Settings settings)
+	{
+		return null;
+	}
+
+	public static ES3Writer Create(ES3Settings settings)
+	{
+		return null;
+	}
+
+	internal static ES3Writer Create(ES3Settings settings, bool writeHeaderAndFooter, bool overwriteKeys, bool append)
+	{
+		return null;
+	}
+
+	internal static ES3Writer Create(Stream stream, ES3Settings settings, bool writeHeaderAndFooter, bool overwriteKeys)
+	{
+		return null;
+	}
+
+	protected bool SerializationDepthLimitExceeded()
+	{
+		return false;
+	}
+
+	public virtual void MarkKeyForDeletion(string key)
+	{
+	}
+
+	protected void Merge()
+	{
+	}
+
+	protected void Merge(ES3Reader reader)
+	{
+	}
+
+	public virtual void Save()
+	{
+	}
+
+	public virtual void Save(bool overwriteKeys)
+	{
+	}
 }

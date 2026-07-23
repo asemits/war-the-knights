@@ -1,66 +1,266 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace EnhancedUI.EnhancedScroller
 {
 	public class Tween : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public enum TweenType
+		{
+			immediate = 0,
+			linear = 1,
+			spring = 2,
+			easeInQuad = 3,
+			easeOutQuad = 4,
+			easeInOutQuad = 5,
+			easeInCubic = 6,
+			easeOutCubic = 7,
+			easeInOutCubic = 8,
+			easeInQuart = 9,
+			easeOutQuart = 10,
+			easeInOutQuart = 11,
+			easeInQuint = 12,
+			easeOutQuint = 13,
+			easeInOutQuint = 14,
+			easeInSine = 15,
+			easeOutSine = 16,
+			easeInOutSine = 17,
+			easeInExpo = 18,
+			easeOutExpo = 19,
+			easeInOutExpo = 20,
+			easeInCirc = 21,
+			easeOutCirc = 22,
+			easeInOutCirc = 23,
+			easeInBounce = 24,
+			easeOutBounce = 25,
+			easeInOutBounce = 26,
+			easeInBack = 27,
+			easeOutBack = 28,
+			easeInOutBack = 29,
+			easeInElastic = 30,
+			easeOutElastic = 31,
+			easeInOutElastic = 32
+		}
 
-		1. No dll files were provided to AssetRipper.
+		private sealed class _003CTweenPosition_003Ed__2 : IEnumerator<object>, IEnumerator, IDisposable
+		{
+			private int _003C_003E1__state;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			private object _003C_003E2__current;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public TweenType tweenType;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			public float time;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			public Tween _003C_003E4__this;
 
-		3. Assembly Reconstruction has not been implemented.
+			public float start;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			public float end;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			public Action<float, float> tweenUpdated;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public Action tweenComplete;
 
-		5. Script Content Level 0
+			private float _003CnewPosition_003E5__2;
 
-			AssetRipper was set to not load any script information.
+			private float _003ClastPosition_003E5__3;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			object IEnumerator<object>.Current => null;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			object IEnumerator.Current => null;
 
-		7. An incorrect path was provided to AssetRipper.
+			public _003CTweenPosition_003Ed__2(int _003C_003E1__state)
+			{
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			void IDisposable.Dispose()
+			{
+			}
 
-		*/
+			private bool MoveNext()
+			{
+				return false;
+			}
+
+			bool IEnumerator.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				return this.MoveNext();
+			}
+
+			void IEnumerator.Reset()
+			{
+			}
+		}
+
+		private float _tweenTimeLeft;
+
+		public IEnumerator TweenPosition(TweenType tweenType, float time, float start, float end, Action<float, float> tweenUpdated, Action tweenComplete)
+		{
+			return null;
+		}
+
+		private float linear(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float spring(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInQuad(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutQuad(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutQuad(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInCubic(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutCubic(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutCubic(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInQuart(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutQuart(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutQuart(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInQuint(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutQuint(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutQuint(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInSine(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutSine(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutSine(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInExpo(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutExpo(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutExpo(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInCirc(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutCirc(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutCirc(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInBounce(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutBounce(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutBounce(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInBack(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutBack(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutBack(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInElastic(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeOutElastic(float start, float end, float val)
+		{
+			return 0f;
+		}
+
+		private static float easeInOutElastic(float start, float end, float val)
+		{
+			return 0f;
+		}
 	}
 }

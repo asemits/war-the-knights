@@ -2,65 +2,156 @@ using UnityEngine;
 
 namespace RootMotion
 {
-	public class Interp : MonoBehaviour
+	public class Interp
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public static float Float(float t, InterpolationMode mode)
+		{
+			return 0f;
+		}
 
-		1. No dll files were provided to AssetRipper.
+		public static Vector3 V3(Vector3 v1, Vector3 v2, float t, InterpolationMode mode)
+		{
+			return default(Vector3);
+		}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public static float LerpValue(float value, float target, float increaseSpeed, float decreaseSpeed)
+		{
+			return 0f;
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private static float None(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private static float InOutCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private static float InOutQuintic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		private static float InQuintic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private static float InQuartic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private static float InCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private static float InQuadratic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-		5. Script Content Level 0
+		private static float OutQuintic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			AssetRipper was set to not load any script information.
+		private static float OutQuartic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private static float OutCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private static float OutInCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		private static float OutInQuartic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private static float BackInCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
 
-		*/
+		private static float BackInQuartic(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutBackCubic(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutBackQuartic(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutElasticSmall(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutElasticBig(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InElasticSmall(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InElasticBig(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InSine(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutSine(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InOutSine(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InElastic(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutElastic(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float InBack(float t, float b, float c)
+		{
+			return 0f;
+		}
+
+		private static float OutBack(float t, float b, float c)
+		{
+			return 0f;
+		}
 	}
 }

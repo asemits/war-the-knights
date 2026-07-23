@@ -1,66 +1,101 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TMPro.Examples
 {
 	public class VertexZoom : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private sealed class _003C_003Ec__DisplayClass10_0
+		{
+			public List<float> modifiedCharScale;
 
-		1. No dll files were provided to AssetRipper.
+			public Comparison<int> _003C_003E9__0;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			internal int _003CAnimateVertexColors_003Eb__0(int a, int b)
+			{
+				return 0;
+			}
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		private sealed class _003CAnimateVertexColors_003Ed__10 : IEnumerator<object>, IEnumerator, IDisposable
+		{
+			private int _003C_003E1__state;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			private object _003C_003E2__current;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			public VertexZoom _003C_003E4__this;
 
-		3. Assembly Reconstruction has not been implemented.
+			private _003C_003Ec__DisplayClass10_0 _003C_003E8__1;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			private TMP_TextInfo _003CtextInfo_003E5__2;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			private TMP_MeshInfo[] _003CcachedMeshInfoVertexData_003E5__3;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			private List<int> _003CscaleSortingOrder_003E5__4;
 
-		5. Script Content Level 0
+			object IEnumerator<object>.Current => null;
 
-			AssetRipper was set to not load any script information.
+			object IEnumerator.Current => null;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			public _003CAnimateVertexColors_003Ed__10(int _003C_003E1__state)
+			{
+			}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			void IDisposable.Dispose()
+			{
+			}
 
-		7. An incorrect path was provided to AssetRipper.
+			private bool MoveNext()
+			{
+				return false;
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			bool IEnumerator.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				return this.MoveNext();
+			}
 
-		*/
+			void IEnumerator.Reset()
+			{
+			}
+		}
+
+		public float AngleMultiplier;
+
+		public float SpeedMultiplier;
+
+		public float CurveScale;
+
+		private TMP_Text m_TextComponent;
+
+		private bool hasTextChanged;
+
+		private void Awake()
+		{
+		}
+
+		private void OnEnable()
+		{
+		}
+
+		private void OnDisable()
+		{
+		}
+
+		private void Start()
+		{
+		}
+
+		private void ON_TEXT_CHANGED(UnityEngine.Object obj)
+		{
+		}
+
+		private IEnumerator AnimateVertexColors()
+		{
+			return null;
+		}
 	}
 }

@@ -1,63 +1,142 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CapturePoint : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public int team1Fighters;
 
-	1. No dll files were provided to AssetRipper.
+	public int team2Fighters;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	private float _captureProgress;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public Transform flagTransform;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public Vector3 flagLocalPositionRaised;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public Vector3 flagLocalPositionLowered;
 
-	3. Assembly Reconstruction has not been implemented.
+	public Cloth flagCloth;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public Transform hudPointPosition;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public Vector3 position;
 
-	4. This script is unnecessary.
+	public CapturePoint[] connectedPoints;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public string capturePointName;
 
-	5. Script Content Level 0
+	public string capturePointLetter;
 
-		AssetRipper was set to not load any script information.
+	public AreaBounds[] archerDefensePositionArea;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private TeamStatus _status;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	private bool _fullyCaptured;
 
-	7. An incorrect path was provided to AssetRipper.
+	public bool uncapturable;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public int pointIndex;
 
-	*/
+	public int allPointIndex;
+
+	public Vector3 retreatDirection;
+
+	public Renderer[] flagMaterials;
+
+	public Material flagTeam1Material;
+
+	public Material flagTeam2Material;
+
+	public Material flagNeutralMaterial;
+
+	public List<Vector3> spawnPositions;
+
+	public List<Vector3> spawnPositionsPlayer;
+
+	public Transform customSpawnConnection;
+
+	public static readonly Collider[] overlaps;
+
+	public static readonly Vector3 sphereCastOffset;
+
+	public static readonly Vector3 overlapCheckOffset;
+
+	public float CaptureProgress
+	{
+		get
+		{
+			return 0f;
+		}
+		set
+		{
+		}
+	}
+
+	public TeamStatus Status
+	{
+		get
+		{
+			return TeamStatus.None;
+		}
+		set
+		{
+		}
+	}
+
+	public bool FullyCaptured
+	{
+		get
+		{
+			return false;
+		}
+		set
+		{
+		}
+	}
+
+	public void InitializeOnStart()
+	{
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+	}
+
+	public void RemoveFighter(AIAlliance alliance)
+	{
+	}
+
+	public bool CanSpawn(bool team1)
+	{
+		return false;
+	}
+
+	private bool TransformExtentsFromLocalToWorldSpaceOfParent(ref Vector3[] extents, ref Vector3 center, Transform from, Transform to)
+	{
+		return false;
+	}
+
+	public bool GenerateSpawnPositions()
+	{
+		return false;
+	}
+
+	public Vector3 GetSpawnPos(bool team1, int areaMask)
+	{
+		return default(Vector3);
+	}
+
+	public Vector3 GetSpawnPosPlayer(bool team1, int areaMask)
+	{
+		return default(Vector3);
+	}
+
+	public Vector3 GetPointPos(bool attacking, CombatBehavior behavior, int areaMask)
+	{
+		return default(Vector3);
+	}
 }

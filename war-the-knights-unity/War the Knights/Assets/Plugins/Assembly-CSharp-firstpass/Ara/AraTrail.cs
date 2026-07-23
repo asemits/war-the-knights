@@ -1,66 +1,364 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Ara
 {
 	public class AraTrail : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public enum TrailAlignment
+		{
+			View = 0,
+			Velocity = 1,
+			Local = 2
+		}
 
-		1. No dll files were provided to AssetRipper.
+		public enum TrailSpace
+		{
+			World = 0,
+			Self = 1,
+			Custom = 2
+		}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public enum TrailSorting
+		{
+			OlderOnTop = 0,
+			NewerOnTop = 1
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public enum Timescale
+		{
+			Normal = 0,
+			Unscaled = 1
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public enum TextureMode
+		{
+			Stretch = 0,
+			Tile = 1,
+			WorldTile = 2
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public struct CurveFrame
+		{
+			public Vector3 position;
 
-		3. Assembly Reconstruction has not been implemented.
+			public Vector3 normal;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			public Vector3 bitangent;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			public Vector3 tangent;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public CurveFrame(Vector3 position, Vector3 normal, Vector3 bitangent, Vector3 tangent)
+			{
+				this.position = default(Vector3);
+				this.normal = default(Vector3);
+				this.bitangent = default(Vector3);
+				this.tangent = default(Vector3);
+			}
 
-		5. Script Content Level 0
+			public Vector3 Transport(Vector3 newTangent, Vector3 newPosition)
+			{
+				return default(Vector3);
+			}
+		}
 
-			AssetRipper was set to not load any script information.
+		public struct Point
+		{
+			public Vector3 position;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			public Vector3 velocity;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			public Vector3 tangent;
 
-		7. An incorrect path was provided to AssetRipper.
+			public Vector3 normal;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			public Color color;
 
-		*/
+			public float thickness;
+
+			public float life;
+
+			public float texcoord;
+
+			public bool discontinuous;
+
+			public Point(Vector3 position, Vector3 velocity, Vector3 tangent, Vector3 normal, Color color, float thickness, float texcoord, float lifetime)
+			{
+				this.position = default(Vector3);
+				this.velocity = default(Vector3);
+				this.tangent = default(Vector3);
+				this.normal = default(Vector3);
+				this.color = default(Color);
+				this.thickness = 0f;
+				life = 0f;
+				this.texcoord = 0f;
+				discontinuous = false;
+			}
+
+			public static float CatmullRom(float p0, float p1, float p2, float p3, float t)
+			{
+				return 0f;
+			}
+
+			public static Point operator +(Point p1, Point p2)
+			{
+				return default(Point);
+			}
+
+			public static Point operator -(Point p1, Point p2)
+			{
+				return default(Point);
+			}
+		}
+
+		public const float epsilon = 1E-05f;
+
+		public TrailSection section;
+
+		public TrailSpace space;
+
+		public Transform customSpace;
+
+		public Timescale timescale;
+
+		public TrailAlignment alignment;
+
+		public TrailSorting sorting;
+
+		public float thickness;
+
+		public int smoothness;
+
+		public float smoothingDistance;
+
+		public bool highQualityCorners;
+
+		public int cornerRoundness;
+
+		public AnimationCurve thicknessOverLength;
+
+		public Gradient colorOverLength;
+
+		public AnimationCurve thicknessOverTime;
+
+		public Gradient colorOverTime;
+
+		public bool emit;
+
+		public float initialThickness;
+
+		public Color initialColor;
+
+		public Vector3 initialVelocity;
+
+		public float timeInterval;
+
+		public float minDistance;
+
+		public float time;
+
+		public bool enablePhysics;
+
+		public float warmup;
+
+		public Vector3 gravity;
+
+		public float inertia;
+
+		public float velocitySmoothing;
+
+		public float damping;
+
+		public Material[] materials;
+
+		public ShadowCastingMode castShadows;
+
+		public bool receiveShadows;
+
+		public bool useLightProbes;
+
+		public bool quadMapping;
+
+		public TextureMode textureMode;
+
+		public float uvFactor;
+
+		public float uvWidthFactor;
+
+		public float tileAnchor;
+
+		public ElasticArray<Point> points;
+
+		private ElasticArray<Point> renderablePoints;
+
+		private List<int> discontinuities;
+
+		private Mesh mesh_;
+
+		private Vector3 velocity;
+
+		private Vector3 prevPosition;
+
+		private float accumTime;
+
+		private List<Vector3> vertices;
+
+		private List<Vector3> normals;
+
+		private List<Vector4> tangents;
+
+		private List<Vector4> uvs;
+
+		private List<Color> vertColors;
+
+		private List<int> tris;
+
+		private Vector3 nextV;
+
+		private Vector3 prevV;
+
+		private Vector3 vertex;
+
+		private Vector3 normal;
+
+		private Vector3 bitangent;
+
+		private Vector4 tangent;
+
+		private Vector4 texTangent;
+
+		private Vector4 uv;
+
+		private Color color;
+
+		private Action<ScriptableRenderContext, Camera> renderCallback;
+
+		public Vector3 Velocity => default(Vector3);
+
+		private float DeltaTime => 0f;
+
+		private float FixedDeltaTime => 0f;
+
+		public Mesh mesh => null;
+
+		public Matrix4x4 worldToTrail => default(Matrix4x4);
+
+		public event Action onUpdatePoints
+		{
+			add
+			{
+			}
+			remove
+			{
+			}
+		}
+
+		public void OnValidate()
+		{
+		}
+
+		public void Awake()
+		{
+		}
+
+		private void OnEnable()
+		{
+		}
+
+		private void OnDisable()
+		{
+		}
+
+		private void AttachToCameraRendering()
+		{
+		}
+
+		private void DetachFromCameraRendering()
+		{
+		}
+
+		public void Clear()
+		{
+		}
+
+		private void UpdateVelocity()
+		{
+		}
+
+		private void LateUpdate()
+		{
+		}
+
+		private void EmissionStep(float time)
+		{
+		}
+
+		private void Warmup()
+		{
+		}
+
+		private void PhysicsStep(float timestep)
+		{
+		}
+
+		private void FixedUpdate()
+		{
+		}
+
+		public void EmitPoint(Vector3 position, bool adjustEnd = true)
+		{
+		}
+
+		private void SnapLastPointToTransform()
+		{
+		}
+
+		private void UpdatePointsLifecycle()
+		{
+		}
+
+		private void ClearMeshData()
+		{
+		}
+
+		private void CommitMeshData()
+		{
+		}
+
+		private void RenderMesh(Camera cam)
+		{
+		}
+
+		private ElasticArray<Point> GetRenderablePoints(int start, int end)
+		{
+			return null;
+		}
+
+		private CurveFrame InitializeCurveFrame(Vector3 point, Vector3 nextPoint)
+		{
+			return default(CurveFrame);
+		}
+
+		private void UpdateTrailMesh(Camera cam)
+		{
+		}
+
+		private void UpdateSegmentMesh(int start, int end, Vector3 localCamPosition)
+		{
+		}
+
+		private void AppendSection(Point[] data, ref CurveFrame frame, int i, int count, float sectionThickness, float vCoord)
+		{
+		}
+
+		private void AppendFlatTrail(Point[] data, ref CurveFrame frame, int i, int count, float sectionThickness, float vCoord, ref int va, ref int vb)
+		{
+		}
+
+		private void _003CAttachToCameraRendering_003Eb__85_0(ScriptableRenderContext cntxt, Camera cam)
+		{
+		}
 	}
 }

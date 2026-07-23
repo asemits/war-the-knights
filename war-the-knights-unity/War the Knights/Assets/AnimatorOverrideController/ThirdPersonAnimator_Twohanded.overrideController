@@ -7,5 +7,5 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ThirdPersonAnimator_Twohanded
-  m_Controller: {fileID: 9100000, guid: 57684a77655f62a40a25593bfb857b7e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7ba37337c912d8d448b8dee5373a3296, type: 2}
   m_Clips: []

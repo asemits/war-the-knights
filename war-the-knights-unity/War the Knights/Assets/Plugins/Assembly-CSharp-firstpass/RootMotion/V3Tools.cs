@@ -2,65 +2,108 @@ using UnityEngine;
 
 namespace RootMotion
 {
-	public class V3Tools : MonoBehaviour
+	public static class V3Tools
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public static float GetYaw(Vector3 forward)
+		{
+			return 0f;
+		}
 
-		1. No dll files were provided to AssetRipper.
+		public static float GetPitch(Vector3 forward)
+		{
+			return 0f;
+		}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public static float GetBank(Vector3 forward, Vector3 up)
+		{
+			return 0f;
+		}
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public static float GetYaw(Vector3 spaceForward, Vector3 spaceUp, Vector3 forward)
+		{
+			return 0f;
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public static float GetPitch(Vector3 spaceForward, Vector3 spaceUp, Vector3 forward)
+		{
+			return 0f;
+		}
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public static float GetBank(Vector3 spaceForward, Vector3 spaceUp, Vector3 forward, Vector3 up)
+		{
+			return 0f;
+		}
 
-		3. Assembly Reconstruction has not been implemented.
+		public static Vector3 Lerp(Vector3 fromVector, Vector3 toVector, float weight)
+		{
+			return default(Vector3);
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public static Vector3 Slerp(Vector3 fromVector, Vector3 toVector, float weight)
+		{
+			return default(Vector3);
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public static Vector3 ExtractVertical(Vector3 v, Vector3 verticalAxis, float weight)
+		{
+			return default(Vector3);
+		}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static Vector3 ExtractHorizontal(Vector3 v, Vector3 normal, float weight)
+		{
+			return default(Vector3);
+		}
 
-		5. Script Content Level 0
+		public static Vector3 ClampDirection(Vector3 direction, Vector3 normalDirection, float clampWeight, int clampSmoothing)
+		{
+			return default(Vector3);
+		}
 
-			AssetRipper was set to not load any script information.
+		public static Vector3 ClampDirection(Vector3 direction, Vector3 normalDirection, float clampWeight, int clampSmoothing, out bool changed)
+		{
+			changed = default(bool);
+			return default(Vector3);
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public static Vector3 ClampDirection(Vector3 direction, Vector3 normalDirection, float clampWeight, int clampSmoothing, out float clampValue)
+		{
+			clampValue = default(float);
+			return default(Vector3);
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static Vector3 LineToPlane(Vector3 origin, Vector3 direction, Vector3 planeNormal, Vector3 planePoint)
+		{
+			return default(Vector3);
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		public static Vector3 PointToPlane(Vector3 point, Vector3 planePosition, Vector3 planeNormal)
+		{
+			return default(Vector3);
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static Vector3 TransformPointUnscaled(Transform t, Vector3 point)
+		{
+			return default(Vector3);
+		}
 
-		*/
+		public static Vector3 InverseTransformPointUnscaled(Transform t, Vector3 point)
+		{
+			return default(Vector3);
+		}
+
+		public static Vector3 InverseTransformPoint(Vector3 tPos, Quaternion tRot, Vector3 tScale, Vector3 point)
+		{
+			return default(Vector3);
+		}
+
+		public static Vector3 TransformPoint(Vector3 tPos, Quaternion tRot, Vector3 tScale, Vector3 point)
+		{
+			return default(Vector3);
+		}
+
+		public static Vector3 Div(Vector3 v1, Vector3 v2)
+		{
+			return default(Vector3);
+		}
 	}
 }

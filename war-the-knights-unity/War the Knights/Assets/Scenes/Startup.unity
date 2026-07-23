@@ -86,7 +86,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 92959cf5a424f7a48b2711eadb39437f, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: a1c4e092583e05c4e84649bcffbfd6ed, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &6
 NavMeshSettings:
@@ -156,3 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b269675e35e2e52a89d6d7fecb710078, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  audioMixer: {fileID: 24100000, guid: d8295c60317db7745a634b7d95a951da, type: 2}

@@ -1,63 +1,122 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-public class ES3Spreadsheet : MonoBehaviour
+public class ES3Spreadsheet
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	protected struct Index
+	{
+		public int col;
 
-	1. No dll files were provided to AssetRipper.
+		public int row;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public Index(int col, int row)
+		{
+			this.col = 0;
+			this.row = 0;
+		}
+	}
 
-	2. Incorrect dll files were provided to AssetRipper.
+	private int cols;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	private int rows;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	private Dictionary<Index, string> cells;
 
-	3. Assembly Reconstruction has not been implemented.
+	private const string QUOTE = "\"";
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	private const char QUOTE_CHAR = '"';
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	private const char COMMA_CHAR = ',';
 
-	4. This script is unnecessary.
+	private const char NEWLINE_CHAR = '\n';
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	private const string ESCAPED_QUOTE = "\"\"";
 
-	5. Script Content Level 0
+	private static char[] CHARS_TO_ESCAPE;
 
-		AssetRipper was set to not load any script information.
+	public int ColumnCount => 0;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public int RowCount => 0;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public void SetCell(int col, int row, object value)
+	{
+	}
 
-	7. An incorrect path was provided to AssetRipper.
+	private void SetCellString(int col, int row, string value)
+	{
+	}
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public T GetCell<T>(int col, int row)
+	{
+		return default(T);
+	}
 
-	*/
+	public object GetCell(Type type, int col, int row)
+	{
+		return null;
+	}
+
+	public void Load(string filePath)
+	{
+	}
+
+	public void Load(string filePath, ES3Settings settings)
+	{
+	}
+
+	public void Load(ES3Settings settings)
+	{
+	}
+
+	public void LoadRaw(string str)
+	{
+	}
+
+	public void LoadRaw(string str, ES3Settings settings)
+	{
+	}
+
+	private void Load(Stream stream, ES3Settings settings)
+	{
+	}
+
+	public void Save(string filePath)
+	{
+	}
+
+	public void Save(string filePath, ES3Settings settings)
+	{
+	}
+
+	public void Save(ES3Settings settings)
+	{
+	}
+
+	public void Save(string filePath, bool append)
+	{
+	}
+
+	public void Save(string filePath, ES3Settings settings, bool append)
+	{
+	}
+
+	public void Save(ES3Settings settings, bool append)
+	{
+	}
+
+	private static string Escape(string str, bool isAlreadyWrappedInQuotes = false)
+	{
+		return null;
+	}
+
+	private static string Unescape(string str)
+	{
+		return null;
+	}
+
+	private string[,] ToArray()
+	{
+		return null;
+	}
 }

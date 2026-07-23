@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF - Metalic Green
-  m_Shader: {fileID: 4800000, guid: 7274c3d82f5b788498a71100d29e8cb4, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4c547e0ee5d4d1a4aa01af09c5127ee5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _FaceTex:
-        m_Texture: {fileID: 2800000, guid: bbd5ba7e0445bfb45b3f3ab469d1700b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 031820c880ba5f347acabaa05d55864f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 9a2347166d1798443b31654a2f0115a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0a6086e37ab6026498a8503eb81d81b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _OutlineTex:
-        m_Texture: {fileID: 2800000, guid: affbbab436253144298fe496d61c11cc, type: 3}
+        m_Texture: {fileID: 2800000, guid: e1704b31ef1d0154d83e16c9f397d32f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

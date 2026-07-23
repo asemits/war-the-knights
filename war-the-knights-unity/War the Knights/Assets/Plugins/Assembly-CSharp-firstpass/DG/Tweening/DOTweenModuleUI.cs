@@ -1,66 +1,843 @@
+using System.Globalization;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DG.Tweening
 {
-	public class DOTweenModuleUI : MonoBehaviour
+	public static class DOTweenModuleUI
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public static class Utils
+		{
+			public static Vector2 SwitchToRectTransform(RectTransform from, RectTransform to)
+			{
+				return default(Vector2);
+			}
+		}
 
-		1. No dll files were provided to AssetRipper.
+		private sealed class _003C_003Ec__DisplayClass10_0
+		{
+			public LayoutElement target;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			internal Vector2 _003CDOPreferredSize_003Eb__0()
+			{
+				return default(Vector2);
+			}
 
-		2. Incorrect dll files were provided to AssetRipper.
+			internal void _003CDOPreferredSize_003Eb__1(Vector2 x)
+			{
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private sealed class _003C_003Ec__DisplayClass11_0
+		{
+			public Outline target;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			internal Color _003CDOColor_003Eb__0()
+			{
+				return default(Color);
+			}
 
-		3. Assembly Reconstruction has not been implemented.
+			internal void _003CDOColor_003Eb__1(Color x)
+			{
+			}
+		}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private sealed class _003C_003Ec__DisplayClass12_0
+		{
+			public Outline target;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			internal Color _003CDOFade_003Eb__0()
+			{
+				return default(Color);
+			}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			internal void _003CDOFade_003Eb__1(Color x)
+			{
+			}
+		}
 
-		5. Script Content Level 0
+		private sealed class _003C_003Ec__DisplayClass13_0
+		{
+			public Outline target;
 
-			AssetRipper was set to not load any script information.
+			internal Vector2 _003CDOScale_003Eb__0()
+			{
+				return default(Vector2);
+			}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			internal void _003CDOScale_003Eb__1(Vector2 x)
+			{
+			}
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private sealed class _003C_003Ec__DisplayClass14_0
+		{
+			public RectTransform target;
 
-		7. An incorrect path was provided to AssetRipper.
+			internal Vector2 _003CDOAnchorPos_003Eb__0()
+			{
+				return default(Vector2);
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			internal void _003CDOAnchorPos_003Eb__1(Vector2 x)
+			{
+			}
+		}
 
-		*/
+		private sealed class _003C_003Ec__DisplayClass15_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOAnchorPosX_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOAnchorPosX_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass16_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOAnchorPosY_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOAnchorPosY_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass17_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOAnchorPos3D_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOAnchorPos3D_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass18_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOAnchorPos3DX_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOAnchorPos3DX_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass19_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOAnchorPos3DY_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOAnchorPos3DY_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass1_0
+		{
+			public CanvasGroup target;
+
+			internal float _003CDOFade_003Eb__0()
+			{
+				return 0f;
+			}
+
+			internal void _003CDOFade_003Eb__1(float x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass20_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOAnchorPos3DZ_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOAnchorPos3DZ_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass21_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOAnchorMax_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOAnchorMax_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass22_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOAnchorMin_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOAnchorMin_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass23_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOPivot_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOPivot_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass24_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOPivotX_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOPivotX_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass25_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOPivotY_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOPivotY_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass26_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOSizeDelta_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOSizeDelta_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass27_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOPunchAnchorPos_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOPunchAnchorPos_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass28_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOShakeAnchorPos_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOShakeAnchorPos_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass29_0
+		{
+			public RectTransform target;
+
+			internal Vector3 _003CDOShakeAnchorPos_003Eb__0()
+			{
+				return default(Vector3);
+			}
+
+			internal void _003CDOShakeAnchorPos_003Eb__1(Vector3 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass2_0
+		{
+			public Graphic target;
+
+			internal Color _003CDOColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass30_0
+		{
+			public RectTransform target;
+
+			public float startPosY;
+
+			public bool offsetYSet;
+
+			public float offsetY;
+
+			public Sequence s;
+
+			public Vector2 endValue;
+
+			internal Vector2 _003CDOJumpAnchorPos_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOJumpAnchorPos_003Eb__1(Vector2 x)
+			{
+			}
+
+			internal void _003CDOJumpAnchorPos_003Eb__2()
+			{
+			}
+
+			internal Vector2 _003CDOJumpAnchorPos_003Eb__3()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOJumpAnchorPos_003Eb__4(Vector2 x)
+			{
+			}
+
+			internal void _003CDOJumpAnchorPos_003Eb__5()
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass31_0
+		{
+			public ScrollRect target;
+
+			internal Vector2 _003CDONormalizedPos_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDONormalizedPos_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass32_0
+		{
+			public ScrollRect target;
+
+			internal float _003CDOHorizontalNormalizedPos_003Eb__0()
+			{
+				return 0f;
+			}
+
+			internal void _003CDOHorizontalNormalizedPos_003Eb__1(float x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass33_0
+		{
+			public ScrollRect target;
+
+			internal float _003CDOVerticalNormalizedPos_003Eb__0()
+			{
+				return 0f;
+			}
+
+			internal void _003CDOVerticalNormalizedPos_003Eb__1(float x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass34_0
+		{
+			public Slider target;
+
+			internal float _003CDOValue_003Eb__0()
+			{
+				return 0f;
+			}
+
+			internal void _003CDOValue_003Eb__1(float x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass35_0
+		{
+			public Text target;
+
+			internal Color _003CDOColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass36_0
+		{
+			public int fromValue;
+
+			public Text target;
+
+			public bool addThousandsSeparator;
+
+			public CultureInfo cInfo;
+
+			internal int _003CDOCounter_003Eb__0()
+			{
+				return 0;
+			}
+
+			internal void _003CDOCounter_003Eb__1(int x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass37_0
+		{
+			public Text target;
+
+			internal Color _003CDOFade_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOFade_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass38_0
+		{
+			public Text target;
+
+			internal string _003CDOText_003Eb__0()
+			{
+				return null;
+			}
+
+			internal void _003CDOText_003Eb__1(string x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass39_0
+		{
+			public Color to;
+
+			public Graphic target;
+
+			internal Color _003CDOBlendableColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOBlendableColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass3_0
+		{
+			public Graphic target;
+
+			internal Color _003CDOFade_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOFade_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass40_0
+		{
+			public Color to;
+
+			public Image target;
+
+			internal Color _003CDOBlendableColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOBlendableColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass41_0
+		{
+			public Color to;
+
+			public Text target;
+
+			internal Color _003CDOBlendableColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOBlendableColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass42_0
+		{
+			public RectTransform target;
+
+			internal Vector2 _003CDOShapeCircle_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOShapeCircle_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass4_0
+		{
+			public Image target;
+
+			internal Color _003CDOColor_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOColor_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass5_0
+		{
+			public Image target;
+
+			internal Color _003CDOFade_003Eb__0()
+			{
+				return default(Color);
+			}
+
+			internal void _003CDOFade_003Eb__1(Color x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass6_0
+		{
+			public Image target;
+
+			internal float _003CDOFillAmount_003Eb__0()
+			{
+				return 0f;
+			}
+
+			internal void _003CDOFillAmount_003Eb__1(float x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass8_0
+		{
+			public LayoutElement target;
+
+			internal Vector2 _003CDOFlexibleSize_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOFlexibleSize_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass9_0
+		{
+			public LayoutElement target;
+
+			internal Vector2 _003CDOMinSize_003Eb__0()
+			{
+				return default(Vector2);
+			}
+
+			internal void _003CDOMinSize_003Eb__1(Vector2 x)
+			{
+			}
+		}
+
+		public static TweenerCore<float, float, FloatOptions> DOFade(CanvasGroup target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOColor(Graphic target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOFade(Graphic target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOColor(Image target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOFade(Image target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<float, float, FloatOptions> DOFillAmount(Image target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static Sequence DOGradientColor(Image target, Gradient gradient, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOFlexibleSize(LayoutElement target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOMinSize(LayoutElement target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOPreferredSize(LayoutElement target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOColor(Outline target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOFade(Outline target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOScale(Outline target, Vector2 endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorPos(RectTransform target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorPosX(RectTransform target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorPosY(RectTransform target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector3, Vector3, VectorOptions> DOAnchorPos3D(RectTransform target, Vector3 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector3, Vector3, VectorOptions> DOAnchorPos3DX(RectTransform target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector3, Vector3, VectorOptions> DOAnchorPos3DY(RectTransform target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector3, Vector3, VectorOptions> DOAnchorPos3DZ(RectTransform target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorMax(RectTransform target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOAnchorMin(RectTransform target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOPivot(RectTransform target, Vector2 endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOPivotX(RectTransform target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOPivotY(RectTransform target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOSizeDelta(RectTransform target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static Tweener DOPunchAnchorPos(RectTransform target, Vector2 punch, float duration, int vibrato = 10, float elasticity = 1f, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static Tweener DOShakeAnchorPos(RectTransform target, float duration, float strength = 100f, int vibrato = 10, float randomness = 90f, bool snapping = false, bool fadeOut = true, ShakeRandomnessMode randomnessMode = ShakeRandomnessMode.Full)
+		{
+			return null;
+		}
+
+		public static Tweener DOShakeAnchorPos(RectTransform target, float duration, Vector2 strength, int vibrato = 10, float randomness = 90f, bool snapping = false, bool fadeOut = true, ShakeRandomnessMode randomnessMode = ShakeRandomnessMode.Full)
+		{
+			return null;
+		}
+
+		public static Sequence DOJumpAnchorPos(RectTransform target, Vector2 endValue, float jumpPower, int numJumps, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static Tweener DONormalizedPos(ScrollRect target, Vector2 endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static Tweener DOHorizontalNormalizedPos(ScrollRect target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static Tweener DOVerticalNormalizedPos(ScrollRect target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<float, float, FloatOptions> DOValue(Slider target, float endValue, float duration, bool snapping = false)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOColor(Text target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<int, int, NoOptions> DOCounter(Text target, int fromValue, int endValue, float duration, bool addThousandsSeparator = true, CultureInfo culture = null)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Color, Color, ColorOptions> DOFade(Text target, float endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<string, string, StringOptions> DOText(Text target, string endValue, float duration, bool richTextEnabled = true, ScrambleMode scrambleMode = ScrambleMode.None, string scrambleChars = null)
+		{
+			return null;
+		}
+
+		public static Tweener DOBlendableColor(Graphic target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static Tweener DOBlendableColor(Image target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static Tweener DOBlendableColor(Text target, Color endValue, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, CircleOptions> DOShapeCircle(RectTransform target, Vector2 center, float endValueDegrees, float duration, bool relativeCenter = false, bool snapping = false)
+		{
+			return null;
+		}
 	}
 }

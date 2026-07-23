@@ -1,66 +1,337 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace ES3Internal
 {
-	public class ES3Reflection : MonoBehaviour
+	public static class ES3Reflection
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public struct ES3ReflectedMember
+		{
+			private FieldInfo fieldInfo;
 
-		1. No dll files were provided to AssetRipper.
+			private PropertyInfo propertyInfo;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public bool isProperty;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public bool IsNull => false;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			public string Name => null;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			public Type MemberType => null;
 
-		3. Assembly Reconstruction has not been implemented.
+			public bool IsPublic => false;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			public bool IsProtected => false;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			public bool IsStatic => false;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public ES3ReflectedMember(object fieldPropertyInfo)
+			{
+				fieldInfo = null;
+				propertyInfo = null;
+				isProperty = false;
+			}
 
-		5. Script Content Level 0
+			public void SetValue(object obj, object value)
+			{
+			}
 
-			AssetRipper was set to not load any script information.
+			public object GetValue(object obj)
+			{
+				return null;
+			}
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public class ES3ReflectedMethod
+		{
+			private MethodInfo method;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			public ES3ReflectedMethod(Type type, string methodName, Type[] genericParameters, Type[] parameterTypes)
+			{
+			}
 
-		7. An incorrect path was provided to AssetRipper.
+			public ES3ReflectedMethod(Type type, string methodName, Type[] genericParameters, Type[] parameterTypes, BindingFlags bindingAttr)
+			{
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			public object Invoke(object obj, object[] parameters = null)
+			{
+				return null;
+			}
+		}
 
-		*/
+		[Serializable]
+		private sealed class _003C_003Ec
+		{
+			public static readonly _003C_003Ec _003C_003E9;
+
+			public static Func<Assembly, IEnumerable<Type>> _003C_003E9__29_0;
+
+			public static Func<Assembly, Type, _003C_003Ef__AnonymousType0<Assembly, Type>> _003C_003E9__29_1;
+
+			public static Func<_003C_003Ef__AnonymousType0<Assembly, Type>, Type> _003C_003E9__29_3;
+
+			internal IEnumerable<Type> _003CGetDerivedTypes_003Eb__29_0(Assembly assembly)
+			{
+				return null;
+			}
+
+			internal _003C_003Ef__AnonymousType0<Assembly, Type> _003CGetDerivedTypes_003Eb__29_1(Assembly assembly, Type type)
+			{
+				return null;
+			}
+
+			internal Type _003CGetDerivedTypes_003Eb__29_3(_003C_003Ef__AnonymousType0<Assembly, Type> _003C_003Eh__TransparentIdentifier0)
+			{
+				return null;
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass29_0
+		{
+			public Type derivedType;
+
+			internal bool _003CGetDerivedTypes_003Eb__2(_003C_003Ef__AnonymousType0<Assembly, Type> _003C_003Eh__TransparentIdentifier0)
+			{
+				return false;
+			}
+		}
+
+		private sealed class _003C_003Ec__DisplayClass48_0
+		{
+			public string methodName;
+
+			internal bool _003CGetMethods_003Eb__0(MethodInfo t)
+			{
+				return false;
+			}
+		}
+
+		public const string memberFieldPrefix = "m_";
+
+		public const string componentTagFieldName = "tag";
+
+		public const string componentNameFieldName = "name";
+
+		public static readonly string[] excludedPropertyNames;
+
+		public static readonly Type serializableAttributeType;
+
+		public static readonly Type serializeFieldAttributeType;
+
+		public static readonly Type obsoleteAttributeType;
+
+		public static readonly Type nonSerializedAttributeType;
+
+		public static readonly Type es3SerializableAttributeType;
+
+		public static readonly Type es3NonSerializableAttributeType;
+
+		public static Type[] EmptyTypes;
+
+		private static Assembly[] _assemblies;
+
+		private static Assembly[] Assemblies => null;
+
+		public static Type[] GetElementTypes(Type type)
+		{
+			return null;
+		}
+
+		public static List<FieldInfo> GetSerializableFields(Type type, List<FieldInfo> serializableFields = null, bool safe = true, string[] memberNames = null, BindingFlags bindings = (BindingFlags)62)
+		{
+			return null;
+		}
+
+		public static List<PropertyInfo> GetSerializableProperties(Type type, List<PropertyInfo> serializableProperties = null, bool safe = true, string[] memberNames = null, BindingFlags bindings = (BindingFlags)62)
+		{
+			return null;
+		}
+
+		public static bool TypeIsSerializable(Type type)
+		{
+			return false;
+		}
+
+		public static object CreateInstance(Type type)
+		{
+			return null;
+		}
+
+		public static object CreateInstance(Type type, object[] args)
+		{
+			return null;
+		}
+
+		public static Array ArrayCreateInstance(Type type, int length)
+		{
+			return null;
+		}
+
+		public static Array ArrayCreateInstance(Type type, int[] dimensions)
+		{
+			return null;
+		}
+
+		public static Type MakeGenericType(Type type, Type genericParam)
+		{
+			return null;
+		}
+
+		public static ES3ReflectedMember[] GetSerializableMembers(Type type, bool safe = true, string[] memberNames = null)
+		{
+			return null;
+		}
+
+		public static ES3ReflectedMember GetES3ReflectedProperty(Type type, string propertyName)
+		{
+			return default(ES3ReflectedMember);
+		}
+
+		public static ES3ReflectedMember GetES3ReflectedMember(Type type, string fieldName)
+		{
+			return default(ES3ReflectedMember);
+		}
+
+		public static IList<T> GetInstances<T>()
+		{
+			return null;
+		}
+
+		public static IList<Type> GetDerivedTypes(Type derivedType)
+		{
+			return null;
+		}
+
+		public static bool IsAssignableFrom(Type a, Type b)
+		{
+			return false;
+		}
+
+		public static Type GetGenericTypeDefinition(Type type)
+		{
+			return null;
+		}
+
+		public static Type[] GetGenericArguments(Type type)
+		{
+			return null;
+		}
+
+		public static int GetArrayRank(Type type)
+		{
+			return 0;
+		}
+
+		public static string GetAssemblyQualifiedName(Type type)
+		{
+			return null;
+		}
+
+		public static ES3ReflectedMethod GetMethod(Type type, string methodName, Type[] genericParameters, Type[] parameterTypes)
+		{
+			return null;
+		}
+
+		public static bool TypeIsArray(Type type)
+		{
+			return false;
+		}
+
+		public static Type GetElementType(Type type)
+		{
+			return null;
+		}
+
+		public static bool IsAbstract(Type type)
+		{
+			return false;
+		}
+
+		public static bool IsInterface(Type type)
+		{
+			return false;
+		}
+
+		public static bool IsGenericType(Type type)
+		{
+			return false;
+		}
+
+		public static bool IsValueType(Type type)
+		{
+			return false;
+		}
+
+		public static bool IsEnum(Type type)
+		{
+			return false;
+		}
+
+		public static bool HasParameterlessConstructor(Type type)
+		{
+			return false;
+		}
+
+		public static ConstructorInfo GetParameterlessConstructor(Type type)
+		{
+			return null;
+		}
+
+		public static string GetShortAssemblyQualifiedName(Type type)
+		{
+			return null;
+		}
+
+		public static PropertyInfo GetProperty(Type type, string propertyName)
+		{
+			return null;
+		}
+
+		public static FieldInfo GetField(Type type, string fieldName)
+		{
+			return null;
+		}
+
+		public static MethodInfo[] GetMethods(Type type, string methodName)
+		{
+			return null;
+		}
+
+		public static bool IsPrimitive(Type type)
+		{
+			return false;
+		}
+
+		public static bool AttributeIsDefined(MemberInfo info, Type attributeType)
+		{
+			return false;
+		}
+
+		public static bool AttributeIsDefined(Type type, Type attributeType)
+		{
+			return false;
+		}
+
+		public static bool ImplementsInterface(Type type, Type interfaceType)
+		{
+			return false;
+		}
+
+		public static Type BaseType(Type type)
+		{
+			return null;
+		}
+
+		public static Type GetType(string typeString)
+		{
+			return null;
+		}
+
+		public static string GetTypeString(Type type)
+		{
+			return null;
+		}
 	}
 }

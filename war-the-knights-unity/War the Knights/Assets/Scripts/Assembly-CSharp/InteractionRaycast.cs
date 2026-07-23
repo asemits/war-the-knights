@@ -1,63 +1,98 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionRaycast : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public float distanceToSee;
 
-	1. No dll files were provided to AssetRipper.
+	public Transform playerCamera;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public RectTransform useUITransform;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public CanvasGroup useUICanvas;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public GameObject Target;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public GameObject DirectTarget;
 
-	3. Assembly Reconstruction has not been implemented.
+	public TextMeshProUGUI interactText;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public RaycastHit hitObject;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public bool lookingAtInteractible;
 
-	4. This script is unnecessary.
+	public bool dontShowInteractibleCrosshair;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public GameObject currentLookedAtObject;
 
-	5. Script Content Level 0
+	public LayerMask layerMask;
 
-		AssetRipper was set to not load any script information.
+	public RaycastHit hitEnemy;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private GameObject EnemyTarget;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public HealthBase currentEnemy;
 
-	7. An incorrect path was provided to AssetRipper.
+	public LayerMask enemyLayerMask;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public Color colorEnemy;
 
-	*/
+	public Color colorEnemyCantFire;
+
+	public Color colorDefault;
+
+	public Color colorCantFire;
+
+	public float progress;
+
+	public Image progressCircle;
+
+	public bool canBuy;
+
+	public bool carryingPhysicsPickup;
+
+	public InteractablePhysicsPickup physicsPickup;
+
+	public Quaternion physicsPickupTargetRotation;
+
+	public Quaternion targetRotationOnPickup;
+
+	public Transform currentPickupTargetTransform;
+
+	public float stopCarryingTimer;
+
+	public static InteractionRaycast Instance;
+
+	private void FixedUpdate()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public void Use()
+	{
+	}
+
+	public void UseUIToggle(bool show)
+	{
+	}
+
+	public void ToggleCarryingPhysicsPickup(bool start, InteractablePhysicsPickup interactablePhysicsPickup = null, bool defeat = false)
+	{
+	}
+
+	public void OnPlayerDeath()
+	{
+	}
+
+	public void HideInteractionTip()
+	{
+	}
+
+	public void UpdateRay()
+	{
+	}
 }

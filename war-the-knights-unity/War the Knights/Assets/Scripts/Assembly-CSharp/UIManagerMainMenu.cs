@@ -1,63 +1,137 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class UIManagerMainMenu : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public CanvasGroup gameMenuCanvas;
 
-	1. No dll files were provided to AssetRipper.
+	public CanvasGroup mainMenuCanvas;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public CanvasGroup mapMenuCanvas;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public CanvasGroup mapSettingsCanvas;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public TMP_InputField ticketsConquestInputField;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public TMP_InputField respawnTimeInputField;
 
-	3. Assembly Reconstruction has not been implemented.
+	public TMP_InputField botCountInputField;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public Slider botCountRatioSlider;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public TextMeshProUGUI botCountTeam1;
 
-	4. This script is unnecessary.
+	public TextMeshProUGUI botCountTeam2;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public int ticketsConquest;
 
-	5. Script Content Level 0
+	public int respawnTime;
 
-		AssetRipper was set to not load any script information.
+	public int botsTotal;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public int botsTeam1;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public int botsTeam2;
 
-	7. An incorrect path was provided to AssetRipper.
+	public UIManagerOptionsMenu optionsMenu;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public AudioMixer audioMixer;
 
-	*/
+	public AudioMixerSnapshot audioSnapshotDefault;
+
+	public bool showOpeningMenu;
+
+	public static UIManagerMainMenu Instance;
+
+	public UIManagerSound uiSound;
+
+	public Map[] dragonfieldMaps;
+
+	public Color mapButtonColor;
+
+	public Color mapButtonSelectedColor;
+
+	public MapSelectionController mapSelectionController;
+
+	public Image selectedMapIcon;
+
+	public TextMeshProUGUI selectedMapNameText;
+
+	public Map[] currentMapsShown;
+
+	public int currentlySelectedMap;
+
+	private void OnEnable()
+	{
+	}
+
+	private void OnDisable()
+	{
+	}
+
+	private void Awake()
+	{
+	}
+
+	public void Rewarded(int index)
+	{
+	}
+
+	public void ButtonRewarded(int index)
+	{
+	}
+
+	public void OpenGameMenu(bool open)
+	{
+	}
+
+	public void OpenMap(bool open)
+	{
+	}
+
+	public void OpenUrl()
+	{
+	}
+
+	public void SelectMapInSelection(int index)
+	{
+	}
+
+	public void SetCurrentMap(int index)
+	{
+	}
+
+	public void StartGame()
+	{
+	}
+
+	public void SetTickets()
+	{
+	}
+
+	public void SetRespawnTime()
+	{
+	}
+
+	public void SetBotCount()
+	{
+	}
+
+	public void SaveSettings()
+	{
+	}
+
+	public void LoadSettings()
+	{
+	}
+
+	public void SetConfigToDefault()
+	{
+	}
+
+	public void OpenOptionsMenu(bool open)
+	{
+	}
 }

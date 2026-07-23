@@ -1,63 +1,271 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using HorizonBasedAmbientOcclusion;
 using UnityEngine;
 
 public class PlayerGameManager : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CStartMatchAfterFirstSpawnWaitTime_003Ed__90 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public PlayerGameManager _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		object IEnumerator<object>.Current => null;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		object IEnumerator.Current => null;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public _003CStartMatchAfterFirstSpawnWaitTime_003Ed__90(int _003C_003E1__state)
+		{
+		}
 
-	3. Assembly Reconstruction has not been implemented.
+		void IDisposable.Dispose()
+		{
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	4. This script is unnecessary.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public bool isRunning;
 
-	5. Script Content Level 0
+	public bool isMoving;
 
-		AssetRipper was set to not load any script information.
+	public bool ableToMove;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public bool isGrapelling;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public bool isCrouching;
 
-	7. An incorrect path was provided to AssetRipper.
+	public bool isInVehicle;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public bool isInMenu;
 
-	*/
+	public bool isInSpawnMenu;
+
+	public bool closedMenu;
+
+	public bool isAttacking;
+
+	public bool isInAir;
+
+	public bool isInPauseMenu;
+
+	public bool isAiming;
+
+	public bool isChargingWeapon;
+
+	public bool isBlocking;
+
+	public bool isSwimming;
+
+	public bool isSwimmingOnSurface;
+
+	public bool isDead;
+
+	public bool isInCutscene;
+
+	public bool isInCircleMenu;
+
+	public bool isWallrunning;
+
+	public bool isFallingDown;
+
+	public bool isPaused;
+
+	public bool isReloading;
+
+	public bool isOnLadder;
+
+	public bool isPlacingGadget;
+
+	public bool isRagdolled;
+
+	public bool isInThirdPerson;
+
+	public float aimOrBlockMovementMultiplier;
+
+	public CoolMove currentCoolMove;
+
+	public float timeLastLanded;
+
+	public float sensitivityHorizontal;
+
+	public float sensitivityVertical;
+
+	public float sensitivityHorizontalAiming;
+
+	public float sensitivityVerticalAiming;
+
+	public float sensitivityMultiplierScope;
+
+	public SimpleSmoothMouseLook mouseLook;
+
+	private Coroutine killSlowMotionCoroutine;
+
+	public BattleStatus currentBattleStatus;
+
+	public TeamStatus dominatingFaction;
+
+	public int ticketsNeeded;
+
+	private int ticketsTeam1;
+
+	private int ticketsTeam2;
+
+	public int respawnTime;
+
+	public float pointCaptureDuration;
+
+	public float ticketAddTimer;
+
+	public float timeIntervalTicketGain;
+
+	public int ticketsGainAmountDominating;
+
+	public int ticketsGainAmountDefeat;
+
+	public bool quickStart;
+
+	public bool quickStartTeam2;
+
+	public bool firstSpawn;
+
+	public bool mapSideChosenByPlayerIsSide1;
+
+	public Camera mapCameraPrefab;
+
+	public HBAO hbaoFirstPerson;
+
+	public HBAO hbaoThirdPerson;
+
+	public HBAO hbaoMapCamera;
+
+	public bool showEndScreenOnVictoryOrDefeat;
+
+	public bool currentPointShownOnHud;
+
+	public bool currentPointRatioShownOnHud;
+
+	public EffectManager impactManagerInstance;
+
+	public InteractionRaycast interactionRaycastInstance;
+
+	public PlayerStats playerStatsInstance;
+
+	public UIManager uiManagerInstance;
+
+	public VehicleManager vehicleManagerInstance;
+
+	public WeaponManager weaponmangerInstance;
+
+	public AIManager aiManagerInstance;
+
+	public SoundManager soundManagerInstance;
+
+	public SkyManager skyManagerInstance;
+
+	public HintManager hintManagerInstance;
+
+	public static PlayerGameManager Instance;
+
+	private Coroutine startMatchAfterFirstSpawnWaitTimeCoroutine;
+
+	public bool aiStarted;
+
+	private bool matchScoringEnded;
+
+	public bool isInKillSlowMotion;
+
+	public int TicketsTeam1
+	{
+		get
+		{
+			return 0;
+		}
+		set
+		{
+		}
+	}
+
+	public int TicketsTeam2
+	{
+		get
+		{
+			return 0;
+		}
+		set
+		{
+		}
+	}
+
+	private void Awake()
+	{
+	}
+
+	public bool CanUse()
+	{
+		return false;
+	}
+
+	public bool CanSprint()
+	{
+		return false;
+	}
+
+	private void FixedUpdate()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public void CalculateDominatingFaction()
+	{
+	}
+
+	public void StartMatchAfterChoosingLoadout()
+	{
+	}
+
+	public void StartMatchAfterInspiring()
+	{
+	}
+
+	public void StartMatchAfterFirstSpawn()
+	{
+	}
+
+	private IEnumerator StartMatchAfterFirstSpawnWaitTime()
+	{
+		return null;
+	}
+
+	public void EndMatch(bool winningTeamIsTeam1)
+	{
+	}
+
+	public void FighterDefeated(bool team1)
+	{
+	}
+
+	public void SetTimescale(float timescale)
+	{
+	}
 }

@@ -1,66 +1,74 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TMPro.Examples
 {
 	public class Benchmark01_UGUI : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private sealed class _003CStart_003Ed__10 : IEnumerator<object>, IEnumerator, IDisposable
+		{
+			private int _003C_003E1__state;
 
-		1. No dll files were provided to AssetRipper.
+			private object _003C_003E2__current;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public Benchmark01_UGUI _003C_003E4__this;
 
-		2. Incorrect dll files were provided to AssetRipper.
+			private int _003Ci_003E5__2;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+			object IEnumerator<object>.Current => null;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			object IEnumerator.Current => null;
 
-		3. Assembly Reconstruction has not been implemented.
+			public _003CStart_003Ed__10(int _003C_003E1__state)
+			{
+			}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			void IDisposable.Dispose()
+			{
+			}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+			private bool MoveNext()
+			{
+				return false;
+			}
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			bool IEnumerator.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				return this.MoveNext();
+			}
 
-		5. Script Content Level 0
+			void IEnumerator.Reset()
+			{
+			}
+		}
 
-			AssetRipper was set to not load any script information.
+		public int BenchmarkType;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public Canvas canvas;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public TMP_FontAsset TMProFont;
 
-		7. An incorrect path was provided to AssetRipper.
+		public Font TextMeshFont;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		private TextMeshProUGUI m_textMeshPro;
 
-		*/
+		private Text m_textMesh;
+
+		private const string label01 = "The <#0050FF>count is: </color>";
+
+		private const string label02 = "The <color=#0050FF>count is: </color>";
+
+		private Material m_material01;
+
+		private Material m_material02;
+
+		private IEnumerator Start()
+		{
+			return null;
+		}
 	}
 }

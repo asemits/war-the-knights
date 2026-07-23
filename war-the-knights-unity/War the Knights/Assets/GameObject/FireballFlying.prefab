@@ -135,7 +135,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: 96420caabc5d56a42a36c9cefd3e201a, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 88de054470670334ba4a34b4ec06ea53, type: 2}
 --- !u!23 &23061268324235159
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5528db8919f03734e84fc3a16328f01a, type: 2}
+  - {fileID: 2100000, guid: 40452653349f25a47a666252a8801c07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,6 +190,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98b5037d5a438fb67b135841b44452f, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  collisionDisabled: 0
+  damage: 0
+  poiseDamage: 0
+  damageType: 0
+  overrideWeaponDamage: 0
+  damageOverride: 0
+  overrideWeaponPoiseDamage: 0
+  poiseDamageOverride: 0
+  overrideWeaponDamageType: 0
+  damageTypeOverride: 1
+  dealsFireDamage: 1
+  fireDamage: 50
+  dealsSplashDamage: 1
+  splashDamage:
+    splashDamage: 50
+    splashPoiseDamage: 180
+    splashPhysicsForce: 42
+    splashFireDamage: 60
+    splashRadius: 6.5
+  visualEffectToPlayOnImpact: 1
+  customEffectPrefabToSpawnOnImpact: {fileID: 0}
+  createsEnvironmentFlames: 1
+  scattersFlameDebris: 0
+  flameDebrisCount: 0
+  flameDebrisConeAngle: 50
+  scattersFlameLargeDebris: 1
+  flameLargeDebrisCount: 3
+  flameLargeDebrisConeAngle: 50
+  healthSource: {fileID: 0}
+  healthSourceVehicle: {fileID: 0}
+  rb: {fileID: 0}
+  damageSource: {fileID: 0}
+  playerFired: 0
+  vehicleFired: 0
+  _transform: {fileID: 0}
+  flyBySoundDistance: 0
+  flyBySound: 0
+  projectileAudioSource: {fileID: 82372920208702427}
+  rotateToUpDirection: 1
+  effectOnImpact: 1
+  splashDamageOnImpact: 1
+  splashDamageAfterTime: 4
+  trailRenderer: {fileID: 0}
+  particleSystems: []
+  particleSystemsToActivateOnImpact: []
+  particleSystemsToUnparentOnImpact:
+  - {fileID: 198621510681728303}
+  spawnCollisionImpactVisualEffects: 0
 --- !u!54 &54709867586078768
 Rigidbody:
   serializedVersion: 4
@@ -229,6 +277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f61acc303ff2a5a973e7fe401502ca, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  timeUntilDestroy: 6
+  stopTimerOnBotOrVehicleHit: 0
+  randomTime: 0
+  timeUntilDestroyMax: 14
+  destroyChildrenAndSelfAfterRandomTime: 0
 --- !u!135 &135589667821646929
 SphereCollider:
   serializedVersion: 3
@@ -2571,7 +2624,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4845,7 +4898,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7119,7 +7172,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9ec0ec987deed41b9296e3d332fb5e, type: 2}
+  - {fileID: 2100000, guid: a773eec79adfaa646b47bbfc9930d244, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9393,7 +9446,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4abff174284d08341aebf7cb2b65c0e7, type: 2}
+  - {fileID: 2100000, guid: 8dfa7d7afa5e64a45bc6136b15179bdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

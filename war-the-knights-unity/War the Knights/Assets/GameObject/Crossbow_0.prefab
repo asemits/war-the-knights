@@ -337,6 +337,124 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f903c73702fdea77bdc0ea60b3f9740, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  anim: {fileID: 0}
+  bot: {fileID: 0}
+  isBot: 0
+  weapon: {fileID: 0}
+  equipAnimPercentageTilAbleToAttack: 0.7
+  outOfAmmo: 0
+  autoReloadOnEquip: 0
+  canReloadWhilstAiming: 0
+  stoppedShooting: 1
+  dontShowReloadWarning: 1
+  hasAmmoObject: 1
+  ammoSpawnPosition: 2
+  customAmmoSpawnPosition: {fileID: 4089843903986396}
+  hasOutOfAmmoAnimation: 0
+  usingSpecialAmmo: 0
+  specialAmmo: 0
+  fireRateTimer: 0
+  isAkimbo: 0
+  akimboReady: 0
+  akimboIsLeftGun: 0
+  canCharge: 0
+  chargeType: 0
+  chargeTimeByAnimation: 1
+  chargeTime: 1
+  chargeTimeProgress: 0
+  stoppedCharging: 0
+  hasRecoil: 1
+  recoilProfile:
+    recoilCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 18.430843
+        outSlope: 18.430843
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.053831104
+        value: 0.9921527
+        inSlope: -0.6950703
+        outSlope: -0.6950703
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.058531966
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.59367305
+        outSlope: -0.59367305
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 0
+        inSlope: -0.038318988
+        outSlope: -0.038318988
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.14005612
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    recoilDuration: 0.75
+    recoilStrength: 1.5
+    recoilRestoreSpeed: 1
+    recoilRatio: {x: 0, y: 1}
+    maxRecoil: 5
+    recoilZRotationIntensity: 1
+  hasAnimRecoil: 0
+  animRecoilType: 0
+  hasCameraShake: 1
+  cameraShakeType: 2
+  equipSound: 2
+  customEquipSound: {fileID: 0}
+  attackSound: 2
+  customAttackSound: {fileID: 0}
+  randomizeAttackSoundPitch: 0
+  chargeSound: 0
+  customChargeSound: {fileID: 0}
+  reloadSound: 1
+  customReloadSound: {fileID: 0}
+  aimSound: 1
+  customAimSound: {fileID: 0}
+  aimStopSound: 1
+  customAimStopSound: {fileID: 0}
+  reload2Sound: 0
+  customReload2Sound: {fileID: 0}
+  customAdditionalSounds: []
+  muzzleParticles: []
+  hasTrail: 0
+  trailPrefab: {fileID: 0}
+  trailOrigin: {fileID: 0}
+  trailOnlyWhenAimed: 0
+  aimMovementMultiplier: 0.5
+  hasAimZoom: 1
+  zoomFovRatio: 0.6
+  zoomFovWeapon: 45
+  instantAimZoom: 0
+  crosshairShowType: 2
+  scope: 0
+  weaponParts: []
+  projectileSpeedOrImpactForce: 75
+  maxPenetrationsAmount: 1
+  maxPenetrationLengthSquared: 0.16
+  hasProjectile: 1
+  projectileType: 1
+  customProjectile: {fileID: 0}
+  customProjectileVisual: {fileID: 0}
+  isAutomatic: 0
+  isBoltAction: 0
 --- !u!114 &114161607090078389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +467,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12df9b1e541e7a7f1af73e8e5e5a0c8f, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  collisionDisabled: 0
+  damage: 0
+  poiseDamage: 0
+  damageType: 0
+  overrideWeaponDamage: 0
+  damageOverride: 0
+  overrideWeaponPoiseDamage: 0
+  poiseDamageOverride: 0
+  overrideWeaponDamageType: 0
+  damageTypeOverride: 1
+  dealsFireDamage: 0
+  fireDamage: 0
+  dealsSplashDamage: 0
+  splashDamage:
+    splashDamage: 0
+    splashPoiseDamage: 0
+    splashPhysicsForce: 0
+    splashFireDamage: 0
+    splashRadius: 0
+  visualEffectToPlayOnImpact: 0
+  customEffectPrefabToSpawnOnImpact: {fileID: 0}
+  createsEnvironmentFlames: 0
+  scattersFlameDebris: 0
+  flameDebrisCount: 0
+  flameDebrisConeAngle: 50
+  scattersFlameLargeDebris: 0
+  flameLargeDebrisCount: 0
+  flameLargeDebrisConeAngle: 50
+  healthSource: {fileID: 0}
+  healthSourceVehicle: {fileID: 0}
+  rb: {fileID: 0}
+  damageSource: {fileID: 0}
+  playerFired: 0
+  vehicleFired: 0
+  _transform: {fileID: 0}
+  flyBySoundDistance: 0
+  flyBySound: 0
+  projectileAudioSource: {fileID: 0}
+  depth: 0.3
+  rotateAfterThrown: 1
+  stickToHitbox: 0
+  stickToWeakSurfaces: 0
+  retrieavable: 1
+  mainHitForwardDirection: {x: 0, y: 1, z: 0}
+  keepVelocityOnBounce: 0
+  keepHighQualityCollisionDetectionOnBounce: 0
+  meleeHitEffectImpactAfterThrownIsSlash: 1
+  isShield: 0
 --- !u!114 &114002669891404536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fd2b9851bfebea9de4113427a721e5, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  showInteractionTip: 1
+  interactableName:
+  interactionTip:
+    UseTip:
+    UseName:
+  weapon: {fileID: 0}
+  ammo: 0
 --- !u!114 &114470112387431263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b36ab83f36470534ce5bb542357b40e, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentMode: 0
+  weaponPhysicsMaterial: 1
+  colliders:
+  - {fileID: 136621510681728303}
+  - {fileID: 65313026266067498}
+  initialized: 0
+  rb: {fileID: 0}
+  projectileMode: {fileID: 114161607090078389}
+  gun: {fileID: 114256069497284392}
 --- !u!65 &65313026266067498
 BoxCollider:
   serializedVersion: 3
@@ -676,7 +858,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 056be74506dcd7c43bc26a4633a869f1, type: 2}
+  - {fileID: 2100000, guid: b9af1b43cb935d14facd421c975621be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -700,7 +882,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 050b68167be7d8c4aaffa6e6c52a8c4c, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 2feffe3ec18c08940a34aeae7089686e, type: 2}
   m_Bones:
   - {fileID: 4634108722742392}
   - {fileID: 4302127217294661}

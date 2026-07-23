@@ -1,63 +1,396 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	[Serializable]
+	private sealed class _003C_003Ec
+	{
+		public static readonly _003C_003Ec _003C_003E9;
 
-	1. No dll files were provided to AssetRipper.
+		public static Func<CapturePoint, bool> _003C_003E9__58_0;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public static Func<CapturePoint, bool> _003C_003E9__58_1;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		public static TweenCallback _003C_003E9__65_0;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		public static TweenCallback _003C_003E9__65_1;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		internal bool _003CSetupAIAndPointsAfterChoosingSide_003Eb__58_0(CapturePoint p)
+		{
+			return false;
+		}
 
-	3. Assembly Reconstruction has not been implemented.
+		internal bool _003CSetupAIAndPointsAfterChoosingSide_003Eb__58_1(CapturePoint p)
+		{
+			return false;
+		}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		internal void _003COpeningCamShot_003Eb__65_0()
+		{
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		internal void _003COpeningCamShot_003Eb__65_1()
+		{
+		}
+	}
 
-	4. This script is unnecessary.
+	private sealed class _003CEndingCamShot_003Ed__66 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		private object _003C_003E2__current;
 
-	5. Script Content Level 0
+		public MapManager _003C_003E4__this;
 
-		AssetRipper was set to not load any script information.
+		private float _003CoriginalFov_003E5__2;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+		private Transform _003Ccam_003E5__3;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private Quaternion _003CoriginalRotation_003E5__4;
 
-	7. An incorrect path was provided to AssetRipper.
+		private Vector3 _003CoriginalPosition_003E5__5;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+		private float _003Ctime_003E5__6;
 
-	*/
+		private float _003CmoveDuration_003E5__7;
+
+		private bool _003CshownPoints_003E5__8;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CEndingCamShot_003Ed__66(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	private sealed class _003CMoveCamToSpawn_003Ed__64 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public Camera targetCameraToSwitchTo;
+
+		public MapManager _003C_003E4__this;
+
+		private Transform _003Cmap_003E5__2;
+
+		private Quaternion _003CoriginalRotation_003E5__3;
+
+		private Vector3 _003CoriginalPosition_003E5__4;
+
+		private float _003CoriginalFov_003E5__5;
+
+		private float _003CoriginalFogDensity_003E5__6;
+
+		private float _003Ctime_003E5__7;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CMoveCamToSpawn_003Ed__64(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	private sealed class _003CMoveSpawnCam_003Ed__63 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public MapManager _003C_003E4__this;
+
+		private float _003CoriginalFov_003E5__2;
+
+		private Quaternion _003CoriginalRotation_003E5__3;
+
+		private Vector3 _003CoriginalPosition_003E5__4;
+
+		private float _003CoriginalFogDensity_003E5__5;
+
+		private float _003Ctime_003E5__6;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CMoveSpawnCam_003Ed__63(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	private sealed class _003COpeningCamShot_003Ed__65 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
+
+		private object _003C_003E2__current;
+
+		public MapManager _003C_003E4__this;
+
+		private Transform _003Ccam_003E5__2;
+
+		private Quaternion _003CoriginalRotation_003E5__3;
+
+		private Vector3 _003CoriginalPosition_003E5__4;
+
+		private float _003CoriginalFov_003E5__5;
+
+		private float _003Ctime_003E5__6;
+
+		private float _003CmoveDuration_003E5__7;
+
+		private bool _003CshownTitleCard_003E5__8;
+
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003COpeningCamShot_003Ed__65(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	public string mapName;
+
+	public string[] mapLocacalizationNames;
+
+	public string mapSide1Name;
+
+	public string[] mapSide1LocacalizationNames;
+
+	public string mapSide2Name;
+
+	public string[] mapSide2LocacalizationNames;
+
+	public bool mapSide2ShowOnLeftInSideSelectionMenu;
+
+	public Terrain mapTerrain;
+
+	public Transform mapTerrainTransform;
+
+	public float mapTerrainPositionX;
+
+	public float mapTerrainPositionZ;
+
+	public float mapTerrainSizeX;
+
+	public float mapTerrainSizeZ;
+
+	public int mapTerrainAlphaMapWidth;
+
+	public int mapTerrainAlphaMapHeight;
+
+	public PhysicsMaterial[,] mapTerrainSurfacePhysicsMaterial;
+
+	private bool hasMapTerrain;
+
+	public List<PhysicsMaterial> terrainMaterialLayersList;
+
+	public PhysicsMaterial[] terrainMaterialLayers;
+
+	public AINavmeshBaker aiNavmeshBaker;
+
+	public List<VehicleSpawn> vehicleSpawns;
+
+	public List<CapturePoint> capturePoints;
+
+	public List<CapturePoint> basePoints;
+
+	public List<CapturePoint> allPoints;
+
+	public List<CapturePoint> basePointsTeam1;
+
+	public List<CapturePoint> basePointsTeam2;
+
+	public PointFlow[] pointFlow;
+
+	public int capturePointsTotal;
+
+	public int capturePointsHeldByTeam1;
+
+	public int capturePointsHeldByTeam2;
+
+	public Transform openingShotCameraPos;
+
+	public Vector3 mapCameraPosition;
+
+	public Quaternion mapCameraRotation;
+
+	public AmbientSound ambientSound;
+
+	public AudioClip customAmbientSoundClip;
+
+	public float customAmbientSoundVolume;
+
+	public bool hasWind;
+
+	public WindZone wind;
+
+	public bool hasSun;
+
+	public Transform sunLightTransform;
+
+	public Light sunLight;
+
+	public bool noSunLight;
+
+	public Weather defaultMapWeather;
+
+	public bool customWeather;
+
+	public bool customWeatherHasSnow;
+
+	public CloudsPreset customWeatherClouds;
+
+	public bool customCloudWindSpeed;
+
+	public float customCloudSpeed;
+
+	public bool dontChangeLightIntensityIfWeatherIsChanged;
+
+	public Camera mapSpawnCam;
+
+	public float mapCamFov;
+
+	public static MapManager Instance;
+
+	private float fogDensity;
+
+	public bool differentFogDensityInSpawnCamera;
+
+	public float fogDensitySpawnCamera;
+
+	public GameObject playerPrefab;
+
+	private void Awake()
+	{
+	}
+
+	private void Start()
+	{
+	}
+
+	public void SetupAIAndPointsAfterChoosingSide()
+	{
+	}
+
+	public void SpawnAllowed()
+	{
+	}
+
+	public void ShowDefaultSpawnScreen()
+	{
+	}
+
+	public void SetIndividualPointFlow()
+	{
+	}
+
+	public void SpawnVehicles()
+	{
+	}
+
+	public IEnumerator MoveSpawnCam()
+	{
+		return null;
+	}
+
+	public IEnumerator MoveCamToSpawn(Camera targetCameraToSwitchTo = null)
+	{
+		return null;
+	}
+
+	public IEnumerator OpeningCamShot()
+	{
+		return null;
+	}
+
+	public IEnumerator EndingCamShot()
+	{
+		return null;
+	}
 }

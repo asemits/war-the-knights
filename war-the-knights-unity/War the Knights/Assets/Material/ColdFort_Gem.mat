@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ColdFort_Gem
-  m_Shader: {fileID: 4800000, guid: 1b892107fe5a6d941a0349ab85e9bbb0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 47b3912bd4513e9458827eb49259bdd1, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
       _RefractTex:
-        m_Texture: {fileID: 8900000, guid: 52f43107280c8a54ebc0b7448081f271, type: 3}
+        m_Texture: {fileID: 8900000, guid: 345abf82cdeac5f489cf2639b8c88301, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: {}

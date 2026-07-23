@@ -1,66 +1,320 @@
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using UnityEngine;
 
 namespace DG.Tweening
 {
-	public class DOTweenModuleUnityVersion : MonoBehaviour
+	public static class DOTweenModuleUnityVersion
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		private sealed class _003C_003Ec__DisplayClass8_0
+		{
+			public Material target;
 
-		1. No dll files were provided to AssetRipper.
+			public int propertyID;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			internal Vector2 _003CDOOffset_003Eb__0()
+			{
+				return default(Vector2);
+			}
 
-		2. Incorrect dll files were provided to AssetRipper.
+			internal void _003CDOOffset_003Eb__1(Vector2 x)
+			{
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		private sealed class _003C_003Ec__DisplayClass9_0
+		{
+			public Material target;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+			public int propertyID;
 
-		3. Assembly Reconstruction has not been implemented.
+			internal Vector2 _003CDOTiling_003Eb__0()
+			{
+				return default(Vector2);
+			}
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+			internal void _003CDOTiling_003Eb__1(Vector2 x)
+			{
+			}
+		}
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForCompletion_003Ed__10 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
 
-		5. Script Content Level 0
+			public Tween t;
 
-			AssetRipper was set to not load any script information.
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+			private void MoveNext()
+			{
+			}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
 
-		7. An incorrect path was provided to AssetRipper.
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
 
-		*/
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForElapsedLoops_003Ed__13 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
+
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
+
+			public Tween t;
+
+			public int elapsedLoops;
+
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
+
+			private void MoveNext()
+			{
+			}
+
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
+
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
+
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
+
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForKill_003Ed__12 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
+
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
+
+			public Tween t;
+
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
+
+			private void MoveNext()
+			{
+			}
+
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
+
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
+
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
+
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForPosition_003Ed__14 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
+
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
+
+			public Tween t;
+
+			public float position;
+
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
+
+			private void MoveNext()
+			{
+			}
+
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
+
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
+
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
+
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForRewind_003Ed__11 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
+
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
+
+			public Tween t;
+
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
+
+			private void MoveNext()
+			{
+			}
+
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
+
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
+
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
+
+		[StructLayout((LayoutKind)3)]
+		private struct _003CAsyncWaitForStart_003Ed__15 : IAsyncStateMachine
+		{
+			public int _003C_003E1__state;
+
+			public AsyncTaskMethodBuilder _003C_003Et__builder;
+
+			public Tween t;
+
+			private YieldAwaitable.YieldAwaiter _003C_003Eu__1;
+
+			private void MoveNext()
+			{
+			}
+
+			void IAsyncStateMachine.MoveNext()
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+				this.MoveNext();
+			}
+
+			private void SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+			}
+
+			void IAsyncStateMachine.SetStateMachine(IAsyncStateMachine stateMachine)
+			{
+				//ILSpy generated this explicit interface implementation from .override directive in SetStateMachine
+				this.SetStateMachine(stateMachine);
+			}
+		}
+
+		public static Sequence DOGradientColor(Material target, Gradient gradient, float duration)
+		{
+			return null;
+		}
+
+		public static Sequence DOGradientColor(Material target, Gradient gradient, string property, float duration)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForCompletion(Tween t, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForRewind(Tween t, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForKill(Tween t, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForElapsedLoops(Tween t, int elapsedLoops, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForPosition(Tween t, float position, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static CustomYieldInstruction WaitForStart(Tween t, bool returnCustomYieldInstruction)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOOffset(Material target, Vector2 endValue, int propertyID, float duration)
+		{
+			return null;
+		}
+
+		public static TweenerCore<Vector2, Vector2, VectorOptions> DOTiling(Material target, Vector2 endValue, int propertyID, float duration)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForCompletion(Tween t)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForRewind(Tween t)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForKill(Tween t)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForElapsedLoops(Tween t, int elapsedLoops)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForPosition(Tween t, float position)
+		{
+			return null;
+		}
+
+		public static Task AsyncWaitForStart(Tween t)
+		{
+			return null;
+		}
 	}
 }

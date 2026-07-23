@@ -68,7 +68,7 @@ AnimationClip:
     attribute: script_0x1222D899_SSStRRJ
     path: Background
     classID: 114
-    script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -152,7 +152,7 @@ AnimationClip:
     attribute: script_0x969C9947_lWNSRnJ
     path: Background
     classID: 114
-    script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -173,7 +173,7 @@ AnimationClip:
     attribute: script_0xFB417DAC_wJNmTwL
     path: Background
     classID: 114
-    script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -194,7 +194,7 @@ AnimationClip:
     attribute: script_0x8B2B8923_OvOvHKN
     path: Background
     classID: 114
-    script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+    script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
     flags: 0
   - serializedVersion: 2
     curve:
@@ -267,7 +267,7 @@ AnimationClip:
     - serializedVersion: 2
       path: 4080383872
       attribute: 304273561
-      script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -303,7 +303,7 @@ AnimationClip:
     - serializedVersion: 2
       path: 4080383872
       attribute: 2526845255
-      script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -312,7 +312,7 @@ AnimationClip:
     - serializedVersion: 2
       path: 4080383872
       attribute: 4215373228
-      script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
@@ -321,7 +321,7 @@ AnimationClip:
     - serializedVersion: 2
       path: 4080383872
       attribute: 2334886179
-      script: {fileID: 11500000, guid: 3cf5a44414476512e00c3e7a2569a919, type: 3}
+      script: {fileID: -765806418, guid: d3e719b59ab71ba3f6b398058c866280, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0

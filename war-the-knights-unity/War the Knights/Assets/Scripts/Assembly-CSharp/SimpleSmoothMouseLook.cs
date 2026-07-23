@@ -1,63 +1,154 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using KinematicCharacterController;
 using UnityEngine;
 
 public class SimpleSmoothMouseLook : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CRotateTarget_003Ed__25 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public SimpleSmoothMouseLook _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		public Transform target;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		private Quaternion _003CstartRot_003E5__2;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private float _003Ctimer_003E5__3;
 
-	3. Assembly Reconstruction has not been implemented.
+		object IEnumerator<object>.Current => null;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		object IEnumerator.Current => null;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		public _003CRotateTarget_003Ed__25(int _003C_003E1__state)
+		{
+		}
 
-	4. This script is unnecessary.
+		void IDisposable.Dispose()
+		{
+		}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-	5. Script Content Level 0
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-		AssetRipper was set to not load any script information.
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private sealed class _003CRotateToTarget_003Ed__24 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private object _003C_003E2__current;
 
-	7. An incorrect path was provided to AssetRipper.
+		public SimpleSmoothMouseLook _003C_003E4__this;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+		public Transform target;
 
-	*/
+		object IEnumerator<object>.Current => null;
+
+		object IEnumerator.Current => null;
+
+		public _003CRotateToTarget_003Ed__24(int _003C_003E1__state)
+		{
+		}
+
+		void IDisposable.Dispose()
+		{
+		}
+
+		private bool MoveNext()
+		{
+			return false;
+		}
+
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
+
+		void IEnumerator.Reset()
+		{
+		}
+	}
+
+	public bool m_filter;
+
+	public bool inverted;
+
+	public float currentRotationHorizontal;
+
+	public float currentRotationVertical;
+
+	public float mouseMovementHorizontal;
+
+	public float mouseMovementVertical;
+
+	public float lastFrameMouseMovementHorizontal;
+
+	public float lastFrameMouseMovementVertical;
+
+	public int clampInDegreesHorizontal;
+
+	public int clampInDegreesVerticalLookUp;
+
+	public int clampInDegreesVerticalLookDown;
+
+	public float sensitivityHorizontal;
+
+	public float sensitivityVertical;
+
+	public KinematicCharacterMotor characterBody;
+
+	public Transform characterTransform;
+
+	private bool setRotation;
+
+	public CameraRecoil camRecoil;
+
+	public bool isRotating;
+
+	public Coroutine rotateToTargetCoroutine;
+
+	public Transform _transform;
+
+	private void Start()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	public void UpdateRotation()
+	{
+	}
+
+	public void SetRotation(Vector3 rot)
+	{
+	}
+
+	public IEnumerator RotateToTarget(Transform target)
+	{
+		return null;
+	}
+
+	private IEnumerator RotateTarget(Transform target)
+	{
+		return null;
+	}
 }

@@ -2,62 +2,101 @@ using UnityEngine;
 
 public class AIBehaviorBase : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public AITarget bot;
 
-	1. No dll files were provided to AssetRipper.
+	public Animator thirdPersonAnim;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public bool isCrouched;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public int aiIndex;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public int aiIndexTeam;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public AudioSource footstepAudioSource;
 
-	3. Assembly Reconstruction has not been implemented.
+	public AudioSource weaponAudioSource;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public AudioSource headAudioSource;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public GameObject visualWeapon;
 
-	4. This script is unnecessary.
+	public GameObject visualAmmo;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public GameObject visualAmmoSpecial;
 
-	5. Script Content Level 0
+	public Transform projectileSpawn;
 
-		AssetRipper was set to not load any script information.
+	public GameObject weaponProjectilePrefab;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public GameObject weaponProjectileVisualPrefab;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public GameObject weaponProjectileSpecialPrefab;
 
-	7. An incorrect path was provided to AssetRipper.
+	public GameObject weaponProjectileSpecialVisualPrefab;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public TwoTransforms rightHandSpawnPos;
 
-	*/
+	public TwoTransforms leftHandSpawnPos;
+
+	public Transform rightProjectileVisualSpawnPos;
+
+	public Transform leftProjectileVisualSpawnPos;
+
+	public TwoGameObjects weaponObject;
+
+	public GameObject weaponObjectDropped;
+
+	public TwoGameObjects weaponObject2;
+
+	public GameObject weaponObject2Dropped;
+
+	public WeaponMode weaponMode;
+
+	public WeaponMode weaponModeRagdoll;
+
+	public WeaponModeMelee weaponModeMelee;
+
+	public WeaponMode weaponMode2;
+
+	public WeaponMode weaponMode2Ragdoll;
+
+	public WeaponModeShield weaponMode2Shield;
+
+	public bool thirdPersonMelee;
+
+	public void SpawnThirdPersonWeaponPlayerOnVehicle(bool primary, bool enteringVehicle)
+	{
+	}
+
+	public void SpawnThirdPersonWeaponPlayer(Weapon weaponEquipped, bool spawnRight)
+	{
+	}
+
+	public void DestroyThirdPersonWeaponsPlayer()
+	{
+	}
+
+	public void DropWeaponsPlayer(Vector3 force, Vector3 position)
+	{
+	}
+
+	public void EnableThirdPersonWeapons()
+	{
+	}
+
+	public void DisableThirdPersonWeapons()
+	{
+	}
+
+	public void PlayThirdPersonFootstepAudio(AudioClip clip, float volumeScale = 1f)
+	{
+	}
+
+	public void PlayThirdPersonWeaponAudio(AudioClip clip, float pitch = 1f, float volumeScale = 1f)
+	{
+	}
+
+	public void PlayThirdPersonHeadAudio(AudioClip clip, float volumeScale = 1f)
+	{
+	}
 }

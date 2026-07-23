@@ -1,63 +1,108 @@
-using UnityEngine;
+using System;
+using System.Text;
 
-public class ES3Settings : MonoBehaviour
+public class ES3Settings : ICloneable
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private static ES3Settings _defaults;
 
-	1. No dll files were provided to AssetRipper.
+	private static ES3Defaults _defaultSettingsScriptableObject;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	private const string defaultSettingsPath = "ES3/ES3Defaults";
 
-	2. Incorrect dll files were provided to AssetRipper.
+	private static ES3Settings _unencryptedUncompressedSettings;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	private static readonly string[] resourcesExtensions;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	private ES3.Location _location;
 
-	3. Assembly Reconstruction has not been implemented.
+	public string path;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public ES3.EncryptionType encryptionType;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public ES3.CompressionType compressionType;
 
-	4. This script is unnecessary.
+	public string encryptionPassword;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public ES3.Directory directory;
 
-	5. Script Content Level 0
+	public ES3.Format format;
 
-		AssetRipper was set to not load any script information.
+	public bool prettyPrint;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public int bufferSize;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public Encoding encoding;
 
-	7. An incorrect path was provided to AssetRipper.
+	public bool saveChildren;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public bool postprocessRawCachedData;
 
-	*/
+	public bool typeChecking;
+
+	public bool safeReflection;
+
+	public ES3.ReferenceMode memberReferenceMode;
+
+	public ES3.ReferenceMode referenceMode;
+
+	public int serializationDepthLimit;
+
+	public string[] assemblyNames;
+
+	public static ES3Defaults defaultSettingsScriptableObject => null;
+
+	public static ES3Settings defaultSettings => null;
+
+	internal static ES3Settings unencryptedUncompressedSettings => null;
+
+	public ES3.Location location
+	{
+		get
+		{
+			return ES3.Location.File;
+		}
+		set
+		{
+		}
+	}
+
+	public string FullPath => null;
+
+	public ES3Settings(string path = null, ES3Settings settings = null)
+	{
+	}
+
+	public ES3Settings(string path, Enum[] enums)
+	{
+	}
+
+	public ES3Settings(Enum[] enums)
+	{
+	}
+
+	public ES3Settings(ES3.EncryptionType encryptionType, string encryptionPassword)
+	{
+	}
+
+	public ES3Settings(string path, ES3.EncryptionType encryptionType, string encryptionPassword, ES3Settings settings = null)
+	{
+	}
+
+	public ES3Settings(bool applyDefaults)
+	{
+	}
+
+	private static bool IsAbsolute(string path)
+	{
+		return false;
+	}
+
+	public object Clone()
+	{
+		return null;
+	}
+
+	private void CopyInto(ES3Settings newSettings)
+	{
+	}
 }

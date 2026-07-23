@@ -1,63 +1,193 @@
-using UnityEngine;
+using System;
+using System.Collections.Generic;
+using ES3Internal;
 
-public class ES3File : MonoBehaviour
+public class ES3File
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public static Dictionary<string, ES3File> cachedFiles;
 
-	1. No dll files were provided to AssetRipper.
+	public ES3Settings settings;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	private Dictionary<string, ES3Data> cache;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	private bool syncWithFile;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	private DateTime timestamp;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public ES3File()
+	{
+	}
 
-	3. Assembly Reconstruction has not been implemented.
+	public ES3File(string filePath)
+	{
+	}
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public ES3File(string filePath, ES3Settings settings)
+	{
+	}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public ES3File(ES3Settings settings)
+	{
+	}
 
-	4. This script is unnecessary.
+	public ES3File(bool syncWithFile)
+	{
+	}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public ES3File(string filePath, bool syncWithFile)
+	{
+	}
 
-	5. Script Content Level 0
+	public ES3File(string filePath, ES3Settings settings, bool syncWithFile)
+	{
+	}
 
-		AssetRipper was set to not load any script information.
+	public ES3File(ES3Settings settings, bool syncWithFile)
+	{
+	}
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public ES3File(byte[] bytes, ES3Settings settings = null)
+	{
+	}
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public void Sync()
+	{
+	}
 
-	7. An incorrect path was provided to AssetRipper.
+	public void Sync(string filePath, ES3Settings settings = null)
+	{
+	}
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public void Sync(ES3Settings settings = null)
+	{
+	}
 
-	*/
+	public void Clear()
+	{
+	}
+
+	public string[] GetKeys()
+	{
+		return null;
+	}
+
+	public void Save<T>(string key, T value)
+	{
+	}
+
+	public void SaveRaw(byte[] bytes, ES3Settings settings = null)
+	{
+	}
+
+	public void AppendRaw(byte[] bytes, ES3Settings settings = null)
+	{
+	}
+
+	public object Load(string key)
+	{
+		return null;
+	}
+
+	public object Load(string key, object defaultValue)
+	{
+		return null;
+	}
+
+	public T Load<T>(string key)
+	{
+		return default(T);
+	}
+
+	public T Load<T>(string key, T defaultValue)
+	{
+		return default(T);
+	}
+
+	public void LoadInto<T>(string key, T obj) where T : class
+	{
+	}
+
+	public byte[] LoadRawBytes()
+	{
+		return null;
+	}
+
+	public string LoadRawString()
+	{
+		return null;
+	}
+
+	internal byte[] GetBytes(ES3Settings settings = null)
+	{
+		return null;
+	}
+
+	public void DeleteKey(string key)
+	{
+	}
+
+	public bool KeyExists(string key)
+	{
+		return false;
+	}
+
+	public int Size()
+	{
+		return 0;
+	}
+
+	public Type GetKeyType(string key)
+	{
+		return null;
+	}
+
+	internal static ES3File GetOrCreateCachedFile(ES3Settings settings)
+	{
+		return null;
+	}
+
+	internal static void CacheFile(ES3Settings settings)
+	{
+	}
+
+	internal static void Store(ES3Settings settings = null)
+	{
+	}
+
+	internal static void RemoveCachedFile(ES3Settings settings)
+	{
+	}
+
+	internal static void CopyCachedFile(ES3Settings oldSettings, ES3Settings newSettings)
+	{
+	}
+
+	internal static void DeleteKey(string key, ES3Settings settings)
+	{
+	}
+
+	internal static bool KeyExists(string key, ES3Settings settings)
+	{
+		return false;
+	}
+
+	internal static bool FileExists(ES3Settings settings)
+	{
+		return false;
+	}
+
+	internal static string[] GetKeys(ES3Settings settings)
+	{
+		return null;
+	}
+
+	internal static string[] GetFiles()
+	{
+		return null;
+	}
+
+	internal static DateTime GetTimestamp(ES3Settings settings)
+	{
+		return default(DateTime);
+	}
 }

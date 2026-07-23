@@ -1,66 +1,180 @@
+using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace RootMotion
 {
-	public class BipedNaming : MonoBehaviour
+	public static class BipedNaming
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		[Serializable]
+		public enum BoneType
+		{
+			Unassigned = 0,
+			Spine = 1,
+			Head = 2,
+			Arm = 3,
+			Leg = 4,
+			Tail = 5,
+			Eye = 6
+		}
 
-		1. No dll files were provided to AssetRipper.
+		[Serializable]
+		public enum BoneSide
+		{
+			Center = 0,
+			Left = 1,
+			Right = 2
+		}
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public static string[] typeLeft;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public static string[] typeRight;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public static string[] typeSpine;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public static string[] typeHead;
 
-		3. Assembly Reconstruction has not been implemented.
+		public static string[] typeArm;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public static string[] typeLeg;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public static string[] typeTail;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public static string[] typeEye;
 
-		5. Script Content Level 0
+		public static string[] typeExclude;
 
-			AssetRipper was set to not load any script information.
+		public static string[] typeExcludeSpine;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public static string[] typeExcludeHead;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public static string[] typeExcludeArm;
 
-		7. An incorrect path was provided to AssetRipper.
+		public static string[] typeExcludeLeg;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public static string[] typeExcludeTail;
 
-		*/
+		public static string[] typeExcludeEye;
+
+		public static string[] pelvis;
+
+		public static string[] hand;
+
+		public static string[] foot;
+
+		public static Transform[] GetBonesOfType(BoneType boneType, Transform[] bones)
+		{
+			return null;
+		}
+
+		public static Transform[] GetBonesOfSide(BoneSide boneSide, Transform[] bones)
+		{
+			return null;
+		}
+
+		public static Transform[] GetBonesOfTypeAndSide(BoneType boneType, BoneSide boneSide, Transform[] bones)
+		{
+			return null;
+		}
+
+		public static Transform GetFirstBoneOfTypeAndSide(BoneType boneType, BoneSide boneSide, Transform[] bones)
+		{
+			return null;
+		}
+
+		public static Transform GetNamingMatch(Transform[] transforms, string[][] namings)
+		{
+			return null;
+		}
+
+		public static BoneType GetBoneType(string boneName)
+		{
+			return BoneType.Unassigned;
+		}
+
+		public static BoneSide GetBoneSide(string boneName)
+		{
+			return BoneSide.Center;
+		}
+
+		public static Transform GetBone(Transform[] transforms, BoneType boneType, BoneSide boneSide, string[][] namings)
+		{
+			return null;
+		}
+
+		private static bool isLeft(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isRight(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isSpine(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isHead(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isArm(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isLeg(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isTail(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isEye(string boneName)
+		{
+			return false;
+		}
+
+		private static bool isTypeExclude(string boneName)
+		{
+			return false;
+		}
+
+		private static bool matchesNaming(string boneName, string[] namingConvention)
+		{
+			return false;
+		}
+
+		private static bool excludesNaming(string boneName, string[] namingConvention)
+		{
+			return false;
+		}
+
+		private static bool matchesLastLetter(string boneName, string[] namingConvention)
+		{
+			return false;
+		}
+
+		private static bool LastLetterIs(string boneName, string letter)
+		{
+			return false;
+		}
+
+		private static string firstLetter(string boneName)
+		{
+			return null;
+		}
+
+		private static string lastLetter(string boneName)
+		{
+			return null;
+		}
 	}
 }

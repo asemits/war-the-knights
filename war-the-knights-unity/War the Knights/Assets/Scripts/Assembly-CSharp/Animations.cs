@@ -1,63 +1,308 @@
-using UnityEngine;
-
-public class Animations : MonoBehaviour
+public static class Animations
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	public static readonly int isMoving;
 
-	1. No dll files were provided to AssetRipper.
+	public static readonly int isFalling;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public static readonly int IsBlocking;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public static readonly int WallRight;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public static readonly int WallLeft;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public static readonly int Idle;
 
-	3. Assembly Reconstruction has not been implemented.
+	public static readonly int Dash;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public static readonly int Climb_Short;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public static readonly int Climb_Short2;
 
-	4. This script is unnecessary.
+	public static readonly int Unequip;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public static readonly int UnequipFast;
 
-	5. Script Content Level 0
+	public static readonly int Equip;
 
-		AssetRipper was set to not load any script information.
+	public static readonly int EquipFast;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public static readonly int HitAngle;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public static readonly int GetHit;
 
-	7. An incorrect path was provided to AssetRipper.
+	public static readonly int GetHitHead;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public static readonly int StunFront;
 
-	*/
+	public static readonly int StunBack;
+
+	public static readonly int Movement;
+
+	public static readonly int MovementDirection;
+
+	public static readonly int MoveX;
+
+	public static readonly int MoveZ;
+
+	public static readonly int MoveState;
+
+	public static readonly int Stand;
+
+	public static readonly int StandUpFromFront;
+
+	public static readonly int StandUpFromBack;
+
+	public static readonly int ClimbLadderUp;
+
+	public static readonly int ClimbLadderDown;
+
+	public static readonly int Sprinting;
+
+	public static readonly int Running;
+
+	public static readonly int IsCrouching;
+
+	public static readonly int LookAngleHorizontal;
+
+	public static readonly int LookAngleVertical;
+
+	public static readonly int Attack_R;
+
+	public static readonly int AttackHeavy_R;
+
+	public static readonly int AttackHeavyCharge_R;
+
+	public static readonly int Attack_L;
+
+	public static readonly int AttackHeavy_L;
+
+	public static readonly int AttackHeavyCharge_L;
+
+	public static readonly int AttackClash;
+
+	public static readonly int Blocking;
+
+	public static readonly int BlockBreak;
+
+	public static readonly int BlockHit;
+
+	public static readonly int BlockBash;
+
+	public static readonly int JumpLeft;
+
+	public static readonly int JumpRight;
+
+	public static readonly int FallLeft;
+
+	public static readonly int FallRight;
+
+	public static readonly int Land;
+
+	public static readonly int MovementHorse;
+
+	public static readonly int Ride_Idle;
+
+	public static readonly int Ride_Quickly;
+
+	public static readonly int HorseRangedCombat;
+
+	public static readonly int Ride_Attack_R;
+
+	public static readonly int Ride_AttackCharge_R;
+
+	public static readonly int Ride_Attack_L;
+
+	public static readonly int Ride_AttackCharge_L;
+
+	public static readonly int Ride_Attack_R_Back;
+
+	public static readonly int Ride_AttackCharge_R_Back;
+
+	public static readonly int Ride_Attack_L_Back;
+
+	public static readonly int Ride_AttackCharge_L_Back;
+
+	public static readonly int AimStationaryWeapon;
+
+	public static readonly int Emote;
+
+	public static readonly int Ride_Emote;
+
+	public static readonly int Ride_Dragon_Emote;
+
+	public static readonly int SprintStart;
+
+	public static readonly int SprintLoop;
+
+	public static readonly int SprintStop;
+
+	public static readonly int Aim;
+
+	public static readonly int Aiming;
+
+	public static readonly int AimAkimbo;
+
+	public static readonly int Charge;
+
+	public static readonly int Fire;
+
+	public static readonly int FireAimed;
+
+	public static readonly int FireFanning;
+
+	public static readonly int Hammer;
+
+	public static readonly int IdleOutOfAmmo;
+
+	public static readonly int ReloadSpeed;
+
+	public static readonly int ReloadStart;
+
+	public static readonly int ReloadLoop;
+
+	public static readonly int ReloadStop;
+
+	public static readonly int ReloadStop_Akimbo;
+
+	public static readonly int ChangeAmmoType;
+
+	public static readonly int ReloadSpeedMultiplier;
+
+	public static readonly int HideToReloadAkimbo;
+
+	public static readonly int LightAttackRecover;
+
+	public static readonly int HeavyAttackRecover;
+
+	public static readonly int Shield_Throw_HoldStart;
+
+	public static readonly int Shield_Throw;
+
+	public static readonly int Throw;
+
+	public static readonly int Throw_Start;
+
+	public static readonly int ReleaseThrowHold;
+
+	public static readonly int Emote_ToVictory;
+
+	public static readonly int Swing_Heavy_R;
+
+	public static readonly int Swing_Recover_R;
+
+	public static readonly int Swing_Heavy_L;
+
+	public static readonly int Swing_Recover_L;
+
+	public static readonly int Swing_L1;
+
+	public static readonly int Swing_L2;
+
+	public static readonly int Swing_R1;
+
+	public static readonly int Swing_R2;
+
+	public static readonly int WeaponAttackAnimStartDuration;
+
+	public static readonly int WeaponAttackAnimDuration;
+
+	public static readonly int WeaponAttackAnimFinishDuration;
+
+	public static readonly int IdleAttack;
+
+	public static readonly int SwingAttackStart;
+
+	public static readonly int WeaponAttackDirectionX;
+
+	public static readonly int WeaponAttackDirectionY;
+
+	public static readonly int Shield_Equip;
+
+	public static readonly int Shield_Idle;
+
+	public static readonly int Shield_Attack;
+
+	public static readonly int Shield_Block_Hit;
+
+	public static readonly int Shield_Block_Break;
+
+	public static readonly int Shield_Block_Bash;
+
+	public static readonly int Shield_Block_Start;
+
+	public static readonly int Shield_Block_Idle;
+
+	public static readonly int Shield_Block_Stop;
+
+	public static readonly int Block_Hit;
+
+	public static readonly int Block_Break;
+
+	public static readonly int Block_Bash;
+
+	public static readonly int Block_Shield;
+
+	public static readonly int Block_Start;
+
+	public static readonly int Block_Idle;
+
+	public static readonly int Block_Stop;
+
+	public static readonly int StopBlocking;
+
+	public static readonly int Kick;
+
+	public static readonly int KickDown;
+
+	public static readonly int Shield_Kick;
+
+	public static readonly int Slide;
+
+	public static readonly int Use;
+
+	public static readonly int Damage;
+
+	public static readonly int DamageIdle;
+
+	public static readonly int DamageDirection;
+
+	public static readonly int TakeDamage;
+
+	public static readonly int TakeDamageDirection;
+
+	public static readonly int Show;
+
+	public static readonly int ShowBlocked;
+
+	public static readonly int Hit_Show;
+
+	public static readonly int Hit_ShowKill;
+
+	public static readonly int Hit_ShowVehicle;
+
+	public static readonly int MovementSpeedMultiplier;
+
+	public static readonly int Reload;
+
+	public static readonly int ReloadBullet;
+
+	public static readonly int HorseJump;
+
+	public static readonly int HorseLand;
+
+	public static readonly int HorseFall;
+
+	public static readonly int Fall;
+
+	public static readonly int Jump_Forward;
+
+	public static readonly int Jump_Gallop;
+
+	public static readonly int Jump_Sprint;
+
+	public static readonly int Neigh;
+
+	public static readonly int WaterSplashEnter;
+
+	public static readonly int MovementWater;
 }

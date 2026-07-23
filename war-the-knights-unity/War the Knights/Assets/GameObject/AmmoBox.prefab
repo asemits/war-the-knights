@@ -65,7 +65,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Mesh: {fileID: 4300000, guid: 6e38ad50fea773848ad4b8e324046433, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 9c27f14f227049247a38798fdb27080b, type: 2}
 --- !u!23 &23703437598541787
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 056be74506dcd7c43bc26a4633a869f1, type: 2}
+  - {fileID: 2100000, guid: b9af1b43cb935d14facd421c975621be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,6 +120,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060adc6010732096307261d15444c96, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentHealth: 200
+  maxHealth: 200
+  alliance: {fileID: 114061268324235159}
+  lastDamageSource: {fileID: 0}
+  defeated: 0
+  meshRendererToPlayFireEffectOn: {fileID: 23703437598541787}
+  meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOn: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated: {fileID: 0}
+  objectToEmitFireLightFrom: {fileID: 0}
+  objectToEmitFireLightFromWhenRagdolledOrDestroyed: {fileID: 0}
+  fireDamageSource: {fileID: 0}
+  fireDamageBuildup: 0
+  isOnFire: 0
+  hitHitbox: {fileID: 0}
+  mainHitbox: {fileID: 114709867586078768}
+  soundAndEffectMaterial: 1
+  customBreakingSound: {fileID: 0}
+  breakableMesh: {fileID: 23703437598541787}
+  destroyedObjectDebrisPhysicsPrefab: {fileID: 0}
+  hasFireSurfaceBurnEffect: 1
+  canBurn: 1
+  startBurningWhenTakingDamage: 0
+  startBurningWhenHealthIsLowerThanPercentage: 0
+  explodeWhenDestroyed: 0
+  createsEnvironmentFlames: 0
+  scattersFlameDebris: 0
+  flameDebrisCount: 0
+  splashDamage:
+    splashDamage: 0
+    splashPoiseDamage: 0
+    splashPhysicsForce: 0
+    splashFireDamage: 0
+    splashRadius: 0
 --- !u!65 &65099118695303065
 BoxCollider:
   serializedVersion: 3
@@ -128,7 +162,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709254077376921}
-  m_Material: {fileID: 13400000, guid: a75dc8d917b9d244c92040a8eb6bd7b4, type: 2}
+  m_Material: {fileID: 13400000, guid: 0ee8dede3a1fa3444a3d0eded295e92a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -180,6 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e374a8d8293dd3b59367a70ec76907, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  team1: 0
+  currentPoint: {fileID: 0}
 --- !u!114 &114587765826080250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +228,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc4f736f43548ed61cc2db4260da363, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  effectIsTeamOnly: 0
+  team: 0
+  placedBy: {fileID: 0}
+  renderers:
+  - {fileID: 23703437598541787}
+  - {fileID: 23372920208702427}
+  particleSystemsToUnparentOnDestruction: []
+  destroyAfterTime: 0
+  timeUntilDestroy: 0
+  resupplyRadius: 3.5
+  resupplyRate: 4
+  resupplyAmountPercentage: 0.12
+  resupplyGadgetsAndThrowablesTimerAmountPercentage: 0.2
+  resupplyGadgetsAndThrowablesAmountPercentage: 0.5
 --- !u!114 &114709867586078768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +254,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e3a8d56f901b12805fd14be3991b1e8, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 1
+  health: {fileID: 114884547391421755}
+  rb: {fileID: 0}
+  takePhysicsCollisionDamage: 0
+  takePhysicsCollisionDamageAgainstProjectiles: 0
+  dealDamageOnCollision: 0
+  collisionOutputDamageMultiplier: 1
+  collisionOutputPoiseDamageMultiplier: 1
+  collisionDamageTakenMultiplier: 1
+  spreadFireOnCollision: 0
 --- !u!4 &4044625135789424
 Transform:
   serializedVersion: 2
@@ -247,7 +309,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1d5476cd899cdc4ebeb3c38904e4df7, type: 2}
+  - {fileID: 2100000, guid: 0c70ba565d828d2479d32279af6ac0ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

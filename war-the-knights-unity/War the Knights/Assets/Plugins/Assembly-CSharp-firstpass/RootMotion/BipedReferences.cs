@@ -1,66 +1,163 @@
+using System;
 using UnityEngine;
 
 namespace RootMotion
 {
-	public class BipedReferences : MonoBehaviour
+	[Serializable]
+	public class BipedReferences
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public struct AutoDetectParams
+		{
+			public bool legsParentInSpine;
 
-		1. No dll files were provided to AssetRipper.
+			public bool includeEyes;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+			public static AutoDetectParams Default => default(AutoDetectParams);
 
-		2. Incorrect dll files were provided to AssetRipper.
+			public AutoDetectParams(bool legsParentInSpine, bool includeEyes)
+			{
+				this.legsParentInSpine = false;
+				this.includeEyes = false;
+			}
+		}
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public Transform root;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Transform pelvis;
 
-		3. Assembly Reconstruction has not been implemented.
+		public Transform leftThigh;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public Transform leftCalf;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public Transform leftFoot;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public Transform rightThigh;
 
-		5. Script Content Level 0
+		public Transform rightCalf;
 
-			AssetRipper was set to not load any script information.
+		public Transform rightFoot;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public Transform leftUpperArm;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public Transform leftForearm;
 
-		7. An incorrect path was provided to AssetRipper.
+		public Transform leftHand;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public Transform rightUpperArm;
 
-		*/
+		public Transform rightForearm;
+
+		public Transform rightHand;
+
+		public Transform head;
+
+		public Transform[] spine;
+
+		public Transform[] eyes;
+
+		public virtual bool isFilled => false;
+
+		public bool isEmpty => false;
+
+		public virtual bool IsEmpty(bool includeRoot)
+		{
+			return false;
+		}
+
+		public virtual bool Contains(Transform t, bool ignoreRoot = false)
+		{
+			return false;
+		}
+
+		public static bool AutoDetectReferences(ref BipedReferences references, Transform root, AutoDetectParams autoDetectParams)
+		{
+			return false;
+		}
+
+		public static void DetectReferencesByNaming(ref BipedReferences references, Transform root, AutoDetectParams autoDetectParams)
+		{
+		}
+
+		public static void AssignHumanoidReferences(ref BipedReferences references, Animator animator, AutoDetectParams autoDetectParams)
+		{
+		}
+
+		public static bool SetupError(BipedReferences references, ref string errorMessage)
+		{
+			return false;
+		}
+
+		public static bool SetupWarning(BipedReferences references, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static bool IsNeckBone(Transform bone, Transform leftUpperArm)
+		{
+			return false;
+		}
+
+		private static bool AddBoneToEyes(Transform bone, ref BipedReferences references, AutoDetectParams autoDetectParams)
+		{
+			return false;
+		}
+
+		private static bool AddBoneToSpine(Transform bone, ref BipedReferences references, AutoDetectParams autoDetectParams)
+		{
+			return false;
+		}
+
+		private static void DetectLimb(BipedNaming.BoneType boneType, BipedNaming.BoneSide boneSide, ref Transform firstBone, ref Transform secondBone, ref Transform lastBone, Transform[] transforms)
+		{
+		}
+
+		private static void AddBoneToHierarchy(ref Transform[] bones, Transform transform)
+		{
+		}
+
+		private static bool LimbError(Transform bone1, Transform bone2, Transform bone3, ref string errorMessage)
+		{
+			return false;
+		}
+
+		private static bool LimbWarning(Transform bone1, Transform bone2, Transform bone3, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static bool SpineError(BipedReferences references, ref string errorMessage)
+		{
+			return false;
+		}
+
+		private static bool SpineWarning(BipedReferences references, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static bool EyesError(BipedReferences references, ref string errorMessage)
+		{
+			return false;
+		}
+
+		private static bool EyesWarning(BipedReferences references, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static bool RootHeightWarning(BipedReferences references, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static bool FacingAxisWarning(BipedReferences references, ref string warningMessage)
+		{
+			return false;
+		}
+
+		private static float GetVerticalOffset(Vector3 p1, Vector3 p2, Quaternion rotation)
+		{
+			return 0f;
+		}
 	}
 }

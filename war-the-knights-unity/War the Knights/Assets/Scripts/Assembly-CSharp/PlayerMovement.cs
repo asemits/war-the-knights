@@ -1,63 +1,298 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using KinematicCharacterController;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, ICharacterController
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003CTakeFallDamageAtEndOfFrame_003Ed__83 : IEnumerator<object>, IEnumerator, IDisposable
+	{
+		private int _003C_003E1__state;
 
-	1. No dll files were provided to AssetRipper.
+		private object _003C_003E2__current;
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+		public PlayerMovement _003C_003E4__this;
 
-	2. Incorrect dll files were provided to AssetRipper.
+		public float fallDistance;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+		public Vector3 velocity;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		object IEnumerator<object>.Current => null;
 
-	3. Assembly Reconstruction has not been implemented.
+		object IEnumerator.Current => null;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+		public _003CTakeFallDamageAtEndOfFrame_003Ed__83(int _003C_003E1__state)
+		{
+		}
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+		void IDisposable.Dispose()
+		{
+		}
 
-	4. This script is unnecessary.
+		private bool MoveNext()
+		{
+			return false;
+		}
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+		bool IEnumerator.MoveNext()
+		{
+			//ILSpy generated this explicit interface implementation from .override directive in MoveNext
+			return this.MoveNext();
+		}
 
-	5. Script Content Level 0
+		void IEnumerator.Reset()
+		{
+		}
+	}
 
-		AssetRipper was set to not load any script information.
+	public KinematicCharacterMotor Motor;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	public float MaxStableMoveSpeed;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public float StableMovementSharpness;
 
-	7. An incorrect path was provided to AssetRipper.
+	public float OrientationSharpness;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public OrientationMethod OrientationMethod;
 
-	*/
+	public float currentSpeedMultiplier;
+
+	public float highestPointDuringJump;
+
+	private float lastYPos;
+
+	private bool startedToLeaveGround;
+
+	public LayerMask crouchRaycastLayer;
+
+	public Transform SwimmingReferencePoint;
+
+	public Transform CameraReferencePoint;
+
+	public LayerMask WaterLayer;
+
+	private Collider[] _waterOverlap;
+
+	public float waterSpeed;
+
+	public float waterMovementSharpness;
+
+	public float waterOrientationSharpness;
+
+	public bool jumpOutOfWater;
+
+	public float MaxAirMoveSpeed;
+
+	public float AirAccelerationSpeed;
+
+	public float Drag;
+
+	public bool AllowJumpingWhenSliding;
+
+	public float JumpSpeed;
+
+	public float JumpPreGroundingGraceTime;
+
+	public float JumpPostGroundingGraceTime;
+
+	public bool OrientTowardsGravity;
+
+	public Vector3 Gravity;
+
+	public Vector3 GravityWallRun;
+
+	public Transform MeshRoot;
+
+	public CharacterState CurrentCharacterState;
+
+	private Collider[] _probedColliders;
+
+	private Vector3 _moveInputVector;
+
+	private Vector3 _lookInputVector;
+
+	public bool _jumpRequested;
+
+	private bool _jumpConsumed;
+
+	private bool _jumpedThisFrame;
+
+	private float _timeSinceJumpRequested;
+
+	private float _timeSinceLastAbleToJump;
+
+	private Vector3 _internalVelocityAdd;
+
+	public bool _isTryingToUncrouch;
+
+	public bool _isTryingToCrouch;
+
+	private Vector3 lastInnerNormal;
+
+	private Vector3 lastOuterNormal;
+
+	public float _verticalInput;
+
+	public Vector3 localCameraStandingHeight;
+
+	public Vector3 localCameraCrouchingHeight;
+
+	public Vector3 localCameraHeightChangeVelocity;
+
+	private float minFallDistanceToTakeDamage;
+
+	private float maxFallDistanceDifference;
+
+	public AnimationCurve fallDamageCurve;
+
+	public AnimationCurve weaponHeavyAttackMovementMultiplierCurve;
+
+	public AnimationCurve kickAttackMovementMultiplierCurve;
+
+	private float weaponHeavyAttackStartTime;
+
+	private float weaponHeavyAttackDuration;
+
+	private bool usingWeaponAttackMovementMultiplier;
+
+	private bool usingWeaponAttackMovementMultiplierKick;
+
+	public float footstepTimer;
+
+	private float speedMult;
+
+	private float weaponParentSpeedMult;
+
+	private Collider _003C_waterZone_003Ek__BackingField;
+
+	public Collider _waterZone
+	{
+		get
+		{
+			return _003C_waterZone_003Ek__BackingField;
+		}
+		set
+		{
+			_003C_waterZone_003Ek__BackingField = value;
+		}
+	}
+
+	private void Awake()
+	{
+	}
+
+	private void Start()
+	{
+	}
+
+	public void TransitionToState(CharacterState newState)
+	{
+	}
+
+	public void OnStateEnter(CharacterState state, CharacterState fromState)
+	{
+	}
+
+	public void OnStateExit(CharacterState state, CharacterState toState)
+	{
+	}
+
+	public void SetInputs(ref PlayerCharacterInputs inputs)
+	{
+	}
+
+	public void BeforeCharacterUpdate(float deltaTime)
+	{
+	}
+
+	public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+	{
+	}
+
+	public void UpdateVelocity(ref Vector3 currentVelocity, float deltaTime)
+	{
+	}
+
+	public void AfterCharacterUpdate(float deltaTime)
+	{
+	}
+
+	public void ResetCrouching()
+	{
+	}
+
+	public void PostGroundingUpdate(float deltaTime)
+	{
+	}
+
+	public bool IsColliderValidForCollisions(Collider coll)
+	{
+		return false;
+	}
+
+	public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	public void OnDiscreteCollisionDetected(Collider hitCollider)
+	{
+	}
+
+	public void AddVelocity(Vector3 velocity)
+	{
+	}
+
+	public void ResetVelocity()
+	{
+	}
+
+	public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport)
+	{
+	}
+
+	protected void OnLanded()
+	{
+	}
+
+	private IEnumerator TakeFallDamageAtEndOfFrame(float fallDistance, Vector3 velocity)
+	{
+		return null;
+	}
+
+	protected void OnLeaveStableGround()
+	{
+	}
+
+	public void PlayerEnterWater(bool enterWater)
+	{
+	}
+
+	public void Crouch(bool crouch)
+	{
+	}
+
+	public void CrouchToggle()
+	{
+	}
+
+	public void OnJump()
+	{
+	}
+
+	public void StartHeavyAttackSpeedChange(MeleeWeaponCameraMovement meleeWeaponCameraMovement = null)
+	{
+	}
+
+	public void StartKickAttackSpeedChange()
+	{
+	}
+
+	private void SetSpeed()
+	{
+	}
 }

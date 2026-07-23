@@ -1,66 +1,132 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PsychoticLab
 {
 	public class CharacterRandomizer : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public bool repeatOnPlay;
 
-		1. No dll files were provided to AssetRipper.
+		public float shuffleSpeed;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public Material mat;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public Color[] primary;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public Color[] secondary;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		public Color[] metalPrimary;
 
-		3. Assembly Reconstruction has not been implemented.
+		public Color[] metalSecondary;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		public Color[] leatherPrimary;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		public Color[] leatherSecondary;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		public Color[] whiteSkin;
 
-		5. Script Content Level 0
+		public Color[] brownSkin;
 
-			AssetRipper was set to not load any script information.
+		public Color[] blackSkin;
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		public Color[] elfSkin;
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		public Color[] whiteHair;
 
-		7. An incorrect path was provided to AssetRipper.
+		public Color whiteStubble;
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public Color[] brownHair;
 
-		*/
+		public Color brownStubble;
+
+		public Color[] blackHair;
+
+		public Color blackStubble;
+
+		public Color[] elfHair;
+
+		public Color elfStubble;
+
+		public Color whiteScar;
+
+		public Color brownScar;
+
+		public Color blackScar;
+
+		public Color elfScar;
+
+		public Color[] bodyArt;
+
+		public List<GameObject> enabledObjects;
+
+		public CharacterObjectGroups male;
+
+		public CharacterObjectGroups female;
+
+		public CharacterObjectListsAllGender allGender;
+
+		private Transform camHolder;
+
+		private float x;
+
+		private float y;
+
+		private void OnGUI()
+		{
+		}
+
+		private void Start()
+		{
+		}
+
+		private void Update()
+		{
+		}
+
+		private void LateUpdate()
+		{
+		}
+
+		private void Randomize()
+		{
+		}
+
+		private void RandomizeByVariable(CharacterObjectGroups cog, Gender gender, Elements elements, Race race, FacialHair facialHair, SkinColor skinColor, HeadCovering headCovering)
+		{
+		}
+
+		private void RandomizeColors(SkinColor skinColor)
+		{
+		}
+
+		private void RandomizeAndSetHairSkinColors(string info, Color[] skin, Color[] hair, Color stubble, Color scar)
+		{
+		}
+
+		private void RandomizeLeftRight(List<GameObject> objectListRight, List<GameObject> objectListLeft, int rndPercent)
+		{
+		}
+
+		private void ActivateItem(GameObject go)
+		{
+		}
+
+		private Color ConvertColor(int r, int g, int b)
+		{
+			return default(Color);
+		}
+
+		private bool GetPercent(int pct)
+		{
+			return false;
+		}
+
+		private void BuildLists()
+		{
+		}
+
+		private void BuildList(List<GameObject> targetList, string characterPart)
+		{
+		}
 	}
 }

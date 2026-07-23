@@ -97,6 +97,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c16f9a930679994ccbdd6c3d8fdaa9e, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  distance: 5
+  xSpeed: 190
+  ySpeed: 190
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 0.5
+  distanceMax: 15
+  inverted: 0
+  cameraRaycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  cam: {fileID: 0}
 --- !u!114 &114703437598541787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +118,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709254077376921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58617cedfbe9ce18916f0183a42f09a7, type: 3}
+  m_Script: {fileID: 597942948, guid: e329c3f98b1df86080fa0d9ac8069706, type: 3}
   m_Name:
   m_EditorClassIdentifier:

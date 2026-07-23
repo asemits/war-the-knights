@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: AlcuinEF-Regular Atlas Material
-  m_Shader: {fileID: 4800000, guid: 71879c0b4b9f8d4468a4a87517201d4f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3c75fce35ebc20241a20c43b53e4470e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _MainTex:
-        m_Texture: {fileID: 2800000, guid: 772d2a73941cc234da8ad4a83cbb026c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3964993cb44f9a5499fb22348d213a8c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
       _OutlineTex:

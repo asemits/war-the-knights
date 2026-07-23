@@ -1,63 +1,108 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class UIManagerOptionsMenu : MonoBehaviour
 {
-	/*
-	Dummy class. This could have happened for several reasons:
+	private sealed class _003C_003Ec__DisplayClass19_0
+	{
+		public CanvasGroup canvas;
 
-	1. No dll files were provided to AssetRipper.
+		internal void _003COpenOptionsMenu_003Eb__1()
+		{
+		}
+	}
 
-		Unity asset bundles and serialized files do not contain script information to decompile.
-			* For Mono games, that information is contained in .NET dll files.
-			* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-			
-		AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-		A unexpected file structure could cause AssetRipper to not find the required files.
+	public bool isOpen;
 
-	2. Incorrect dll files were provided to AssetRipper.
+	public bool isInGame;
 
-		Any of the following could cause this:
-			* Il2CppInterop assemblies
-			* Deobfuscated assemblies
-			* Older assemblies (compared to when the bundle was built)
-			* Newer assemblies (compared to when the bundle was built)
+	public CanvasGroup optionsCanvas;
 
-		Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+	public CanvasGroup previousMenuCanvas;
 
-	3. Assembly Reconstruction has not been implemented.
+	public TextMeshProUGUI settingHeader;
 
-		Asset bundles contain a small amount of information about the script content.
-		This information can be used to recover the serializable fields of a script.
+	public TextMeshProUGUI settingDescription;
 
-		See: https://github.com/AssetRipper/AssetRipper/issues/655
+	public CanvasGroup[] settingsCanvases;
 
-	4. This script is unnecessary.
+	private int currentSettings;
 
-		If this script has no asset or script references, it can be deleted.
-		Be sure to resolve any compile errors before deleting because they can hide references.
+	public AudioMixer audioMixer;
 
-	5. Script Content Level 0
+	public UIManagerSound uiSound;
 
-		AssetRipper was set to not load any script information.
+	private static ES3Settings settingsCache;
 
-	6. Cpp2IL failed to decompile Il2Cpp data
+	private ES3File currentSettingsFile;
 
-		If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-		This is an upstream problem, and the AssetRipper developer has very little control over it.
-		Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+	public Slider slider_Controls_MouseSensitivity;
 
-	7. An incorrect path was provided to AssetRipper.
+	public TextMeshProUGUI slider_Controls_MouseSensitivity_Text;
 
-		This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-		AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-		An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-		Generally, AssetRipper expects users to provide the root folder of the game. For example:
-			* Windows: the folder containing the game's .exe file
-			* Mac: the .app file/folder
-			* Linux: the folder containing the game's executable file
-			* Android: the apk file
-			* iOS: the ipa file
-			* Switch: the folder containing exefs and romfs
+	public Slider slider_Controls_MouseSensitivityVehicles;
 
-	*/
+	public TextMeshProUGUI slider_Controls_MouseSensitivityVehicles_Text;
+
+	public Slider slider_Audio_AllVolume;
+
+	public TextMeshProUGUI slider_Audio_AllVolume_Text;
+
+	private void Awake()
+	{
+	}
+
+	public void OpenOptionsMenu(bool open)
+	{
+	}
+
+	public void SaveCurrentSettings()
+	{
+	}
+
+	public void LoadCurrentSettings()
+	{
+	}
+
+	public void ResetCurrentSettings()
+	{
+	}
+
+	public void OpenSettings(int settings)
+	{
+	}
+
+	public void ShowSettingDescription(ref string description)
+	{
+	}
+
+	public void Settings_Controls_MouseSensitivity(bool save)
+	{
+	}
+
+	public void Slider_Update_Controls_MouseSensitivity()
+	{
+	}
+
+	public void Settings_Controls_MouseSensitivityVehicles(bool save)
+	{
+	}
+
+	public void Slider_Update_Controls_MouseSensitivityVehicles()
+	{
+	}
+
+	public void Settings_Audio_AllVolume(bool save)
+	{
+	}
+
+	public void Slider_Update_Audio_AllVolume()
+	{
+	}
+
+	private void _003COpenOptionsMenu_003Eb__19_0()
+	{
+	}
 }

@@ -1,66 +1,72 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UnityStandardAssets.Water
 {
 	public class WaterPlanarReflection : MonoBehaviour
 	{
-		/*
-		Dummy class. This could have happened for several reasons:
+		public Water water;
 
-		1. No dll files were provided to AssetRipper.
+		public LayerMask reflectionMask;
 
-			Unity asset bundles and serialized files do not contain script information to decompile.
-				* For Mono games, that information is contained in .NET dll files.
-				* For Il2Cpp games, that information is contained in compiled C++ assemblies and the global metadata.
-				
-			AssetRipper usually expects games to conform to a normal file structure for Unity games of that platform.
-			A unexpected file structure could cause AssetRipper to not find the required files.
+		public Color clearColor;
 
-		2. Incorrect dll files were provided to AssetRipper.
+		public string reflectionSampler;
 
-			Any of the following could cause this:
-				* Il2CppInterop assemblies
-				* Deobfuscated assemblies
-				* Older assemblies (compared to when the bundle was built)
-				* Newer assemblies (compared to when the bundle was built)
+		public float clipPlaneOffset;
 
-			Note: Although assembly publicizing is bad, it alone cannot cause empty scripts. See: https://github.com/AssetRipper/AssetRipper/issues/653
+		private Vector3 m_Oldpos;
 
-		3. Assembly Reconstruction has not been implemented.
+		private Camera m_ReflectionCamera;
 
-			Asset bundles contain a small amount of information about the script content.
-			This information can be used to recover the serializable fields of a script.
+		private Material sharedMaterial;
 
-			See: https://github.com/AssetRipper/AssetRipper/issues/655
-	
-		4. This script is unnecessary.
+		private Dictionary<Camera, bool> m_HelperCameras;
 
-			If this script has no asset or script references, it can be deleted.
-			Be sure to resolve any compile errors before deleting because they can hide references.
+		private Vector4 clippingPlane;
 
-		5. Script Content Level 0
+		private Vector4 plane;
 
-			AssetRipper was set to not load any script information.
+		private void Start()
+		{
+		}
 
-		6. Cpp2IL failed to decompile Il2Cpp data
+		private Camera CreateReflectionCameraFor(Camera cam)
+		{
+			return null;
+		}
 
-			If this happened, there will be errors in the AssetRipper.log indicating that it happened.
-			This is an upstream problem, and the AssetRipper developer has very little control over it.
-			Please post a GitHub issue at: https://github.com/SamboyCoding/Cpp2IL/issues
+		private void SetStandardCameraParameter(Camera cam, LayerMask mask)
+		{
+		}
 
-		7. An incorrect path was provided to AssetRipper.
+		private RenderTexture CreateTextureFor(Camera cam)
+		{
+			return null;
+		}
 
-			This is characterized by "Mixed game structure has been found at" in the AssetRipper.log file.
-			AssetRipper expects games to conform to a normal file structure for Unity games of that platform.
-			An unexpected file structure could cause AssetRipper to not find the required files for script decompilation.
-			Generally, AssetRipper expects users to provide the root folder of the game. For example:
-				* Windows: the folder containing the game's .exe file
-				* Mac: the .app file/folder
-				* Linux: the folder containing the game's executable file
-				* Android: the apk file
-				* iOS: the ipa file
-				* Switch: the folder containing exefs and romfs
+		public void RenderHelpCameras(Camera currentCam)
+		{
+		}
 
-		*/
+		public void LateUpdate()
+		{
+		}
+
+		public void WaterTileBeingRendered(Camera currentCam)
+		{
+		}
+
+		private void OnEnable()
+		{
+		}
+
+		private void OnDisable()
+		{
+		}
+
+		private void RenderReflectionFor(Camera cam, Camera reflectCamera)
+		{
+		}
 	}
 }

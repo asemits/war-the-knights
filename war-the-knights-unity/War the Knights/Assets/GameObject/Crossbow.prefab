@@ -501,6 +501,123 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169713f52d759cb74f80a8e4f04a8d6a, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  respawnDuration: 120
+  vehicleName: 1
+  customVehicleName:
+  health: {fileID: 114946936116752871}
+  vehicleTarget: {fileID: 114711914853252429}
+  camTarget: {fileID: 4722951815217645}
+  controlledByPlayer: 0
+  controlledByBot: 0
+  seats:
+  - seatPosition: {fileID: 4689364072382846}
+    seatType: 0
+    emoteType: 0
+    keepWeaponsEquipped: 0
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 1
+    verticalRotationObject: {fileID: 4220653531496868}
+  seatsReserved: []
+  seatsOccupied:
+  freeSeat: -1
+  vehicleType: 0
+  canChaseTargets: 0
+  loyalVehicle: 0
+  playerReserved: 0
+  onlyUseableByBotsWithMeleeWeapon: 0
+  emptyVehicle: 0
+  _transform: {fileID: 4969106005120503}
+  enterDistance: 0.67
+  enterDistanceSquared: 9
+  awarenessDistance: 25
+  agent: {fileID: 0}
+  currentMovementDestination: {x: 0, y: 0, z: 0}
+  destinationUpdateFrequency: 0
+  destinationUpdateFrequencyTimer: 0
+  obstacle: {fileID: 0}
+  triggerCollider: {fileID: 0}
+  crosshair: 4
+  hasCharacterControllerCollider: 0
+  characterControllerCollider: {fileID: 0}
+  findTargetOverride: 0
+  vehicleCollisionTriggers: []
+  anySeatReserved: 0
+  enterPos: {fileID: 4689364072382846}
+  instantAimZoom: 0
+  crosshairShowType: 2
+  hasRecoil: 1
+  recoilProfile:
+    recoilCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 18.430843
+        outSlope: 18.430843
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.053831104
+        value: 0.9921527
+        inSlope: -0.6950703
+        outSlope: -0.6950703
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.058531966
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.59367305
+        outSlope: -0.59367305
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 2
+        value: 0
+        inSlope: -0.038318988
+        outSlope: -0.038318988
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.14005612
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    recoilDuration: 0.65
+    recoilStrength: 1.1
+    recoilRestoreSpeed: 1
+    recoilRatio: {x: 0, y: 1}
+    maxRecoil: 5
+    recoilZRotationIntensity: 1
+  hasAnimRecoil: 0
+  animRecoilType: 0
+  hasCameraShake: 1
+  cameraShakeType: 3
+  audioSource: {fileID: 82215879266689626}
+  attackSound: 0
+  customAttackSound: {fileID: 0}
+  reloadSound: 0
+  customReloadSound: {fileID: 0}
+  anim: {fileID: 95217368724061974}
+  rotateY: {fileID: 4900271049623953}
+  rotateYLocalRotationAngle: {x: 0, y: -1, z: 0}
+  rotateX: {fileID: 4220653531496868}
+  rotateXLocalRotationAngle: {x: 1, y: 0, z: 0}
+  projectileSpawn: {fileID: 4581786255902400}
+  projectilePrefab: {fileID: 1709254077376921, guid: da2ecea1b7ae7a94b8716f82c2d46956, type: 2}
+  visualProjectilePrefab: {fileID: 1709254077376921, guid: dd58cdb7b83958a4cb1f26b6359f5454, type: 2}
+  rotateVisualProjectileRandomlyOnZAxis: 1
+  damage: 180
+  poiseDamage: 100
+  projectileForce: 220
+  fireRateMin: 1
+  fireRateMax: 3.45
 --- !u!114 &114946936116752871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +630,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e3260e3521064a1c0d200582b0ee1, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  currentHealth: 60
+  maxHealth: 60
+  alliance: {fileID: 0}
+  lastDamageSource: {fileID: 0}
+  defeated: 0
+  meshRendererToPlayFireEffectOn: {fileID: 23060945828524476}
+  meshRendererToPlayFireEffectOnWhenRagdolledOrDestroyed: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOn: {fileID: 0}
+  skinnedMeshRendererToPlayFireEffectOnWhenRagdolledOrDefeated: {fileID: 0}
+  objectToEmitFireLightFrom: {fileID: 0}
+  objectToEmitFireLightFromWhenRagdolledOrDestroyed: {fileID: 0}
+  fireDamageSource: {fileID: 0}
+  fireDamageBuildup: 0
+  isOnFire: 0
+  colliders:
+  - {fileID: 65875609422105747}
+  hitboxes:
+  - {fileID: 114371939378208658}
+  destroyInsteadOfKillInKillfeed: 1
+  onDestroyDriverAction: 0
+  takeLessMeleeDamageIfHasDriver: 1
+  spawnPos: {x: 0, y: 0, z: 0}
+  spawnRot: {x: 0, y: 0, z: 0, w: 0}
+  damageTakenFromTarget: 0
+  ragdoll: {fileID: 0}
+  ignoreCollisionWithPlayerMovementHitboxes: []
+  hitHitbox: {fileID: 0}
+  mainHitbox: {fileID: 114371939378208658}
+  spine: {fileID: 0}
+  vehicle: {fileID: 114642988549198181}
+  aiTarget: {fileID: 114711914853252429}
+  vehicleParts:
+  - aliveVersion: {fileID: 1618682377417806}
+    destroyedVersion: {fileID: 1634108722742392}
+  changeLayerOnDestroy: 0
+  hasGetHitAnimation: 0
+  canRagdoll: 0
+  teamColoredBlood: 0
+  vehicleBreakAudioSource: {fileID: 82572839542275309}
+  vehicleBreakSound: 0
+  customVehicleBreakSound: {fileID: 0}
+  enterInteraction:
+  - {fileID: 135320256170494724}
+  canBurn: 1
 --- !u!114 &114711914853252429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +686,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 187c53facf95dcb22569679552b87a16, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  aiTargetName: Ballista
+  alive: 1
+  currentTarget: {fileID: 0}
+  attackable: {fileID: 0}
+  currentAttackBehavior: 0
+  currentAttackBehaviorIsAttack: 0
+  combatBehavior: 0
+  vehicleAttackable: 0
+  isPlayer: 0
+  ragdoll: {fileID: 0}
+  playerHealth: {fileID: 0}
+  behaviorBase: {fileID: 0}
+  behaviorBot: {fileID: 0}
+  botHealth: {fileID: 0}
+  healthBase: {fileID: 114946936116752871}
+  isVehicle: 1
+  vehicleHealth: {fileID: 114946936116752871}
+  alliance: {fileID: 114918264173551851}
+  baseCollider: {fileID: 0}
+  _transform: {fileID: 4969106005120503}
+  botAttackPointL1: {fileID: 0}
+  botAttackPointL2: {fileID: 0}
+  botAttackPointR1: {fileID: 0}
+  botAttackPointR2: {fileID: 0}
+  hasAttackPoints: 0
+  botAttackPointL1XPos: 0
+  botAttackPointL2XPos: 0
+  botAttackPointR1XPos: 0
+  botAttackPointR2XPos: 0
+  botAttackPointLXPosSideThreshold: 0
+  botAttackPointRXPosSideThreshold: 0
+  botAttackPointLXPosBackSideThreshold: 0
+  botAttackPointRXPosBackSideThreshold: 0
+  helmetParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  helmetPrefab: {fileID: 0}
+  helmet:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  hair:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  quiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  boltQuiverParent:
+    transform1: {fileID: 0}
+    transform2: {fileID: 0}
+  classAccessoire:
+    gameObject1: {fileID: 0}
+    gameObject2: {fileID: 0}
+  currentObjectivePoint: {fileID: 0}
+  capturePointDestination: {x: 0, y: 0, z: 0}
+  attackPoint: 0
+  currentVehicle: {fileID: 0}
+  vehicleBehavior: 0
+  isUsingVehicle: 0
+  vehicleSeatIndex: 0
+  vehicleSeat:
+    seatPosition: {fileID: 0}
+    seatType: 0
+    emoteType: 0
+    keepWeaponsEquipped: 0
+    keepShieldEquipped: 0
+    rotateLookAtVerticallyWithVehicleObject: 0
+    verticalRotationObject: {fileID: 0}
+  scoreboardData:
+    botName:
+    botScore: 0
+    botKills: 0
+    botDeaths: 0
+    botSupport: 0
+    botObjective: 0
+    isPlayer: 0
+    teamPlace: 0
+  cachedPosition: {x: 0, y: 0, z: 0}
+  cachedRotation: {x: 0, y: 0, z: 0, w: 0}
+  cachedForward: {x: 0, y: 0}
+  forwardCached: 0
+  cachedBestTarget: 0
+  bestPossibleTarget: {fileID: 0}
+  bestPossibleTargetVisibilityScore: 0
+  bestPossibleAttackBehavior: 0
+  cachedAbleToFindNewTarget: 0
 --- !u!114 &114918264173551851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e374a8d8293dd3b59367a70ec76907, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  team1: 0
+  currentPoint: {fileID: 0}
 --- !u!4 &4587397909062814
 Transform:
   serializedVersion: 2
@@ -560,7 +808,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730242686860875}
-  m_Material: {fileID: 13400000, guid: a75dc8d917b9d244c92040a8eb6bd7b4, type: 2}
+  m_Material: {fileID: 13400000, guid: 0ee8dede3a1fa3444a3d0eded295e92a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -585,6 +833,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9c49c82f514f94dd089304ba9837a6, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  isCritical: 0
+  centralHealthHitbox: 0
+  impactEffect: 1
+  damageMultiplier: 1
+  poiseDamageMultiplier: 1
+  rb: {fileID: 0}
+  transformRagdollOrAnimatedCounterpart: {fileID: 0}
+  isRagdollHitbox: 0
+  health: {fileID: 114946936116752871}
+  meleeResistance: 0
+  projectileResistance: 1
+  fireResistance: 0.4
+  explosionResistance: 0.5
+  impactForceResistance: 0.5
+  kickResistance: 0.5
 --- !u!4 &4694121525821480
 Transform:
   serializedVersion: 2
@@ -633,6 +896,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa1f010942f4b9063bf488db6d69975, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  showInteractionTip: 1
+  interactableName:
+  interactionTip:
+    UseTip:
+    UseName:
+  vehicle: {fileID: 114642988549198181}
 --- !u!4 &4733206282342372
 Transform:
   serializedVersion: 2
@@ -660,7 +929,7 @@ Animator:
   m_GameObject: {fileID: 1618682377417806}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c104f209e93ad454f9e92c2e35c6feaa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e304b160e6c625479435c80236cd0fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -683,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9909d1ca66e091e3517e051d6e135278, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  ballista: {fileID: 114642988549198181}
 --- !u!4 &4672306508523268
 Transform:
   serializedVersion: 2
@@ -705,7 +975,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703437598541787}
-  m_Mesh: {fileID: 4300000, guid: 6b6242444f88dac4f92b3396f15a3ff6, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 3811afaa5bd659a4ba9c51b9fd80e595, type: 2}
 --- !u!23 &23060945828524476
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -726,7 +996,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -772,7 +1042,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884547391421755}
-  m_Mesh: {fileID: 4300000, guid: 1f34728954ea0c449bae7d0dec26dcff, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 8518844bd690b92429f14bbf6f2eb9da, type: 2}
 --- !u!23 &23518489005915545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -793,8 +1063,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -842,7 +1112,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099118695303065}
-  m_Mesh: {fileID: 4300000, guid: a75750605c1181e4287a8d54e5205a1e, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 6447cf86e2e5abf4e9035e1a657b816a, type: 2}
 --- !u!23 &23967328832014496
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -863,8 +1133,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1161,9 +1431,9 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
-  - {fileID: 2100000, guid: 91644c51b5791b943b34e73a2dca0972, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
+  - {fileID: 2100000, guid: be1bf418dd91cf446aeeeba193a0ea6a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1187,7 +1457,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 48f4454bc7caa5a46a7f8a535f79cdc0, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 780a3079a619d3c46920ed13bf9d3e76, type: 2}
   m_Bones:
   - {fileID: 4344419225485095}
   - {fileID: 4726790013014859}
@@ -1244,7 +1514,7 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621510681728303}
   m_Enabled: 1
-  OutputAudioMixerGroup: {fileID: 24300046, guid: f22b37a3498864546b3af023a964e446, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300046, guid: d8295c60317db7745a634b7d95a951da, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -1368,7 +1638,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634108722742392}
-  m_Mesh: {fileID: 4300000, guid: 42c350ad951c9944f9bc31827ba7e01f, type: 2}
+  m_Mesh: {fileID: 4300000, guid: e637d98e5f349ca458fb6340327ff2b2, type: 2}
 --- !u!23 &23094320201520353
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1389,8 +1659,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3ac3980cf21981f429c8cb4486098d93, type: 2}
-  - {fileID: 2100000, guid: fe33ec0438fc1ef40bfd050f9e89601e, type: 2}
+  - {fileID: 2100000, guid: ed5b5889bac6a534b91cf245be5afab2, type: 2}
+  - {fileID: 2100000, guid: 2c2e83b08b3bee74c9d7fd646d2c0802, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1436,7 +1706,7 @@ AudioSource:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302127217294661}
   m_Enabled: 0
-  OutputAudioMixerGroup: {fileID: 24300038, guid: f22b37a3498864546b3af023a964e446, type: 2}
+  OutputAudioMixerGroup: {fileID: 24300038, guid: d8295c60317db7745a634b7d95a951da, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.2
